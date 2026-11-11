@@ -1,0 +1,2361 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <base href="/treino/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#1b5c45">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Treino TTF">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <title>Plano de treino — 4 semanas · TTF Maia</title>
+  <style>/* Plano de treino — Mário · folha autónomo, funciona offline */
+:root {
+  --bg: #efe8db;
+  --bg-2: #e7dfd0;
+  --paper: #faf7f1;
+  --ink: #1c1915;
+  --muted: #5e584f;
+  --line: #d9d0bf;
+  --line-strong: #c4bba8;
+  --accent: #1b5c45;
+  --accent-ink: #f4fff8;
+  --accent-soft: #dceee5;
+  --done-bg: #e7f3ea;
+  --done-line: #9fc3ad;
+  --warn-bg: #f8ebcc;
+  --warn-ink: #5c3d0a;
+  --info-bg: #e4eef2;
+  --info-ink: #1c3b48;
+  --shadow: 0 1px 2px rgba(28, 25, 21, 0.05), 0 8px 24px rgba(28, 25, 21, 0.06);
+  --radius: 16px;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --max: 52rem;
+  --tap: 44px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  font-family: var(--sans);
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 400px at 10% -10%, #f6f1e6 0%, transparent 50%),
+    var(--bg);
+  line-height: 1.55;
+  font-size: 1.05rem;
+  -webkit-font-smoothing: antialiased;
+}
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.5rem 1rem;
+  z-index: 20;
+}
+.skip:focus { left: 0.5rem; top: 0.5rem; }
+.wrap {
+  width: min(var(--max), calc(100% - 1.5rem));
+  margin-inline: auto;
+}
+header.hero {
+  padding: 2.2rem 0 1.4rem;
+}
+.kicker {
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+h1, h2, h3 {
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 0.6rem;
+}
+h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
+h2 { font-size: clamp(1.3rem, 3vw, 1.65rem); margin-top: 0; }
+h3 { font-size: 1.05rem; letter-spacing: -0.02em; }
+.lede, .caption, p { margin: 0 0 1rem; }
+.lede { font-size: 1.08rem; color: var(--muted); max-width: 46rem; }
+.caption { color: var(--muted); font-size: 0.95rem; }
+.metrics {
+  list-style: none;
+  padding: 0;
+  margin: 1.4rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem;
+}
+.metrics li {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.85rem 0.95rem;
+  box-shadow: var(--shadow);
+}
+.metrics .val {
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+.metrics .lab { display: block; font-weight: 650; font-size: 0.92rem; }
+.metrics .det { display: block; color: var(--muted); font-size: 0.82rem; }
+.callout {
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem 0.15rem;
+  margin: 0 0 1.4rem;
+  border: 1px solid var(--line);
+}
+.callout.warn { background: var(--warn-bg); color: var(--warn-ink); }
+.callout.info { background: var(--info-bg); color: var(--info-ink); }
+.callout.neutral { background: var(--paper); }
+.callout .lead { font-weight: 750; margin: 0 0 0.35rem; }
+section.block {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  padding: 1.25rem 1.15rem 1.1rem;
+  margin: 0 0 1.15rem;
+  box-shadow: var(--shadow);
+}
+.table-wrap { overflow-x: auto; margin: 0.8rem 0 1rem; -webkit-overflow-scrolling: touch; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  min-width: 32rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.55rem 0.65rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+ol.steps { margin: 0.3rem 0 0; padding: 0; list-style: none; counter-reset: step; }
+ol.steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.7rem;
+  margin: 0 0 0.95rem;
+}
+ol.steps li::before {
+  content: counter(step);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 0.1rem;
+}
+ol.steps strong { display: block; margin-bottom: 0.15rem; }
+ul.notes { margin: 0.2rem 0 0; padding: 0 0 0 1.15rem; }
+ul.notes li { margin: 0 0 0.55rem; }
+.props {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+.props div { display: flex; gap: 0.6rem; flex-wrap: wrap; border-bottom: 1px dashed var(--line); padding: 0.35rem 0; }
+.props dt { font-weight: 650; color: var(--muted); min-width: 6.5rem; }
+.props dd { margin: 0; flex: 1; }
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin: 0.9rem 0 1rem;
+  padding: 0.75rem 0;
+}
+.toolbar.sticky {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 8;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  margin-inline: -0.25rem;
+  padding-inline: 0.25rem;
+}
+.seg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.seg button, .btn, .toggle {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 999px;
+  min-height: var(--tap);
+  padding: 0.35rem 0.85rem;
+  font-weight: 650;
+  font-size: 0.92rem;
+}
+.seg button[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; }
+.btn.ghost { background: transparent; }
+.btn.danger { border-color: #b45a4a; color: #8a3226; }
+.counter {
+  font-weight: 650;
+  font-size: 0.95rem;
+  margin: 0;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.95rem 0.9rem 1rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.card.done {
+  background: var(--done-bg);
+  border-color: var(--done-line);
+}
+.card-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.45rem 0.7rem;
+  align-items: flex-start;
+}
+.card-title { margin: 0; }
+.card-dose { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.9rem; }
+.card-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; }
+.frame {
+  background: #ebe4d6;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  max-width: 280px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.cue { margin: 0; font-size: 0.98rem; color: var(--ink); }
+.log {
+  border-top: 1px dashed var(--line);
+  padding-top: 0.75rem;
+}
+.log h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.92rem;
+}
+.log .hint { margin: 0 0 0.65rem; font-size: 0.82rem; color: var(--muted); }
+.set {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr 1fr;
+  gap: 0.4rem;
+  align-items: end;
+  margin: 0 0 0.45rem;
+}
+.set .set-n {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  padding-bottom: 0.45rem;
+}
+label.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+  color: var(--muted);
+}
+label.field input {
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  min-height: 42px;
+  padding: 0.3rem 0.55rem;
+  width: 100%;
+  background: #fff;
+}
+.card.done label.field input { background: #f7fbf8; }
+.ref {
+  grid-column: 1 / -1;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: -0.15rem 0 0.35rem 3.4rem;
+}
+.ref strong { color: var(--ink); font-weight: 650; }
+.toggle[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.credit a { color: var(--accent); font-weight: 650; }
+#to-top {
+  position: fixed;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  z-index: 9;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 999px;
+  min-height: var(--tap);
+  padding: 0.4rem 0.9rem;
+  font: inherit;
+  font-weight: 650;
+  font-size: 0.85rem;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+#to-top.show { opacity: 1; pointer-events: auto; }
+footer.site {
+  padding: 0.5rem 0 3.5rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+@media (min-width: 720px) {
+  .metrics { grid-template-columns: repeat(4, 1fr); }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .props { grid-template-columns: 1fr 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .frame img { /* still show the animation; user can stop OS-level if needed */ }
+}
+
+.gym {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin: 0 0 0.65rem;
+}
+.frames {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.shot { margin: 0; flex: 1 1 140px; max-width: 280px; }
+.shot .frame { width: 100%; max-width: none; margin: 0; }
+.shot figcaption {
+  margin: 0.3rem 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: var(--muted);
+}
+.frames.many .shot { max-width: 170px; }
+.toolbar-actions { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+.toolbar-actions { margin: 0.4rem 0 0.2rem; }
+.toolbar.sticky {
+  padding-top: 0.4rem;
+  padding-bottom: 0.45rem;
+}
+.toolbar.sticky .seg {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.toolbar.sticky .seg::-webkit-scrollbar { display: none; }
+.toolbar.sticky .seg button { flex: 0 0 auto; }
+.card { scroll-margin-top: 7.25rem; }
+#session-root { padding-bottom: 4rem; }
+#to-top { bottom: 1rem; }
+
+.auth-screen {
+  min-height: 100dvh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: max(1.5rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(3rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+}
+.auth-card {
+  width: min(26rem, 100%);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  padding: 1.4rem 1.2rem 1.3rem;
+  box-shadow: var(--shadow);
+}
+.auth-card h1 { font-size: 1.55rem; }
+.auth-card form { display: flex; flex-direction: column; gap: 0.65rem; margin-top: 1rem; }
+.auth-card label { font-size: 0.82rem; font-weight: 650; color: var(--muted); }
+.auth-card input {
+  font: inherit;
+  font-size: 1.05rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  min-height: 46px;
+  padding: 0.35rem 0.7rem;
+  width: 100%;
+  background: #fff;
+}
+.auth-msg { min-height: 1.3rem; font-size: 0.9rem; color: var(--muted); margin: 0.2rem 0 0; }
+.auth-msg.err { color: #8a3226; }
+.auth-msg.ok { color: var(--accent); }
+.userbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.userbar .who { font-weight: 650; color: var(--ink); }
+.sync[data-state="saving"] { color: #8a6a1a; }
+.sync[data-state="saved"] { color: var(--accent); }
+.sync[data-state="error"] { color: #8a3226; }
+code.otp-hint { font-weight: 700; }
+
+.progress-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  margin: 0.8rem 0 1rem;
+  align-items: end;
+}
+.progress-form .field input { min-height: 44px; }
+@media (min-width: 640px) {
+  .progress-form { grid-template-columns: 8.5rem 7rem 9rem auto; }
+}
+.progress-summary {
+  background: var(--accent-soft);
+  border-radius: 12px;
+  padding: 0.75rem 0.95rem;
+  margin: 0 0 0.9rem;
+}
+.progress-summary .delta {
+  font-weight: 750;
+  font-size: 1.15rem;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+.progress-summary p { margin: 0 0 0.25rem; }
+.progress-summary p:last-child { margin: 0; }
+button.btn.linkish {
+  background: transparent;
+  border: 0;
+  color: #8a3226;
+  min-height: 36px;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+
+.auth-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.auth-actions .btn { flex: 1 1 8rem; }
+.auth-alt { margin-top: 0.6rem; color: var(--muted); font-size: 0.88rem; }
+.auth-alt summary { cursor: pointer; font-weight: 650; }
+.auth-alt .caption { margin: 0.45rem 0; }
+.onboard-card { width: min(32rem, 100%); }
+.onboard-card fieldset {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.6rem 0.75rem 0.75rem;
+  margin: 0;
+}
+.onboard-card legend { font-size: 0.82rem; font-weight: 650; color: var(--muted); padding: 0 0.2rem; }
+.onboard-card select, .onboard-card textarea {
+  font: inherit;
+  font-size: 1.05rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  min-height: 46px;
+  padding: 0.35rem 0.7rem;
+  width: 100%;
+  background: #fff;
+}
+.onboard-card textarea { min-height: 5rem; resize: vertical; }
+.choice { display: flex; flex-wrap: wrap; gap: 0.45rem 0.9rem; }
+.choice.stack { flex-direction: column; gap: 0.35rem; }
+.choice label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+.choice input { width: auto; min-height: 0; accent-color: var(--accent); }
+.pw-form {
+  display: grid;
+  gap: 0.45rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+  margin: 0 0 0.9rem;
+}
+.pw-form label { font-size: 0.82rem; font-weight: 650; color: var(--muted); }
+.pw-form input {
+  display: block;
+  width: 100%;
+  margin-top: 0.2rem;
+  font: inherit;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  min-height: 44px;
+  padding: 0.3rem 0.6rem;
+}
+#plan-banner ul { margin: 0.35rem 0 0; padding-left: 1.1rem; }
+#plan-banner[hidden] { display: none; }
+
+.auth-screen[hidden],
+#app-shell[hidden],
+#onboard-screen[hidden],
+#pw-form[hidden],
+#plan-banner[hidden],
+#otp-fields[hidden],
+#auth-confirm-wrap[hidden] {
+  display: none !important;
+}
+</style>
+</head>
+<body>
+  <div id="auth-screen" class="auth-screen" hidden>
+    <div class="auth-card">
+      <p class="gym">Ginásio TTF Maia</p>
+      <p class="kicker">Personal trainer · bloco 1</p>
+      <h1>Plano de treino</h1>
+      <p class="lede" id="auth-lede">Entra com o teu email e uma palavra-passe. A sessão fica guardada neste telemóvel até carregares em «Sair».</p>
+      <form id="auth-form" action="#" method="post">
+        <label for="auth-email">Email</label>
+        <input id="auth-email" name="email" type="email" autocomplete="username" inputmode="email" required placeholder="o.teu@email.com" autocapitalize="none" spellcheck="false">
+        <label for="auth-password">Palavra-passe</label>
+        <input id="auth-password" name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="pelo menos 8 caracteres">
+        <div id="auth-confirm-wrap" hidden>
+          <label for="auth-password-confirm">Confirmar palavra-passe</label>
+          <input id="auth-password-confirm" name="new-password" type="password" autocomplete="new-password" minlength="8" placeholder="repete a palavra-passe">
+        </div>
+        <div class="auth-actions">
+          <button type="submit" class="btn" id="auth-submit">Entrar</button>
+          <button type="button" class="btn ghost" id="auth-toggle-mode">Criar conta</button>
+        </div>
+        <p class="auth-msg" id="auth-msg"></p>
+        <p class="install-hint" id="install-hint">No iPhone: toca no botão de partilhar e escolhe «Adicionar ao ecrã de início». Fica como uma app, e a sessão permanece guardada.</p>
+        <details class="auth-alt" id="otp-details">
+          <summary>Entrar com código de email (alternativa)</summary>
+          <p class="caption">Só se já tiveres conta e não te lembrares da palavra-passe. O envio de emails tem um limite baixo e pode falhar.</p>
+          <button type="button" class="btn ghost" id="auth-send-otp">Enviar código</button>
+          <div id="otp-fields" hidden>
+            <label for="auth-otp">Código de 6 dígitos</label>
+            <input id="auth-otp" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="8" pattern="[0-9]*" placeholder="000000">
+            <button type="button" class="btn" id="auth-verify-otp">Validar código</button>
+          </div>
+        </details>
+      </form>
+    </div>
+  </div>
+
+  <div id="onboard-screen" class="auth-screen" hidden>
+    <div class="auth-card onboard-card">
+      <p class="gym">O teu plano</p>
+      <p class="kicker">Questionário inicial</p>
+      <h1>Vamos ajustar o bloco às tuas condições</h1>
+      <p class="lede">Responde com calma. Com isto geramos um plano de 4 semanas a partir da mesma biblioteca de exercícios, com volume e escolhas seguras para o teu nível.</p>
+      <form id="onboard-form" action="#">
+        <label for="q-age">Idade</label>
+        <input id="q-age" name="age" type="number" inputmode="numeric" min="14" max="90" required placeholder="ex.: 35">
+        <fieldset>
+          <legend>Sexo</legend>
+          <div class="choice">
+            <label><input type="radio" name="sex" value="male" required> Homem</label>
+            <label><input type="radio" name="sex" value="female"> Mulher</label>
+            <label><input type="radio" name="sex" value="other"> Prefiro não dizer</label>
+          </div>
+        </fieldset>
+        <label for="q-height">Altura (cm, ou 1,80 se preferires em metros)</label>
+        <input id="q-height" name="height" type="text" inputmode="decimal" required placeholder="ex.: 175 ou 1,75">
+        <label for="q-weight">Peso atual (kg)</label>
+        <input id="q-weight" name="weight" type="text" inputmode="decimal" required placeholder="ex.: 82,5">
+        <fieldset>
+          <legend>Objetivo principal (podes assinalar mais do que um)</legend>
+          <div class="choice stack">
+            <label><input type="checkbox" name="goals" value="weight_loss"> Perda de peso</label>
+            <label><input type="checkbox" name="goals" value="muscle_gain"> Ganho muscular</label>
+            <label><input type="checkbox" name="goals" value="fitness"> Condição física</label>
+            <label><input type="checkbox" name="goals" value="health"> Saúde e bem-estar</label>
+          </div>
+        </fieldset>
+        <label for="q-experience">Experiência de treino</label>
+        <select id="q-experience" name="experience" required>
+          <option value="">Escolhe…</option>
+          <option value="beginner">Iniciante (pouco ou nenhum treino recente)</option>
+          <option value="intermediate">Intermédio</option>
+          <option value="advanced">Avançado</option>
+          <option value="returning">A regressar após uma pausa</option>
+        </select>
+        <label for="q-days">Dias por semana disponíveis</label>
+        <select id="q-days" name="days_per_week" required>
+          <option value="2">2 dias</option>
+          <option value="3" selected>3 dias</option>
+          <option value="4">4 dias</option>
+          <option value="5">5 ou mais</option>
+        </select>
+        <label for="q-minutes">Duração típica da sessão</label>
+        <select id="q-minutes" name="session_minutes" required>
+          <option value="30">cerca de 30 minutos</option>
+          <option value="45" selected>cerca de 45 minutos</option>
+          <option value="60">cerca de 60 minutos</option>
+        </select>
+        <label for="q-injuries">Lesões ou limitações (opcional)</label>
+        <textarea id="q-injuries" name="injuries" rows="3" placeholder="ex.: joelho direito sensível, dor no ombro ao press por cima da cabeça"></textarea>
+        <fieldset>
+          <legend>Equipamento</legend>
+          <div class="choice stack">
+            <label><input type="radio" name="equipment" value="full_gym" required> Ginásio completo (máquinas e pesos)</label>
+            <label><input type="radio" name="equipment" value="cross_area"> Área de cross (barras, kettlebells, caixote, remo)</label>
+            <label><input type="radio" name="equipment" value="home"> Casa (peso corporal e halteres)</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Preferência de cardio</legend>
+          <div class="choice stack">
+            <label><input type="radio" name="cardio_pref" value="zone2" required> Zona 2 (contínuo e calmo)</label>
+            <label><input type="radio" name="cardio_pref" value="mixed" checked> Misto (zona 2 e algum metcon leve)</label>
+            <label><input type="radio" name="cardio_pref" value="metcon"> Metcon curto</label>
+            <label><input type="radio" name="cardio_pref" value="low_impact"> Só baixo impacto (remo, bicicleta, marcha)</label>
+            <label><input type="radio" name="cardio_pref" value="none"> Prefiro pouco cardio formal</label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn" id="onboard-submit">Gerar o meu plano</button>
+        <p class="auth-msg" id="onboard-msg"></p>
+      </form>
+    </div>
+  </div>
+
+  <div id="app-shell" hidden>
+  <a class="skip" href="#progresso">Saltar para o progresso</a>
+  <a class="skip" href="#sessoes">Saltar para as sessões</a>
+  <header class="hero wrap">
+    <div class="userbar">
+      <span>Sessão: <span class="who" id="who"></span></span>
+      <span class="sync" id="sync" data-state="saved">Guardado</span>
+      <button type="button" class="btn ghost" id="pw-toggle">Palavra-passe</button>
+      <button type="button" class="btn ghost" id="sign-out">Sair</button>
+    </div>
+    <form id="pw-form" class="pw-form" hidden>
+      <label for="pw-new">Nova palavra-passe
+        <input id="pw-new" name="new-password" type="password" autocomplete="new-password" minlength="8" required placeholder="pelo menos 8 caracteres">
+      </label>
+      <label for="pw-new2">Confirmar
+        <input id="pw-new2" name="new-password-confirm" type="password" autocomplete="new-password" minlength="8" required placeholder="repete">
+      </label>
+      <button type="submit" class="btn" id="pw-save">Guardar palavra-passe</button>
+      <p class="auth-msg" id="pw-msg"></p>
+    </form>
+    <p class="gym">Ginásio TTF Maia</p>
+    <p class="kicker">Personal trainer · bloco 1</p>
+    <h1>Plano de treino — 4 semanas</h1>
+    <p class="lede">Três treinos de corpo inteiro por semana, com um quarto dia opcional, a começar a 10 de novembro de 2026, no ginásio TTF Maia. Objetivo: perda de peso e melhor condição física, com esforço inicial a cerca de 70% (RPE&nbsp;7). Cada exercício tem a animação no próprio cartão, uma checklist por semana e, nos exercícios de força, um registo de cargas — tudo guardado na nuvem e sincronizado entre dispositivos.</p>
+    <ul class="metrics">
+      <li><span class="val">3 + 1</span><span class="lab">Treinos por semana</span><span class="det">Três núcleo, um dia opcional</span></li>
+      <li><span class="val">RPE 7</span><span class="lab">Esforço alvo</span><span class="det">Ficam 2–3 repetições em reserva</span></li>
+      <li><span class="val">4 sem.</span><span class="lab">Duração deste bloco</span><span class="det">10 nov. a 7 dez. 2026</span></li>
+      <li><span class="val">50 min</span><span class="lab">Duração típica</span><span class="det">Aquecimento, força e cardio</span></li>
+    </ul>
+  </header>
+  <main class="wrap">
+    <aside class="callout warn">
+      <p class="lead">Começa com prudência</p>
+      <p>Tens uma base sólida (10 anos de CrossFit, futebol e natação), mas a pausa dos últimos anos pede um regresso gradual. O TTF Maia está totalmente equipado, incluindo a área de cross (barras, kettlebells, caixotes, remo, corda, etc.): usamos essa zona nos condicionamentos e no metcon leve do Dia D, com WODs curtos, escalados e de baixo impacto — swings, step-ups, remo e wall balls, sem saltos nem corrida contra o relógio. Peso, altura e lesões ainda não estão definidos, por isso o bloco arranca a cerca de 70% do esforço, com RPE 7: no final de cada série ainda conseguias fazer mais 2 ou 3 repetições com boa técnica. Se sentires dor articular (joelho, ombro, costas), para e troca para a alternativa do cartão, quando existir.</p>
+    </aside>
+    <aside class="callout info" id="plan-banner" hidden></aside>
+
+    <section class="block" aria-labelledby="como-usar">
+      <h2 id="como-usar">Como usar este plano</h2>
+      <p>O Treino A é a sessão de hoje, 10 de novembro de 2026. Os Treinos B e C completam a semana com padrões diferentes. O Dia D é opcional: zona 2 (preferida) ou um metcon leve na área de cross. Deixa pelo menos um dia de folga entre A, B e C. Se conseguires ir mais vezes, usa o Dia D ou uma caminhada longa, não um quarto treino pesado.</p>
+      <p>Em cada cartão: marca «Feito» quando terminares. Se houver alternativa (o mesmo padrão de movimento em dois aparelhos, ou dois WODs equivalentes), escolhe uma no seletor — a animação, as séries e as dicas passam a ser dessa opção, e o visto aplica-se ao cartão. Nos exercícios de força, anota a carga e as repetições de cada série; na semana seguinte aparece o último registo como referência. A checklist, as escolhas e as cargas são gravadas na tua conta (por semana) e sincronizam entre telemóvel e computador. Usa «Exportar registo» para uma cópia JSON de segurança, e «Importar registo» para a recuperar.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Semana</th>
+              <th>Treino A</th>
+              <th>Treino B</th>
+              <th>Treino C</th>
+              <th>Dia D (opcional)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1 (10–16 nov.)</td><td>Terça 10 (hoje)</td><td>Quinta 12</td><td>Sábado 14</td><td>Domingo 15</td></tr>
+            <tr><td>2 (17–23 nov.)</td><td>Terça 17</td><td>Quinta 19</td><td>Sábado 21</td><td>Domingo 22</td></tr>
+            <tr><td>3 (24–30 nov.)</td><td>Terça 24</td><td>Quinta 26</td><td>Sábado 28</td><td>Domingo 29</td></tr>
+            <tr><td>4 (1–7 dez.)</td><td>Terça 1 dez.</td><td>Quinta 3</td><td>Sábado 5</td><td>Domingo 6</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Se a tua disponibilidade mudar, mantém a ordem A, B, C com um dia de folga no meio. As datas acima são um calendário de referência, não uma obrigação rígida.</p>
+    </section>
+
+    <section class="block" aria-labelledby="progressao">
+      <h2 id="progressao">Regra de progressão semanal</h2>
+      <ol class="steps">
+        <li>
+          <div>
+            <strong>Semana 1 — descobrir cargas</strong>
+            3 séries em todos os exercícios de força. Escolhe um peso com o qual ainda conseguias 2 ou 3 repetições no final (RPE 7). Anota as cargas no próprio cartão.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>A regra para as semanas 2 a 4</strong>
+            Se completaste o topo da gama de repetições (por exemplo 12) com 2–3 repetições em reserva, sobe 2,5 kg nas máquinas ou 1–2 kg nos halteres na sessão seguinte. Se não chegaste ao mínimo da gama, mantém a carga.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Semana 3 — um pouco mais de volume</strong>
+            Passa a 4 séries nos exercícios principais (prensa ou goblet, puxada, supino, peso morto romeno, afundos ou afundo búlgaro). Os acessórios ficam em 3 séries. O registo passa a mostrar a quarta série automaticamente.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Semana 4 — fecha o bloco com qualidade</strong>
+            Mantém 3 ou 4 séries e aplica a mesma regra de carga. Não é semana de recordes: técnica limpa e RPE 7. Depois avaliamos o próximo bloco.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="block" aria-labelledby="passos">
+      <h2 id="passos">Passos e alimentação (notas curtas)</h2>
+      <ul class="notes">
+        <li>Procura 8 a 10 mil passos por dia, inclusive nos dias de treino. É o complemento mais simples à perda de peso.</li>
+        <li>Proteína: cerca de 1,6 a 2,2 g por kg de peso corporal, repartida pelas refeições (ovos, iogurte, carne, peixe, leguminosas ou um suplemento se facilitares o alvo).</li>
+        <li>Um défice calórico ligeiro chega; evita cortes agressivos. O treino não compensa refeições muito descuidadas — e disseste que este é o ponto mais fraco, por isso vale a pena tratá-lo com a mesma regularidade do ginásio.</li>
+        <li>Bebe água ao longo do dia e inclui fruta, hortícolas e uma fonte de hidratos à volta do treino (arroz, batata, pão ou aveia).</li>
+      </ul>
+    </section>
+
+
+    <section class="block" id="progresso" aria-labelledby="progresso-titulo">
+      <h2 id="progresso-titulo">Progresso</h2>
+      <p class="caption">Anota o peso (e, se quiseres, a cintura) para vermos a evolução no fim do bloco. Se já houver um registo neste dia, é atualizado.</p>
+      <form id="progress-form" class="progress-form" action="#">
+        <label class="field">Data
+          <input id="progress-date" name="recorded_on" type="date" required>
+        </label>
+        <label class="field">Peso (kg)
+          <input id="progress-weight" name="weight_kg" type="text" inputmode="decimal" required placeholder="ex.: 84,5" autocomplete="off">
+        </label>
+        <label class="field">Cintura (cm, opcional)
+          <input id="progress-waist" name="waist_cm" type="text" inputmode="decimal" placeholder="ex.: 96" autocomplete="off">
+        </label>
+        <button type="submit" class="btn" id="progress-save">Guardar</button>
+      </form>
+      <div id="progress-summary" class="progress-summary" hidden></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Peso (kg)</th>
+              <th>Cintura (cm)</th>
+              <th>Desde o início</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="progress-rows">
+            <tr><td colspan="5">Ainda não há registos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="block" id="sessoes" aria-labelledby="sessoes-titulo">
+      <h2 id="sessoes-titulo">Sessões, animações e checklist</h2>
+      <p class="caption">As animações abrem no próprio cartão. Começa sempre pelo aquecimento e termina com os alongamentos.</p>
+      <div class="toolbar-actions">
+        <button type="button" class="btn" id="export-registo">Exportar registo</button>
+        <button type="button" class="btn ghost" id="import-registo">Importar registo</button>
+      </div>
+      <div class="toolbar sticky">
+        <div class="seg" role="tablist" aria-label="Semana">
+          <button type="button" data-week="1" aria-pressed="true">Semana 1</button>
+          <button type="button" data-week="2" aria-pressed="false">Semana 2</button>
+          <button type="button" data-week="3" aria-pressed="false">Semana 3</button>
+          <button type="button" data-week="4" aria-pressed="false">Semana 4</button>
+        </div>
+        <div class="seg" role="tablist" aria-label="Sessão">
+          <button type="button" data-tab="warmup" aria-pressed="false">Aquecimento</button>
+          <button type="button" data-tab="a" aria-pressed="true">Treino A</button>
+          <button type="button" data-tab="b" aria-pressed="false">Treino B</button>
+          <button type="button" data-tab="c" aria-pressed="false">Treino C</button>
+          <button type="button" data-tab="d" aria-pressed="false">Dia D</button>
+          <button type="button" data-tab="stretch" aria-pressed="false">Alongamentos</button>
+        </div>
+      </div>
+      <div id="session-root"></div>
+    </section>
+
+    <section class="block credit" aria-labelledby="animacoes">
+      <h2 id="animacoes">Sobre as animações</h2>
+      <p>As demonstrações estão nesta página. São animações do Fitness Programer, reduzidas para caberem no plano. A prancha é uma posição estática, porque o exercício é isométrico.</p>
+      <p><a href="https://fitnessprogramer.com/" rel="noopener">Fitness Programer — biblioteca de exercícios</a></p>
+    </section>
+  </main>
+  <footer class="site wrap">
+    <p>Plano pessoal para o ginásio TTF Maia · bloco de 10 de novembro a 7 de dezembro de 2026. O registo fica na tua conta e acompanha-te em qualquer dispositivo.</p>
+  </footer>
+  <button type="button" id="to-top">Voltar ao topo</button>
+  <input type="file" id="import-file" accept="application/json,.json" hidden>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+  const SUPABASE_URL = "https://nhipmdxvlvfjjpkrersr.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_l8XpOa4Resdz9xS4wyJT3w_BDuzHEt0";
+  const CATALOG = {"warmup":[{"id":"warmup-cardio","title":"Cardio inicial","main":{"name":"Máquina de remo","dose":"5 minutos, ritmo leve","cue":"Impulso começa nas pernas, tronco ligeiramente atrasado no final da puxada, braços a terminar o movimento. Respira pelo nariz sempre que conseguires.","gif":"rowing"},"alt":{"name":"Bicicleta estática","dose":"5 minutos, ritmo leve","cue":"Selim a uma altura que deixe o joelho quase estendido no ponto baixo, sem balançar a anca. Cadência confortável, resistência baixa.","gif":"bike"}},{"id":"warmup-squat","title":"Agachamento sem peso","main":{"name":"Agachamento sem peso","dose":"2 voltas de 10 repetições","cue":"Pés à largura dos ombros, desce como se te sentasses numa cadeira. Joelhos no sentido dos dedos dos pés, peito aberto, calcanhares no chão.","gif":"bw-squat"}},{"id":"warmup-shoulders","title":"Rotações de ombros","main":{"name":"Rotações de ombros","dose":"2 voltas de 10 repetições","cue":"Braços estendidos, círculos amplos e controlados. Faz metade para a frente e metade para trás, sem encolher os ombros até às orelhas.","gif":"arm-circles"}},{"id":"warmup-hinge","title":"Hip hinge (dobrar a anca)","main":{"name":"Hip hinge (dobrar a anca)","dose":"2 voltas de 10 repetições","cue":"Empurra a anca para trás com os joelhos ligeiramente fletidos e a coluna neutra. O movimento nasce na anca, não numa inclinação da lombar. Podes usar um pau ou toalha nas costas para sentires a linha reta.","gif":"hip-hinge"}},{"id":"warmup-plank","title":"Prancha (aquecimento)","main":{"name":"Prancha","dose":"2 voltas de 20 segundos","cue":"Antebraços e pontas dos pés no chão, corpo em linha. Anca nem caída nem demasiado alta. Respira de forma calma. A demonstração é uma posição estática (o exercício é isométrico).","gif":"plank"}}],"treinoA":[{"id":"a-squat","title":"Padrão de agachamento","main":{"name":"Prensa de pernas","dose":"3 séries de 10–12 repetições","cue":"Pés à largura dos ombros na plataforma, desce com controlo até cerca de 90 graus e empurra sem bloquear os joelhos com um estalo.","gif":"leg-press","rest":"60–90 s"},"alt":{"name":"Agachamento goblet","dose":"3 séries de 10–12 repetições","cue":"Segura o haltere junto ao peito, cotovelos para dentro, desce com o tronco direito e sobe empurrando o chão.","gif":"goblet","rest":"60–90 s"}},{"id":"a-pulldown","title":"Puxada vertical","main":{"name":"Puxada ao peito na polia","dose":"3 séries de 10–12 repetições","cue":"Peito alto, puxa a barra até à parte alta do peito. Imagina os cotovelos a irem para as algibeiras. Evita puxar com um balanceio do tronco.","gif":"lat-pulldown","rest":"60–90 s"}},{"id":"a-press","title":"Press de peito","main":{"name":"Supino com halteres","dose":"3 séries de 10–12 repetições","cue":"Omoplatas assentes no banco, desce os halteres com controlo até cerca da linha do peito e empurra sem bater os pesos no topo.","gif":"db-press","rest":"60–90 s"},"alt":{"name":"Supino na máquina de peito","dose":"3 séries de 10–12 repetições","cue":"Ajusta o assento para as pegas ficarem à altura do peito. Empurra em linha e não deixes os ombros subirem.","gif":"chest-machine","rest":"60–90 s"}},{"id":"a-rdl","title":"Peso morto romeno","main":{"name":"Romeno com halteres","dose":"3 séries de 10 repetições","cue":"O mesmo padrão do hip hinge, agora com carga. Anca para trás, halteres rente às pernas, coluna neutra. Desce até sentires os isquiotibiais e sobe apertando os glúteos.","gif":"db-rdl","rest":"60–90 s"},"alt":{"name":"Romeno com barra","dose":"3 séries de 10 repetições","cue":"Barra rente às pernas, anca para trás, coluna neutra. É o mesmo movimento do romeno com halteres; escolhe a barra se te for mais estável.","gif":"bb-rdl","rest":"60–90 s"}},{"id":"a-arms","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl na polia e pushdown com corda","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Substitui a remada acessória, sem alongar a sessão. Em superset: curl na polia baixa (barra reta ou EZ, cotovelos junto ao tronco) e, quase sem pausa, pushdown com corda na polia alta — abre um pouco as pontas no final, cotovelos fixos. Descansa cerca de 60 segundos só no fim do par. RPE 7: no final de cada série ainda conseguias 2 ou 3 repetições.","gif":"cable-curl","gifs":[{"key":"cable-curl","label":"Curl na polia"},{"key":"rope-pushdown","label":"Pushdown com corda"}]},"alt":{"name":"Curl com halteres e pushdown com barra","dose":"2 séries de 10–12 de cada, RPE 7","cue":"A mesma lógica em superset, se a polia do curl estiver ocupada: curl com halteres sem balançar o tronco, e pushdown com barra ou pega em V na polia alta. Pausa só no fim do par. Anota a carga de cada exercício no registo.","gif":"db-curl","gifs":[{"key":"db-curl","label":"Curl com halteres"},{"key":"bar-pushdown","label":"Pushdown com barra"}]}},{"id":"a-plank","title":"Prancha (bloco de força)","main":{"name":"Prancha","dose":"3 séries de 30–40 segundos","cue":"Mesma linha do aquecimento, agora um pouco mais longa. Se a anca começar a cair, termina a série. Qualidade acima do tempo.","gif":"plank","rest":"60–90 s"}}],"condA":[{"id":"a-cond","title":"Condicionamento (intervalos)","main":{"name":"Intervalos no remo","dose":"10 rondas de 30 s rápido + 30 s lento","cue":"Na máquina de remo da área de cross. O ritmo rápido deve ser exigente, mas não um sprint total. No lento, recupera sem parares. Mantém a mesma máquina nas 10 rondas.","gif":"rowing"},"alt":{"name":"Intervalos na bicicleta","dose":"10 rondas de 30 s rápido + 30 s lento","cue":"Sobe a resistência ou a cadência nos 30 segundos rápidos, sem saltar no selim. Volta a um ritmo em que consigas respirar nos 30 segundos lentos.","gif":"bike"}}],"treinoB":[{"id":"b-lunge","title":"Afundos","main":{"name":"Afundos com halteres","dose":"3 séries de 10 repetições por perna","cue":"Passada longa o suficiente para o joelho da frente ficar a prumo do tornozelo. Tronco direito, desce o joelho de trás em direção ao chão sem bater. Se o equilíbrio falhar, faz o afundo no sítio.","gif":"db-lunge","rest":"60–90 s"}},{"id":"b-press","title":"Desenvolvimento de ombros","main":{"name":"Desenvolvimento com halteres","dose":"3 séries de 8–10 repetições","cue":"Sentado ou em pé, costas direitas. Empurra os halteres à vertical até quase estender os cotovelos, sem arqueares a lombar. Desce com controlo até à altura das orelhas.","gif":"db-shoulder-press","rest":"60–90 s"}},{"id":"b-row","title":"Remada com haltere","main":{"name":"Remada com haltere","dose":"3 séries de 10–12 repetições por lado","cue":"Apoia uma mão e o joelho no banco, tronco quase paralelo ao chão. Puxa o haltere até à anca, cotovelo junto ao corpo, e desce sem rodares o tronco.","gif":"db-row","rest":"60–90 s"}},{"id":"b-arms","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl martelo e extensão de tríceps por cima da cabeça","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Substitui o trabalho acessório de anca, para caber nos 50 minutos. Superset com halteres: curl martelo (palmas a olhar uma para a outra, cotovelos estáveis) e, de seguida, extensão de tríceps sentado por cima da cabeça — cotovelo junto à cabeça, desce o peso atrás da nuca com controlo. 60 segundos de pausa só no fim do par. RPE 7.","gif":"hammer-curl","gifs":[{"key":"hammer-curl","label":"Curl martelo"},{"key":"seated-oh-extension","label":"Extensão por cima da cabeça"}]},"alt":{"name":"Curl com halteres e extensão deitada","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Alternativa no mesmo padrão: curl clássico com halteres e extensão de tríceps deitado (cotovelos a apontar para o tecto, desce os halteres ao lado da cabeça sem abrir os cotovelos). Superset, pausa só no fim do par.","gif":"db-curl","gifs":[{"key":"db-curl","label":"Curl com halteres"},{"key":"lying-triceps-ext","label":"Extensão deitada"}]}},{"id":"b-face","title":"Puxada à face","main":{"name":"Puxada à face (face pull)","dose":"3 séries de 12–15 repetições","cue":"Corda na polia à altura da cara. Puxa em direção à face, cotovelos altos, e roda as mãos para trás no final. É um exercício de qualidade para os ombros, não de carga máxima.","gif":"face-pull","rest":"60 s"}},{"id":"b-deadbug","title":"Dead bug","main":{"name":"Dead bug","dose":"3 séries de 8 repetições por lado","cue":"Lombar colada ao chão. Estende o braço e a perna opostos sem arqueares as costas. Se a lombar descolar, reduz a amplitude.","gif":"dead-bug","rest":"60 s"}},{"id":"b-cond","title":"Condicionamento na área de cross","main":{"name":"EMOM 8 min: swings e step-ups","dose":"8 minutos, RPE 6","cue":"Área de cross da TTF Maia. Minutos ímpares: 10 swings russos com kettlebell (o peso sobe até à linha dos ombros, não por cima da cabeça). Minutos pares: 8 subidas ao caixote por perna, sem salto — caixote baixo, cerca de 40–50 cm, com o peso do corpo ou um par de halteres leves. Se o minuto ficar apertado, reduz 2 repetições. Não é uma corrida contra o relógio.","gif":"kb-swing","gifs":[{"key":"kb-swing","label":"Swing com kettlebell"},{"key":"box-stepup","label":"Subida ao caixote"}]},"alt":{"name":"8 min: remo e wall balls","dose":"8 minutos contínuos, RPE 6","cue":"Repete 45 segundos de remo em ritmo de conversa e 8 wall balls com bola leve (4–6 kg). O alvo pode ser mais baixo do que o da competição. Sem RPE acima de 6 e sem saltar para o caixote.","gif":"wall-ball","gifs":[{"key":"rowing","label":"Remo"},{"key":"wall-ball","label":"Wall ball"}]}}],"treinoC":[{"id":"c-bulgarian","title":"Afundo búlgaro","main":{"name":"Afundo búlgaro com halteres","dose":"3 séries de 8–10 repetições por perna","cue":"Pé de trás apoiado num banco baixo. A maior parte do peso fica na perna da frente. Desce no vertical, tronco ligeiramente inclinado para a frente, e sobe sem empurrares com o pé de trás.","gif":"bulgarian","rest":"60–90 s"}},{"id":"c-incline","title":"Supino inclinado","main":{"name":"Supino inclinado com halteres","dose":"3 séries de 8–10 repetições","cue":"Banco a cerca de 30–45 graus. Omoplatas assentes, desce os halteres em linha com a parte alta do peito e empurra sem fechares os cotovelos com um estalo.","gif":"incline-db","rest":"60–90 s"}},{"id":"c-row","title":"Remada na polia","main":{"name":"Remada sentado na polia","dose":"3 séries de 10–12 repetições","cue":"Pés na plataforma, tronco estável. Puxa o pegador até ao abdómen, peito aberto, e controla o regresso.","gif":"seated-cable-row","rest":"60–90 s"}},{"id":"c-arms","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl com barra EZ e mergulhos na máquina","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Substitui a flexão de pernas na máquina. Superset: curl com barra EZ (pega inclinada, mais amiga dos pulsos, sem balançar) e mergulhos na máquina de tríceps — cotovelos junto ao tronco, desce com controlo e estende sem estalar. 60 segundos de pausa só no fim do par. RPE 7.","gif":"ez-curl","gifs":[{"key":"ez-curl","label":"Curl com barra EZ"},{"key":"dip-machine","label":"Mergulhos na máquina"}]},"alt":{"name":"Curl com halteres e pushdown com barra","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Se a máquina de mergulhos ou a barra EZ não estiverem livres: curl com halteres e pushdown com barra na polia alta. Mesmo superset, mesma cadência, pausa só no fim do par.","gif":"db-curl","gifs":[{"key":"db-curl","label":"Curl com halteres"},{"key":"bar-pushdown","label":"Pushdown com barra"}]}},{"id":"c-lateral","title":"Elevações laterais","main":{"name":"Elevações laterais com halteres","dose":"3 séries de 12–15 repetições","cue":"Carga ligeira. Sobe os braços até à linha dos ombros, polegares um pouco inclinados para a frente, e desce em três tempos. Se precisares de balançar o corpo, o peso está alto demais.","gif":"lateral-raise","rest":"60 s"}},{"id":"c-cond","title":"Condicionamento na área de cross","main":{"name":"3 rondas: farmer e swings","dose":"3 rondas confortáveis · 1 min de pausa, RPE 6","cue":"Área de cross da TTF Maia. Em cada ronda: 20–30 m de farmer walk (dois halteres ou kettlebells estáveis, ombros baixos, passada curta) e 10 swings russos até à linha dos ombros. Pausa completa no minuto. Qualidade acima da velocidade.","gif":"farmers","gifs":[{"key":"farmers","label":"Farmer walk"},{"key":"kb-swing","label":"Swing com kettlebell"}]},"alt":{"name":"3 rondas: wall balls e step-ups","dose":"3 rondas confortáveis · 1 min de pausa, RPE 6","cue":"Em cada ronda: 10 wall balls com bola leve e 8 subidas ao caixote por perna, sem salto. Caixote baixo, alvo do wall ball à altura que controlares. Pausa completa no minuto.","gif":"wall-ball","gifs":[{"key":"wall-ball","label":"Wall ball"},{"key":"box-stepup","label":"Subida ao caixote"}]}}],"diaDZ2":[{"id":"d-z2","title":"Zona 2 (opção preferida)","main":{"name":"Remo em zona 2","dose":"30–40 minutos contínuos","cue":"Na máquina de remo da área de cross. Ritmo de conversa: consegues falar por frases, mas não cantar. Técnica do remo: pernas, tronco, braços — e o inverso no regresso. Este é o dia mais leve da semana.","gif":"rowing"},"alt":{"name":"Bicicleta em zona 2","dose":"30–40 minutos contínuos","cue":"Resistência moderada, cadência estável, conversação possível. Este é o dia mais leve da semana, não um treino de intervalos.","gif":"bike"}}],"alongamentos":[{"id":"s-hip","title":"Flexores da anca","main":{"name":"Alongamento dos flexores da anca","dose":"30–45 segundos por lado","cue":"Joelho de trás no chão, pé da frente à frente. Empurra a anca para a frente com o tronco direito, sem arqueares a lombar.","gif":"hip-stretch"}},{"id":"s-ham","title":"Isquiotibiais","main":{"name":"Alongamento dos isquiotibiais sentado","dose":"30–45 segundos por perna","cue":"Uma perna estendida, a outra fletida. Inclina o tronco sobre a perna estendida com a coluna longa, sem puxar o pé com força.","gif":"ham-stretch"}},{"id":"s-chest","title":"Peitoral","main":{"name":"Alongamento do peitoral sentado","dose":"30–45 segundos","cue":"Mãos apoiadas atrás no banco ou no chão, peito aberto, ombros longe das orelhas. Respira fundo e alarga o peito na inspiração.","gif":"chest-stretch"}},{"id":"s-back","title":"Costas","main":{"name":"Postura da criança à cobra","dose":"4–6 transições lentas","cue":"Recua para a postura da criança, depois desliza para a frente até à cobra baixa, sem forçar a lombar. Movimento lento e respirado.","gif":"child-cobra"}}],"diaDMetcon":[{"id":"d-metcon","title":"Metcon leve na área de cross","main":{"name":"AMRAP 12 min: swings, step-ups e remo","dose":"12 minutos suaves, RPE 6","cue":"Área de cross da TTF Maia. Durante 12 minutos, repete: 8 swings russos, 6 subidas ao caixote por perna (sem salto) e 150 m de remo. Conta as rondas, mas não corras contra o relógio. Se precisares, alonga o remo e reduz 2 repetições. Este é um regresso ao CrossFit, não um WOD de competição.","gif":"kb-swing","gifs":[{"key":"kb-swing","label":"Swing com kettlebell"},{"key":"box-stepup","label":"Subida ao caixote"},{"key":"rowing","label":"Remo"}]},"alt":{"name":"4 rondas: wall balls, goblets e farmer","dose":"4 rondas · 1 min de pausa, RPE 6","cue":"Em cada ronda: 10 wall balls (bola leve), 8 agachamentos goblet controlados e 20–30 m de farmer walk. Pausa completa no minuto. Se o ombro ou o joelho protestarem, reduz a bola ou troca para a outra opção.","gif":"wall-ball","gifs":[{"key":"wall-ball","label":"Wall ball"},{"key":"goblet","label":"Agachamento goblet"},{"key":"farmers","label":"Farmer walk"}]}}]};
+  </script>
+  <script>function generatePlan(answers, baseCatalog) {
+  const catalog = JSON.parse(JSON.stringify(baseCatalog));
+  const experience = answers.experience || "beginner";
+  const days = Number(answers.days_per_week) || 3;
+  const minutes = Number(answers.session_minutes) || 45;
+  const equipment = answers.equipment || "full_gym";
+  const injuries = String(answers.injuries || "").toLowerCase();
+  const goals = Array.isArray(answers.goals) ? answers.goals : [answers.goals || "fitness"];
+  const cardio = answers.cardio_pref || "mixed";
+  const isBeginner = experience === "beginner";
+  const isReturning = experience === "returning";
+  const rpe = isBeginner ? 6 : 7;
+  const sets = isBeginner || minutes <= 30 ? 2 : 3;
+  const extraSetWeeks = !isBeginner && minutes >= 45 ? ["3", "4"] : [];
+  const includeDayD = days >= 4 && cardio !== "none";
+  const defaultDayD = cardio === "metcon" ? "metcon" : "z2";
+  const notes = [];
+  const applied = [];
+
+  const has = (...words) => words.some((w) => injuries.includes(w));
+  const knee = has("joelh", "menisco", "patela", "ligamento", "knee");
+  const shoulder = has("ombr", "manguito", "shoulder", "clav");
+  const back = has("costa", "lombar", "hérnia", "hernia", "coluna", "ciática", "ciatica", "back");
+  const ankle = has("tornozelo", "ankle");
+  if (knee) applied.push("joelho");
+  if (shoulder) applied.push("ombro");
+  if (back) applied.push("costas");
+  if (ankle) applied.push("tornozelo");
+
+  function setDose(ex, text) {
+    if (!ex) return;
+    ex.dose = text;
+  }
+  function rewriteSets(ex) {
+    if (!ex || !ex.dose) return;
+    ex.dose = ex.dose.replace(/\d+\s*séries/i, `${sets} séries`);
+    if (minutes <= 30 && /10–12|10-12/.test(ex.dose)) ex.dose = ex.dose.replace(/10–12|10-12/g, "8–10");
+    if (isBeginner && /RPE\s*7/.test(ex.dose)) ex.dose = ex.dose.replace(/RPE\s*7/g, "RPE 6");
+  }
+  function rewriteAllDoses() {
+    Object.values(catalog).forEach((list) => {
+      (list || []).forEach((card) => {
+        if (card && (card.logKind === "superset" || /[-]arms$/.test(card.id || ""))) return;
+        rewriteSets(card.main);
+        rewriteSets(card.alt);
+        if (card.main && /RPE\s*7/.test(card.main.cue || "")) card.main.cue = card.main.cue.replace(/RPE\s*7/g, `RPE ${rpe}`);
+        if (card.alt && /RPE\s*7/.test(card.alt.cue || "")) card.alt.cue = card.alt.cue.replace(/RPE\s*7/g, `RPE ${rpe}`);
+      });
+    });
+  }
+
+  function prefer(card, side) {
+    if (!card || !card.alt) return;
+    if (side === "alt") {
+      const tmp = card.main;
+      card.main = card.alt;
+      card.alt = tmp;
+    }
+  }
+
+  function replaceExercise(card, name, gif, dose, cue, alt) {
+    card.main = { name, gif, dose: dose || card.main.dose, cue: cue || card.main.cue };
+    if (alt) card.alt = alt;
+    else delete card.alt;
+    const short = name.split(" (")[0];
+    if (short) card.title = short;
+  }
+
+  if (equipment === "home") {
+    notes.push("Plano adaptado a casa (peso corporal e halteres).");
+    catalog.treinoA.forEach((card) => {
+      if (card.id === "a-squat") prefer(card, "alt"); // goblet
+      if (card.id === "a-pulldown") replaceExercise(card, "Remada com haltere", "db-row", `${sets} séries de 10–12 repetições por lado`, "Sem polia em casa: remada com um haltere, tronco quase paralelo, costas estáveis, o cotovelo raspa o tronco.");
+      if (card.id === "a-press") prefer(card, "main");
+      if (card.id === "a-arms" || card.id === "b-arms" || card.id === "c-arms") prefer(card, "alt");
+    });
+    catalog.treinoC.forEach((card) => {
+      if (card.id === "c-row") replaceExercise(card, "Remada com haltere", "db-row", `${sets} séries de 10–12 repetições por lado`, "Substitui a polia: remada com haltere, um lado de cada vez.");
+    });
+    catalog.treinoB.forEach((card) => {
+      if (card.id === "b-face") replaceExercise(card, "Elevações laterais leves", "lateral-raise", `${sets} séries de 12 repetições`, "Sem polia para face pull: elevações laterais muito leves, só até à linha dos ombros. Se incomodar o ombro, reduz a amplitude.");
+      if (card.id === "b-cond") {
+        card.main = { name: "EMOM 8 min: goblets e step-ups no degrau", dose: `8 minutos, RPE ${rpe}`, cue: "Em casa. Minutos ímpares: 8 agachamentos goblet lentos. Minutos pares: 8 subidas a um degrau ou caixa baixa por perna, sem salto. Se o minuto ficar apertado, reduz 2 repetições.", gif: "goblet", gifs: [{ key: "goblet", label: "Agachamento goblet" }, { key: "box-stepup", label: "Subida ao degrau" }] };
+        card.alt = { name: "8 min: ponte e swings leves", dose: `8 minutos contínuos, RPE ${rpe}`, cue: "Alterna 8 pontes de glúteos e 8 swings com kettlebell ou haltere (só até à linha dos ombros). Ritmo de conversa.", gif: "glute-bridge", gifs: [{ key: "glute-bridge", label: "Ponte de glúteos" }, { key: "kb-swing", label: "Swing" }] };
+      }
+    });
+    catalog.treinoC.forEach((card) => {
+      if (card.id === "c-cond") {
+        card.main = { name: "3 rondas: farmer e goblets", dose: `3 rondas confortáveis · 1 min de pausa, RPE ${rpe}`, cue: "Em cada ronda: 30–40 metros (ou 40 segundos no sítio) de farmer com halteres e 8 agachamentos goblet. Sem pressa.", gif: "farmers", gifs: [{ key: "farmers", label: "Farmer carry" }, { key: "goblet", label: "Goblet" }] };
+        card.alt = { name: "3 rondas: step-ups e ponte", dose: `3 rondas confortáveis · 1 min de pausa, RPE ${rpe}`, cue: "8 subidas ao degrau por perna e 10 pontes de glúteos. Sem saltos.", gif: "box-stepup", gifs: [{ key: "box-stepup", label: "Step-up" }, { key: "glute-bridge", label: "Ponte" }] };
+      }
+    });
+    catalog.condA.forEach((card) => {
+      if (card.id === "a-cond") {
+        card.main = { name: "Intervalos em marcha rápida ou bicicleta", dose: "8 rondas de 30 s rápido + 30 s lento", cue: "Se tiveres bicicleta, usa-a. Senão, marcha no sítio ou no corredor, 30 segundos um pouco mais rápido e 30 segundos lento. Sem sprint.", gif: "bike" };
+        card.alt = { name: "Marcha contínua", dose: "8–10 minutos, ritmo de conversa", cue: "Caminhada ou marcha no sítio, respiração controlada.", gif: "bike" };
+      }
+    });
+    catalog.diaDZ2.forEach((card) => {
+      card.main = { name: "Caminhada ou bicicleta em zona 2", dose: minutes <= 30 ? "20–25 minutos contínuos" : "30–40 minutos contínuos", cue: "Ritmo de conversa, ao ar livre ou em bicicleta. Se falares com dificuldade, abranda.", gif: "bike" };
+      card.alt = { name: "Bicicleta em zona 2", dose: card.main.dose, cue: "Mesmo ritmo de conversa, na bicicleta.", gif: "bike" };
+    });
+    catalog.diaDMetcon.forEach((card) => {
+      card.main = { name: "AMRAP 10 min: goblets, step-ups e marcha", dose: `10 minutos suaves, RPE ${rpe}`, cue: "Repete 8 goblets, 6 subidas ao degrau por perna e 45 segundos de marcha. Sem saltos e sem corrida contra o relógio.", gif: "goblet", gifs: [{ key: "goblet", label: "Goblet" }, { key: "box-stepup", label: "Step-up" }] };
+      delete card.alt;
+    });
+    catalog.warmup.forEach((card) => {
+      if (card.id === "warmup-cardio") {
+        card.main = { name: "Marcha ou bicicleta leve", dose: "5 minutos, ritmo leve", cue: "Começa devagar, só para aquecer.", gif: "bike" };
+        delete card.alt;
+      }
+    });
+  }
+
+  if (equipment === "cross_area") {
+    notes.push("Plano centrado na área de cross (halteres, kettlebells, caixote e remo).");
+    catalog.treinoA.forEach((card) => {
+      if (card.id === "a-squat") prefer(card, "alt"); // goblet over leg press
+      if (card.id === "a-pulldown") replaceExercise(card, "Remada com haltere", "db-row", `${sets} séries de 10–12 repetições por lado`, "Na área de cross: remada com haltere, tronco estável. Se houver uma barra de puxar com boa técnica, podes usá-la mais tarde.");
+    });
+    catalog.treinoC.forEach((card) => {
+      if (card.id === "c-row") replaceExercise(card, "Remada com haltere", "db-row", `${sets} séries de 10–12 repetições por lado`, "Remada unilateral, o mesmo padrão da polia.");
+    });
+  }
+
+  function swapKnee(card) {
+    if (card.id === "b-lunge" || card.id === "c-bulgarian") {
+      replaceExercise(card, "Ponte de glúteos ou hip thrust", "glute-bridge", `${sets} séries de 10–12 repetições`, "Em vez de afundos ou búlgaro (melhor para o joelho): ponte de glúteos ou hip thrust, sem dor. Para se a articulação queixar-se.", { name: "Prensa de pernas (amplitude confortável)", gif: "leg-press", dose: `${sets} séries de 10–12 repetições`, cue: "Amplitude curta e controlada, sem dor no joelho. Só se tiveres máquina." });
+      card.log = true;
+    }
+    if (card.id === "a-squat" && equipment === "home") {
+      replaceExercise(card, "Ponte de glúteos", "glute-bridge", `${sets} séries de 10–12 repetições`, "Para poupar o joelho em casa: ponte de glúteos, pausa no topo. Sem afundos nem agachamentos fundos.", { name: "Agachamento goblet até onde for confortável", gif: "goblet", dose: `${sets} séries de 8–10 repetições`, cue: "Amplitude curta, sem dor. Se o joelho queixar-se, fica só com a ponte." });
+    }
+  }
+  function swapShoulder(card) {
+    if (card.id === "b-press" || card.id === "c-lateral") {
+      replaceExercise(card, "Supino com halteres (apoiado)", "db-press", `${sets} séries de 8–12 repetições`, "Em vez de desenvolvimento ou elevações laterais: press horizontal, omoplatas estáveis, amplitude sem dor no ombro.", { name: "Puxada à face leve", gif: "face-pull", dose: `${sets} séries de 12–15 repetições`, cue: "Se tiveres polia ou elástico: puxada à face, muito leve, para o ombro." });
+      card.log = true;
+    }
+  }
+  function swapBack(card) {
+    if (card.id === "a-rdl") {
+      replaceExercise(card, "Ponte de glúteos", "glute-bridge", `${sets} séries de 10–12 repetições`, "Em vez do romeno, para poupar a lombar: ponte de glúteos ou hip thrust, sem arquear as costas.", { name: "Hip thrust", gif: "hip-thrust", dose: `${sets} séries de 10–12 repetições`, cue: "O mesmo padrão de extensão da anca, com as costas apoiadas no banco se tiveres." });
+      card.log = true;
+    }
+    if (card.id === "b-cond" || card.id === "c-cond" || card.id === "d-metcon") {
+      const cueAdd = " Sem swings agressivos nem flexão da coluna: se a lombar queixar-se, troca swings por pontes de glúteos.";
+      if (card.main && /swing/i.test(card.main.name + (card.main.cue || ""))) {
+        card.main.cue = (card.main.cue || "") + cueAdd;
+      }
+    }
+  }
+
+  Object.values(catalog).forEach((list) => {
+    (list || []).forEach((card) => {
+      if (knee || ankle) swapKnee(card);
+      if (shoulder) swapShoulder(card);
+      if (back) swapBack(card);
+    });
+  });
+
+  if (minutes <= 30) {
+    notes.push("Sessões mais curtas: menos séries e um condicionamento breve.");
+    const drop = new Set(["b-face", "c-lateral", "b-deadbug"]);
+    catalog.treinoB = catalog.treinoB.filter((c) => !drop.has(c.id));
+    catalog.treinoC = catalog.treinoC.filter((c) => !drop.has(c.id));
+    catalog.condA.forEach((c) => {
+      if (c.main) c.main.dose = "6 rondas de 30 s rápido + 30 s lento";
+    });
+    catalog.treinoB.concat(catalog.treinoC).forEach((c) => {
+      if (c.id && c.id.endsWith("-cond") && c.main) {
+        c.main.dose = c.main.dose.replace(/8 minutos|8 min|12 minutos|3 rondas/g, (m) => (m.includes("3") ? "2 rondas" : "6 minutos"));
+      }
+    });
+  }
+
+  if (goals.includes("muscle_gain") && !goals.includes("weight_loss")) {
+    notes.push("Ênfase na força: o condicionamento é curto, para não roubar recuperação.");
+    catalog.condA.forEach((c) => { if (c.main) c.main.dose = "6 rondas de 20 s rápido + 40 s lento"; });
+  }
+  if (goals.includes("weight_loss") || goals.includes("health") || goals.includes("fitness")) {
+    if (cardio === "none") notes.push("Sem bloco de cardio formal: mantém caminhadas diárias se puderes.");
+    else notes.push("O condicionamento e os passos diários ajudam o objetivo.");
+  }
+  if (isBeginner) notes.push("Nível inicial: esforço a cerca de RPE 6 (ficam 3–4 repetições em reserva). A técnica vem antes da carga.");
+  if (isReturning) notes.push("A regressar após uma pausa: começa com cerca de 70% do esforço (RPE 7) e sobe só se a técnica estiver sólida.");
+  if (knee) notes.push("Evita afundos e búlgaros enquanto o joelho não estiver confortável.");
+  if (shoulder) notes.push("Evita press por cima da cabeça e elevações laterais pesadas.");
+  if (back) notes.push("Evita romanos e swings agressivos; privilegia pontes e anca apoiada.");
+
+  rewriteAllDoses();
+
+  if (cardio === "low_impact") {
+    notes.push("Cardio de baixo impacto: remo, bicicleta ou marcha, sem saltos.");
+  }
+
+  const strengthIds = new Set(["a-squat", "a-pulldown", "a-press", "a-rdl", "a-arms", "b-lunge", "b-press", "b-row", "b-arms", "b-face", "c-bulgarian", "c-incline", "c-row", "c-arms", "c-lateral"]);
+  Object.values(catalog).forEach((list) => {
+    (list || []).forEach((card) => {
+      if (strengthIds.has(card.id) || card.log) card.log = true;
+    });
+  });
+
+  return {
+    catalog,
+    meta: {
+      rpe,
+      includeDayD,
+      defaultDayD,
+      sessionMinutes: minutes,
+      daysPerWeek: days,
+      sets,
+      extraSetWeeks,
+      notes,
+      injuriesApplied: applied,
+      title: "O teu plano de 4 semanas",
+      equipment,
+      goals,
+    },
+  };
+}
+
+if (typeof window !== "undefined") window.generatePlan = generatePlan;
+if (typeof module !== "undefined") module.exports = { generatePlan };
+</script>
+  <script>(() => {
+  const WEEKS = ["1", "2", "3", "4"];
+  const TABS = ["warmup", "a", "b", "c", "d", "stretch"];
+  const MAIN_VOLUME = new Set([
+    "a-squat", "a-pulldown", "a-press", "a-rdl", "b-lunge", "c-bulgarian",
+  ]);
+  const LOG_IDS = new Set([
+    "a-squat", "a-pulldown", "a-press", "a-rdl", "a-arms",
+    "b-lunge", "b-press", "b-row", "b-arms", "b-face", "b-deadbug",
+    "c-bulgarian", "c-incline", "c-row", "c-arms", "c-lateral",
+  ]);
+  const ARM_IDS = new Set(["a-arms", "b-arms", "c-arms"]);
+  const SECOND_LABEL = {};
+
+  const defaultState = () => ({
+    week: "1",
+    tab: "a",
+    dayD: "z2",
+    pick: {},
+    done: {},
+    loads: {},
+  });
+
+  function gifUrl(key) {
+    return new URL(`gifs/${key}.webp`, document.baseURI).href;
+  }
+
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+  });
+
+  let user = null;
+  let state = defaultState();
+  let persistTimer = null;
+  let loadTimers = {};
+  let progressRows = [];
+  let profile = null;
+  const MARIO_EMAIL = "moliveira.3011@gmail.com";
+  const MARIO_WEIGHT_DATE = "2026-11-10";
+
+  function isMarioEmail(email) {
+    return String(email || "").trim().toLowerCase() === MARIO_EMAIL;
+  }
+
+  function planMeta() {
+    return (profile && profile.plan && profile.plan.meta) ? profile.plan.meta : null;
+  }
+
+  function usesDefaultPlan() {
+    return !profile || profile.use_default_plan || !profile.plan || !profile.plan.catalog;
+  }
+
+  function activeCatalog() {
+    if (usesDefaultPlan()) return CATALOG;
+    return profile.plan.catalog;
+  }
+
+  function isLogCard(id) {
+    if (LOG_IDS.has(id)) return true;
+    const cat = activeCatalog();
+    return Object.values(cat).some((list) => (list || []).some((c) => c && c.id === id && c.log));
+  }
+
+  function availableTabs() {
+    const meta = planMeta();
+    const tabs = ["warmup", "a"];
+    const days = meta && !usesDefaultPlan() ? Number(meta.daysPerWeek) || 3 : 4;
+    if (usesDefaultPlan() || days >= 3) tabs.push("b");
+    if (usesDefaultPlan() || days >= 3) tabs.push("c");
+    // for 2-day plans keep A and B
+    if (!usesDefaultPlan() && days === 2) {
+      return ["warmup", "a", "b", "stretch"];
+    }
+    if (usesDefaultPlan() || (meta && meta.includeDayD) || (!meta && days >= 4)) tabs.push("d");
+    tabs.push("stretch");
+    return tabs;
+  }
+
+  function normalizeState(raw) {
+    if (!raw || typeof raw !== "object") return defaultState();
+    return {
+      week: WEEKS.includes(raw.week) ? raw.week : "1",
+      tab: TABS.includes(raw.tab) ? raw.tab : "a",
+      dayD: raw.dayD === "metcon" ? "metcon" : "z2",
+      pick: raw.pick && typeof raw.pick === "object" ? raw.pick : {},
+      done: raw.done && typeof raw.done === "object" ? raw.done : {},
+      loads: raw.loads && typeof raw.loads === "object" ? raw.loads : {},
+    };
+  }
+
+  function setSync(status, text) {
+    const el = document.getElementById("sync");
+    if (!el) return;
+    el.dataset.state = status;
+    el.textContent = text;
+  }
+
+  function sessionCards() {
+    const cat = activeCatalog();
+    const tab = state.tab;
+    if (tab === "warmup") return cat.warmup || [];
+    if (tab === "a") return (cat.treinoA || []).concat(cat.condA || []);
+    if (tab === "b") return cat.treinoB || [];
+    if (tab === "c") return cat.treinoC || [];
+    if (tab === "d") return state.dayD === "z2" ? (cat.diaDZ2 || []) : (cat.diaDMetcon || []);
+    return cat.alongamentos || [];
+  }
+
+  function doneKey(week, id) { return `${week}:${id}`; }
+  function loadKey(week, id, side) { return `${week}:${id}:${side}`; }
+
+  function setCount(week, id) {
+    if (!isLogCard(id)) return 0;
+    if (ARM_IDS.has(id)) return 2;
+    const meta = planMeta();
+    const base = (meta && meta.sets) ? meta.sets : 3;
+    const extraWeeks = (meta && meta.extraSetWeeks) ? meta.extraSetWeeks : ["3", "4"];
+    if (usesDefaultPlan()) {
+      if ((week === "3" || week === "4") && MAIN_VOLUME.has(id)) return 4;
+      return 3;
+    }
+    if (extraWeeks.includes(week) && MAIN_VOLUME.has(id)) return base + 1;
+    return base;
+  }
+
+  function parseSupersetKg(raw) {
+    const t = String(raw || "");
+    const parts = t.split(/\s*\/\s*/);
+    return { kg1: (parts[0] || "").trim(), kg2: (parts[1] || "").trim() };
+  }
+  function joinSupersetKg(kg1, kg2) {
+    const a = String(kg1 || "").trim();
+    const b = String(kg2 || "").trim();
+    if (!a && !b) return "";
+    return a + " / " + b;
+  }
+
+  function sideOf(card) {
+    return card.alt && state.pick[card.id] === "alt" ? "alt" : "main";
+  }
+
+  function selectedOf(card) {
+    const side = sideOf(card);
+    return side === "alt" && card.alt ? card.alt : card.main;
+  }
+
+  function getLoadSets(week, id, side, count) {
+    const raw = state.loads[loadKey(week, id, side)];
+    const sets = Array.isArray(raw) ? raw : [];
+    const out = [];
+    for (let i = 0; i < count; i++) {
+      const s = sets[i] || {};
+      out.push({
+        kg: s.kg == null ? "" : String(s.kg),
+        reps: s.reps == null ? "" : String(s.reps),
+      });
+    }
+    return out;
+  }
+
+  function previousLog(week, id, side) {
+    const idx = WEEKS.indexOf(week);
+    for (let i = idx - 1; i >= 0; i--) {
+      const w = WEEKS[i];
+      const sets = state.loads[loadKey(w, id, side)];
+      if (Array.isArray(sets) && sets.some((s) => s && (s.kg || s.reps))) {
+        return { week: w, sets };
+      }
+    }
+    return null;
+  }
+
+  function esc(str) {
+    return String(str ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function countDone(cards) {
+    const total = cards.length;
+    const n = cards.filter((c) => state.done[doneKey(state.week, c.id)] === true).length;
+    return { n, total };
+  }
+
+  async function loadFromCloud() {
+    if (!user) return;
+    setSync("saving", "A carregar…");
+    const [settingsRes, doneRes, loadsRes, progressRes] = await Promise.all([
+      supabase.from("plan_settings").select("week,tab,day_d,picks").eq("user_id", user.id).maybeSingle(),
+      supabase.from("plan_done").select("week,card_id,done").eq("user_id", user.id),
+      supabase.from("plan_loads").select("week,card_id,side,set_index,kg,reps").eq("user_id", user.id),
+      supabase.from("plan_progress").select("id,recorded_on,weight_kg,waist_cm").eq("user_id", user.id).order("recorded_on", { ascending: true }),
+    ]);
+    if (settingsRes.error || doneRes.error || loadsRes.error || progressRes.error) {
+      setSync("error", "Não foi possível carregar o registo");
+      console.error(settingsRes.error || doneRes.error || loadsRes.error || progressRes.error);
+      return;
+    }
+    const next = defaultState();
+    const s = settingsRes.data;
+    if (s) {
+      if (WEEKS.includes(s.week)) next.week = s.week;
+      if (TABS.includes(s.tab)) next.tab = s.tab;
+      next.dayD = s.day_d === "metcon" ? "metcon" : "z2";
+      if (s.picks && typeof s.picks === "object") next.pick = s.picks;
+    }
+    for (const row of doneRes.data || []) {
+      if (row.done) next.done[doneKey(row.week, row.card_id)] = true;
+    }
+    for (const row of loadsRes.data || []) {
+      const key = loadKey(row.week, row.card_id, row.side);
+      if (!next.loads[key]) next.loads[key] = [];
+      const idx = Number(row.set_index) || 0;
+      while (next.loads[key].length <= idx) next.loads[key].push({ kg: "", reps: "" });
+      next.loads[key][idx] = { kg: row.kg || "", reps: row.reps || "" };
+    }
+    state = next;
+    progressRows = progressRes.data || [];
+    setSync("saved", "Sincronizado");
+  }
+
+
+  function parseDecimal(raw) {
+    const t = String(raw || "").trim().replace(",", ".");
+    if (!t) return null;
+    const n = Number(t);
+    return Number.isFinite(n) ? n : null;
+  }
+
+  function fmtNum(n, digits) {
+    if (n == null || n === "") return "—";
+    const v = Number(n);
+    if (!Number.isFinite(v)) return "—";
+    return v.toLocaleString("pt-PT", { minimumFractionDigits: 0, maximumFractionDigits: digits });
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return "—";
+    const [y, m, d] = String(iso).slice(0, 10).split("-").map(Number);
+    const dt = new Date(Date.UTC(y, m - 1, d));
+    return dt.toLocaleDateString("pt-PT", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+  }
+
+  function fmtDelta(current, first, unit) {
+    if (current == null || first == null) return "—";
+    const d = Number(current) - Number(first);
+    if (!Number.isFinite(d)) return "—";
+    if (Math.abs(d) < 0.05) return `0 ${unit}`;
+    const sign = d > 0 ? "+" : "−";
+    return `${sign}${fmtNum(Math.abs(d), 1)} ${unit}`;
+  }
+
+  function todayISO() {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Europe/Lisbon", year: "numeric", month: "2-digit", day: "2-digit",
+    }).formatToParts(new Date());
+    const get = (t) => parts.find((p) => p.type === t).value;
+    return `${get("year")}-${get("month")}-${get("day")}`;
+  }
+
+  function renderProgress() {
+    const tbody = document.getElementById("progress-rows");
+    const summary = document.getElementById("progress-summary");
+    const dateInput = document.getElementById("progress-date");
+    if (dateInput && !dateInput.value) dateInput.value = todayISO();
+    if (!tbody) return;
+    const rows = [...progressRows].sort((a, b) => String(a.recorded_on).localeCompare(String(b.recorded_on)));
+    if (!rows.length) {
+      tbody.innerHTML = `<tr><td colspan="5">Ainda não há registos.</td></tr>`;
+      summary.hidden = true;
+      summary.innerHTML = "";
+      return;
+    }
+    const first = rows[0];
+    const last = rows[rows.length - 1];
+    const firstW = first.weight_kg != null ? Number(first.weight_kg) : null;
+    const lastW = last.weight_kg != null ? Number(last.weight_kg) : null;
+    const firstWaist = first.waist_cm != null ? Number(first.waist_cm) : null;
+    const lastWaist = last.waist_cm != null ? Number(last.waist_cm) : null;
+    const parts = [`Peso: ${fmtNum(lastW, 1)} kg (${fmtDelta(lastW, firstW, "kg")} desde ${fmtDate(first.recorded_on)})`];
+    if (firstWaist != null || lastWaist != null) {
+      parts.push(`Cintura: ${fmtNum(lastWaist, 1)} cm (${fmtDelta(lastWaist, firstWaist, "cm")} desde o primeiro registo com cintura).`);
+    }
+    summary.hidden = false;
+    summary.innerHTML = `<p class="delta">${esc(parts[0])}</p>${parts[1] ? `<p>${esc(parts[1])}</p>` : ""}`;
+    const newestFirst = [...rows].reverse();
+    tbody.innerHTML = newestFirst.map((row) => {
+      const w = row.weight_kg != null ? Number(row.weight_kg) : null;
+      const c = row.waist_cm != null ? Number(row.waist_cm) : null;
+      const since = fmtDelta(w, firstW, "kg") + (c != null && firstWaist != null ? ` · ${fmtDelta(c, firstWaist, "cm")}` : "");
+      return `<tr>
+        <td>${esc(fmtDate(row.recorded_on))}</td>
+        <td>${esc(fmtNum(w, 1))}</td>
+        <td>${esc(fmtNum(c, 1))}</td>
+        <td>${esc(since)}</td>
+        <td><button type="button" class="btn linkish" data-progress-del="${esc(row.id)}">Apagar</button></td>
+      </tr>`;
+    }).join("");
+  }
+
+  async function saveProgress(recordedOn, weightKg, waistCm) {
+    if (!user) return false;
+    setSync("saving", "A guardar…");
+    const payload = {
+      user_id: user.id,
+      recorded_on: recordedOn,
+      weight_kg: weightKg,
+      waist_cm: waistCm,
+      updated_at: new Date().toISOString(),
+    };
+    const { error } = await supabase.from("plan_progress").upsert(payload, { onConflict: "user_id,recorded_on" });
+    if (error) {
+      setSync("error", "Erro ao guardar");
+      console.error(error);
+      return false;
+    }
+    const { data, error: reloadErr } = await supabase
+      .from("plan_progress")
+      .select("id,recorded_on,weight_kg,waist_cm")
+      .eq("user_id", user.id)
+      .order("recorded_on", { ascending: true });
+    if (reloadErr) {
+      setSync("error", "Guardado, mas não foi possível atualizar a lista");
+      return false;
+    }
+    progressRows = data || [];
+    setSync("saved", "Guardado");
+    renderProgress();
+    return true;
+  }
+
+  async function deleteProgress(id) {
+    if (!user || !id) return;
+    setSync("saving", "A guardar…");
+    const { error } = await supabase.from("plan_progress").delete().eq("user_id", user.id).eq("id", id);
+    if (error) {
+      setSync("error", "Erro ao apagar");
+      console.error(error);
+      return;
+    }
+    progressRows = progressRows.filter((r) => r.id !== id);
+    setSync("saved", "Guardado");
+    renderProgress();
+  }
+
+  async function saveSettings() {
+    if (!user) return;
+    setSync("saving", "A guardar…");
+    const { error } = await supabase.from("plan_settings").upsert({
+      user_id: user.id,
+      week: state.week,
+      tab: state.tab,
+      day_d: state.dayD,
+      picks: state.pick,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) {
+      setSync("error", "Erro ao guardar");
+      console.error(error);
+      return;
+    }
+    setSync("saved", "Guardado");
+  }
+
+  function scheduleSettings() {
+    clearTimeout(persistTimer);
+    persistTimer = setTimeout(() => { saveSettings(); }, 250);
+  }
+
+  async function saveDone(week, cardId, value) {
+    if (!user) return;
+    setSync("saving", "A guardar…");
+    if (value) {
+      const { error } = await supabase.from("plan_done").upsert({
+        user_id: user.id,
+        week,
+        card_id: cardId,
+        done: true,
+        updated_at: new Date().toISOString(),
+      });
+      if (error) { setSync("error", "Erro ao guardar"); console.error(error); return; }
+    } else {
+      const { error } = await supabase.from("plan_done").delete()
+        .eq("user_id", user.id).eq("week", week).eq("card_id", cardId);
+      if (error) { setSync("error", "Erro ao guardar"); console.error(error); return; }
+    }
+    setSync("saved", "Guardado");
+  }
+
+  async function saveLoad(week, id, side, index, field, value) {
+    if (!user) return;
+    const count = Math.max(setCount(week, id), index + 1);
+    const sets = getLoadSets(week, id, side, count);
+    sets[index] = { ...sets[index], [field]: value };
+    state.loads[loadKey(week, id, side)] = sets;
+    const key = `${week}:${id}:${side}:${index}`;
+    clearTimeout(loadTimers[key]);
+    loadTimers[key] = setTimeout(async () => {
+      setSync("saving", "A guardar…");
+      const row = sets[index];
+      const { error } = await supabase.from("plan_loads").upsert({
+        user_id: user.id,
+        week,
+        card_id: id,
+        side,
+        set_index: index,
+        kg: row.kg || "",
+        reps: row.reps || "",
+        updated_at: new Date().toISOString(),
+      });
+      if (error) { setSync("error", "Erro ao guardar"); console.error(error); return; }
+      setSync("saved", "Guardado");
+    }, 400);
+  }
+
+  async function resetSessionCloud(cards) {
+    if (!user) return;
+    setSync("saving", "A guardar…");
+    const ids = cards.map((c) => c.id);
+    const { error } = await supabase.from("plan_done").delete()
+      .eq("user_id", user.id).eq("week", state.week).in("card_id", ids);
+    if (error) { setSync("error", "Erro ao guardar"); console.error(error); return; }
+    setSync("saved", "Guardado");
+  }
+
+  async function replaceAllCloud(next) {
+    if (!user) return;
+    setSync("saving", "A importar…");
+    await supabase.from("plan_done").delete().eq("user_id", user.id);
+    await supabase.from("plan_loads").delete().eq("user_id", user.id);
+    const doneRows = Object.entries(next.done)
+      .filter(([, v]) => v)
+      .map(([k]) => {
+        const [week, ...rest] = k.split(":");
+        return { user_id: user.id, week, card_id: rest.join(":"), done: true, updated_at: new Date().toISOString() };
+      });
+    const loadRows = [];
+    for (const [key, sets] of Object.entries(next.loads || {})) {
+      const parts = key.split(":");
+      const week = parts[0];
+      const side = parts[parts.length - 1];
+      const cardId = parts.slice(1, -1).join(":");
+      (sets || []).forEach((s, i) => {
+        if (!s) return;
+        if (!(s.kg || s.reps)) return;
+        loadRows.push({
+          user_id: user.id, week, card_id: cardId, side, set_index: i,
+          kg: s.kg || "", reps: s.reps || "", updated_at: new Date().toISOString(),
+        });
+      });
+    }
+    if (doneRows.length) {
+      const { error } = await supabase.from("plan_done").upsert(doneRows);
+      if (error) { setSync("error", "Erro ao importar"); console.error(error); return false; }
+    }
+    if (loadRows.length) {
+      const { error } = await supabase.from("plan_loads").upsert(loadRows);
+      if (error) { setSync("error", "Erro ao importar"); console.error(error); return false; }
+    }
+    state = next;
+    const { error } = await supabase.from("plan_settings").upsert({
+      user_id: user.id,
+      week: state.week,
+      tab: state.tab,
+      day_d: state.dayD,
+      picks: state.pick,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) { setSync("error", "Erro ao importar"); console.error(error); return false; }
+    setSync("saved", "Importado");
+    return true;
+  }
+
+  function sessionMetaHtml() {
+    const tab = state.tab;
+    const meta = planMeta();
+    if (!usesDefaultPlan() && meta) {
+      const dur = `cerca de ${meta.sessionMinutes || 45} minutos`;
+      const rpe = `RPE ${meta.rpe || 7}`;
+      const sets = `${meta.sets || 3} séries, descanso 60–90 s, ${rpe}`;
+      if (tab === "d") {
+        const z2 = state.dayD === "z2";
+        const showMetcon = (meta.defaultDayD === "metcon" || (profile && profile.cardio_pref === "mixed" || profile && profile.cardio_pref === "metcon"));
+        return `
+        <aside class="callout neutral">
+          <p class="lead">Dia opcional</p>
+          <p>Só se estiveres recuperado dos treinos principais. A zona 2 é a opção mais segura. Evita saltos e corrida contra o relógio.</p>
+        </aside>
+        <div class="seg" role="tablist" aria-label="Opção do Dia D">
+          <button type="button" data-dayd="z2" aria-pressed="${z2 ? "true" : "false"}">Zona 2</button>
+          ${meta.defaultDayD === "none" ? "" : `<button type="button" data-dayd="metcon" aria-pressed="${!z2 ? "true" : "false"}">Metcon leve</button>`}
+        </div>`;
+      }
+      if (tab === "warmup" || tab === "stretch") {
+        /* fall through to default copy, which is still accurate */
+      } else {
+        return `
+        <dl class="props">
+          <div><dt>Duração</dt><dd>${esc(dur)}</dd></div>
+          <div><dt>Força</dt><dd>${esc(sets)}</dd></div>
+        </dl>`;
+      }
+    }
+    if (tab === "warmup") {
+      return `
+        <dl class="props">
+          <div><dt>Quando</dt><dd>No início de A, B e C</dd></div>
+          <div><dt>Duração</dt><dd>cerca de 10 minutos</dd></div>
+          <div><dt>Estrutura</dt><dd>5 min de remo ou bicicleta + 2 voltas dos quatro movimentos</dd></div>
+        </dl>
+        <p>No cardio inicial, fica num ritmo em que ainda consegues conversar. Depois faz duas voltas de 10 agachamentos sem peso, 10 rotações de ombros, 10 hip hinges e 20 segundos de prancha. O remo está na área de cross da TTF Maia.</p>`;
+    }
+    if (tab === "a") {
+      return `
+        <aside class="callout info">
+          <p class="lead">Sessão de hoje (terça, 10 de novembro de 2026)</p>
+          <p>Este é o Treino A. Faz o aquecimento primeiro e termina com os alongamentos. Na prensa e no goblet, no supino com halteres ou na máquina, no romeno e no superset de braços, escolhe uma das duas opções no próprio cartão. O condicionamento final é no remo (ou bicicleta) da área de cross.</p>
+        </aside>
+        <dl class="props">
+          <div><dt>Foco</dt><dd>Corpo inteiro — agachar, puxar, empurrar, romeno, braços e prancha</dd></div>
+          <div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div>
+          <div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div>
+          <div><dt>Condicionamento</dt><dd>10 × (30 s rápido / 30 s lento) no remo ou bicicleta</dd></div>
+        </dl>`;
+    }
+    if (tab === "b") {
+      return `
+        <dl class="props">
+          <div><dt>Foco</dt><dd>Corpo inteiro — afundos, ombros, remada, braços e core</dd></div>
+          <div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div>
+          <div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div>
+          <div><dt>Fecho</dt><dd>WOD curto e leve na área de cross (8 min, RPE 6)</dd></div>
+        </dl>`;
+    }
+    if (tab === "c") {
+      return `
+        <dl class="props">
+          <div><dt>Foco</dt><dd>Corpo inteiro — afundo búlgaro, inclinado, remada, braços e fecho na área de cross</dd></div>
+          <div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div>
+          <div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div>
+          <div><dt>Fecho</dt><dd>WOD curto e leve na área de cross (3 rondas, RPE 6)</dd></div>
+        </dl>`;
+    }
+    if (tab === "d") {
+      const z2 = state.dayD === "z2";
+      return `
+        <aside class="callout neutral">
+          <p class="lead">Dia opcional</p>
+          <p>Só se as pernas e os ombros estiverem bem depois de A, B e C, e com pelo menos um dia de folga em relação ao último treino pesado. A zona 2 é a opção preferida. O metcon leve, na área de cross da TTF Maia, é a alternativa — não um acréscimo. São WODs curtos, escalados e de baixo impacto (sem saltos nem corrida contra o relógio).</p>
+        </aside>
+        <div class="seg" role="tablist" aria-label="Opção do Dia D">
+          <button type="button" data-dayd="z2" aria-pressed="${z2 ? "true" : "false"}">Zona 2</button>
+          <button type="button" data-dayd="metcon" aria-pressed="${!z2 ? "true" : "false"}">Metcon leve</button>
+        </div>`;
+    }
+    return `
+      <dl class="props">
+        <div><dt>Quando</dt><dd>No fim de todas as sessões, incluindo o Dia D</dd></div>
+        <div><dt>Duração</dt><dd>cerca de 5 minutos</dd></div>
+        <div><dt>Intensidade</dt><dd>Tensão suave, sem dor aguda</dd></div>
+      </dl>
+      <p>Anca, isquiotibiais, peitoral e costas. Respira com calma e não forces o alcance. O objetivo é sair do ginásio mais solto, não alongar até ao limite.</p>`;
+  }
+
+  function refText(prev, index, secondLabel) {
+    if (!prev) return `<div class="ref">Sem registo na semana anterior.</div>`;
+    const s = (prev.sets && prev.sets[index]) || {};
+    const kg = (s.kg || "").trim();
+    const reps = (s.reps || "").trim();
+    if (!kg && !reps) return `<div class="ref">Semana ${esc(prev.week)}: sem dados nesta série.</div>`;
+    const bits = [];
+    if (kg) bits.push(`${esc(kg)} kg`);
+    if (reps) bits.push(`${esc(reps)} ${esc(secondLabel.toLowerCase())}`);
+    const label = prev.week === String(Number(state.week) - 1)
+      ? "Semana anterior"
+      : `Semana ${esc(prev.week)}`;
+    return `<div class="ref">${label}: <strong>${bits.join(" × ")}</strong></div>`;
+  }
+
+  function logHtml(card, side) {
+    const n = setCount(state.week, card.id);
+    if (!n) return "";
+    const second = SECOND_LABEL[card.id] || "Reps";
+    const sets = getLoadSets(state.week, card.id, side, n);
+    const prev = previousLog(state.week, card.id, side);
+    const superset = card.logKind === "superset";
+    const rows = sets.map((s, i) => {
+      const pair = parseSupersetKg(s.kg);
+      const kgFields = superset ? `
+        <label class="field">Bíceps (kg)
+          <input type="text" inputmode="decimal" autocomplete="off" name="kg1-${esc(card.id)}-${i}" value="${esc(pair.kg1)}" data-field="kg1" aria-label="Série ${i + 1}, carga do bíceps em kg">
+        </label>
+        <label class="field">Tríceps (kg)
+          <input type="text" inputmode="decimal" autocomplete="off" name="kg2-${esc(card.id)}-${i}" value="${esc(pair.kg2)}" data-field="kg2" aria-label="Série ${i + 1}, carga do tríceps em kg">
+        </label>` : `
+        <label class="field">Carga (kg)
+          <input type="text" inputmode="decimal" autocomplete="off" name="kg-${esc(card.id)}-${i}" value="${esc(s.kg)}" data-field="kg" aria-label="Série ${i + 1}, carga em kg">
+        </label>`;
+      return `
+      <div class="set" data-log-card="${esc(card.id)}" data-log-side="${esc(side)}" data-log-index="${i}">
+        <div class="set-n">Série ${i + 1}</div>
+        ${kgFields}
+        <label class="field">${esc(second)}
+          <input type="text" inputmode="decimal" autocomplete="off" name="reps-${esc(card.id)}-${i}" value="${esc(s.reps)}" data-field="reps" aria-label="Série ${i + 1}, ${esc(second.toLowerCase())}">
+        </label>
+      </div>
+      ${refText(prev, i, second)}`;
+    }).join("");
+    const hint = superset
+      ? "Anota a carga do bíceps e do tríceps e as reps (as mesmas 10–12 nos dois, se coincidirem). A referência é o último registo da semana anterior, nesta opção."
+      : `Anota o peso e as ${second.toLowerCase()} de cada série. A referência é o último registo da semana anterior (nesta opção), para te guiar na progressão.`;
+    return `
+      <div class="log">
+        <h4>Registo de carga</h4>
+        <p class="hint">${esc(hint)}</p>
+        ${rows}
+      </div>`;
+  }
+
+  function framesHtml(selected) {
+    const items = Array.isArray(selected.gifs) && selected.gifs.length
+      ? selected.gifs
+      : [{ key: selected.gif, label: selected.name }];
+    const many = items.length > 1 ? " many" : "";
+    const inner = items.map((it) => {
+      const src = gifUrl(it.key);
+      const label = it.label || selected.name;
+      const cap = items.length > 1 && it.label ? `<figcaption>${esc(it.label)}</figcaption>` : "";
+      return `<figure class="shot">
+        <div class="frame">
+          <img src="${esc(src)}" alt="Animação: ${esc(label)}" width="280" height="280" decoding="async">
+        </div>
+        ${cap}
+      </figure>`;
+    }).join("");
+    return `<div class="frames${many}">${inner}</div>`;
+  }
+
+  function cardHtml(card) {
+    const hasAlt = Boolean(card.alt);
+    const side = sideOf(card);
+    const selected = selectedOf(card);
+    const key = doneKey(state.week, card.id);
+    const done = state.done[key] === true;
+    const caption = selected.rest
+      ? `${selected.dose} · descanso ${selected.rest}`
+      : selected.dose;
+    const title = hasAlt && card.title && card.title !== selected.name ? `${card.title}: ${selected.name}` : (selected.name || card.title);
+    const altButtons = hasAlt ? `
+      <div class="seg" role="group" aria-label="Escolher variante de ${esc(card.title)}">
+        <button type="button" data-pick="${esc(card.id)}" data-side="main" aria-pressed="${side === "main" ? "true" : "false"}">${esc(card.main.name)}</button>
+        <button type="button" data-pick="${esc(card.id)}" data-side="alt" aria-pressed="${side === "alt" ? "true" : "false"}">${esc(card.alt.name)}</button>
+      </div>` : "";
+    return `
+      <article class="card${done ? " done" : ""}" data-card="${esc(card.id)}" id="card-${esc(card.id)}">
+        <div class="card-head">
+          <div>
+            <h3 class="card-title">${esc(title)}</h3>
+            <p class="card-dose">${esc(caption)}</p>
+          </div>
+          <div class="card-actions">
+            ${altButtons}
+            <button type="button" class="toggle" data-toggle="${esc(card.id)}" aria-pressed="${done ? "true" : "false"}">${done ? "Feito" : "Por fazer"}</button>
+          </div>
+        </div>
+        ${framesHtml(selected)}
+        <p class="cue">${esc(selected.cue)}</p>
+        ${logHtml(card, side)}
+      </article>`;
+  }
+
+  function renderToolbar() {
+    const tabs = availableTabs();
+    if (!tabs.includes(state.tab)) {
+      state.tab = tabs.includes("a") ? "a" : tabs[0];
+    }
+    const meta = planMeta();
+    if (!usesDefaultPlan() && meta && meta.defaultDayD && !document.querySelector("[data-dayd][aria-pressed='true']")) {
+      state.dayD = meta.defaultDayD === "metcon" ? "metcon" : "z2";
+    }
+    document.querySelectorAll("[data-week]").forEach((btn) => {
+      btn.setAttribute("aria-pressed", btn.getAttribute("data-week") === state.week ? "true" : "false");
+    });
+    document.querySelectorAll("[data-tab]").forEach((btn) => {
+      const tab = btn.getAttribute("data-tab");
+      btn.hidden = tab && !tabs.includes(tab);
+      btn.setAttribute("aria-pressed", tab === state.tab ? "true" : "false");
+    });
+  }
+
+  function renderPlanBanner() {
+    const el = document.getElementById("plan-banner");
+    if (!el) return;
+    if (usesDefaultPlan()) {
+      el.hidden = true;
+      el.innerHTML = "";
+      return;
+    }
+    const meta = planMeta() || {};
+    const notes = meta.notes || [];
+    const days = meta.daysPerWeek || 3;
+    const mins = meta.sessionMinutes || 45;
+    el.hidden = false;
+    el.innerHTML = `<p class="lead">${esc(meta.title || "O teu plano de 4 semanas")}</p>
+      <p>${days} sessões por semana, cerca de ${mins} minutos, esforço alvo RPE ${esc(String(meta.rpe || 7))}.${meta.includeDayD ? " Inclui um dia opcional de cardio." : ""}</p>
+      ${notes.length ? "<ul>" + notes.map((n) => `<li>${esc(n)}</li>`).join("") + "</ul>" : ""}`;
+  }
+
+  function renderSession() {
+    const root = document.getElementById("session-root");
+    if (!root) return;
+    const cards = sessionCards();
+    const { n, total } = countDone(cards);
+    const reset = n > 0
+      ? `<button type="button" class="btn danger" id="reset-session">Recomeçar esta sessão</button>`
+      : "";
+    root.innerHTML = `
+      <div class="btn-row" id="session-bar">
+        <p class="counter" id="session-counter">Checklist desta sessão: ${n} de ${total} feitos · semana ${esc(state.week)}</p>
+        ${reset}
+      </div>
+      ${sessionMetaHtml()}
+      <div class="cards">
+        ${cards.map(cardHtml).join("")}
+      </div>`;
+    renderToolbar();
+  }
+
+  function setWeek(week) {
+    if (!WEEKS.includes(week)) return;
+    state.week = week;
+    scheduleSettings();
+    renderSession();
+  }
+  function setTab(tab) {
+    if (!TABS.includes(tab)) return;
+    state.tab = tab;
+    scheduleSettings();
+    renderSession();
+  }
+  function setDayD(value) {
+    state.dayD = value === "metcon" ? "metcon" : "z2";
+    scheduleSettings();
+    renderSession();
+  }
+  function setPick(id, side) {
+    state.pick[id] = side === "alt" ? "alt" : "main";
+    scheduleSettings();
+    const y = window.scrollY;
+    renderSession();
+    window.scrollTo(0, y);
+  }
+  function setDone(id, value) {
+    const key = doneKey(state.week, id);
+    if (value) state.done[key] = true;
+    else delete state.done[key];
+    saveDone(state.week, id, value);
+    const y = window.scrollY;
+    renderSession();
+    window.scrollTo(0, y);
+  }
+  async function resetSession() {
+    const cards = sessionCards();
+    for (const card of cards) delete state.done[doneKey(state.week, card.id)];
+    await resetSessionCloud(cards);
+    const y = window.scrollY;
+    renderSession();
+    window.scrollTo(0, y);
+  }
+
+  function exportRegisto() {
+    const payload = { version: 1, exportedAt: new Date().toISOString(), state };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `plano-treino-mario-registo-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 500);
+  }
+
+  function importRegisto(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async () => {
+      try {
+        const data = JSON.parse(String(reader.result || ""));
+        const next = normalizeState(data.state || data);
+        const ok = window.confirm("Isto substitui o registo na tua conta (vistos, escolhas e cargas). Continuar?");
+        if (!ok) return;
+        const done = await replaceAllCloud(next);
+        if (done) renderSession();
+      } catch {
+        window.alert("Não foi possível ler este ficheiro. Escolhe um JSON exportado por «Exportar registo».");
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  function showApp() {
+    document.getElementById("auth-screen").hidden = true;
+    document.getElementById("onboard-screen").hidden = true;
+    document.getElementById("app-shell").hidden = false;
+    document.getElementById("who").textContent = user.email || "conta iniciada";
+  }
+
+  function showAuth() {
+    document.getElementById("auth-screen").hidden = false;
+    document.getElementById("onboard-screen").hidden = true;
+    document.getElementById("app-shell").hidden = true;
+    setAuthMode(authMode);
+  }
+
+  function showOnboarding() {
+    document.getElementById("auth-screen").hidden = true;
+    document.getElementById("onboard-screen").hidden = false;
+    document.getElementById("app-shell").hidden = true;
+  }
+
+  function translateAuthError(err) {
+    const raw = (err && (err.message || err.error_description || err.error)) || "";
+    const msg = String(raw).toLowerCase();
+    const code = String((err && err.code) || "").toLowerCase();
+    const status = err && (err.status || err.statusCode);
+    if (/rate limit|over_email_send_rate_limit/.test(msg + code)) return "Foram enviados demasiados emails há pouco tempo. Entra com a palavra-passe, ou tenta o código mais tarde.";
+    if (/invalid login credentials|invalid_credentials/.test(msg + code)) return "Email ou palavra-passe incorretos.";
+    if (/user already registered|already registered|email_exists|already been registered/.test(msg + code)) return "Já existe uma conta com este email. Tenta entrar com a palavra-passe. Se a criaste com o código de email e ainda não definiste palavra-passe, usa a alternativa do código e depois «Palavra-passe».";
+    if (/password should be|password.*at least|weak_password|weak password/.test(msg + code)) return "A palavra-passe é demasiado curta ou fraca. Usa pelo menos 8 caracteres.";
+    if (/email not confirmed|not_confirmed|email_not_confirmed/.test(msg + code)) return "Esta conta ainda não está confirmada. Se acabaste de a criar, tenta entrar com a palavra-passe. Se não resultar, usa o código de email.";
+    if (/signup.?disabled|signups not allowed/.test(msg + code)) return "Novos registos estão temporariamente indisponíveis.";
+    if (/invalid.?email|unable to validate email|email address/.test(msg + code) && /invalid/.test(msg)) return "Este email não parece válido. Verifica se está bem escrito.";
+    if (/same password/.test(msg + code)) return "A nova palavra-passe tem de ser diferente da atual.";
+    if (/network|failed to fetch|load failed/.test(msg + code)) return "Não foi possível ligar ao servidor. Verifica a rede e tenta de novo.";
+    if (status === 429) return "Demasiadas tentativas de momento. Espera um pouco e tenta de novo.";
+    if (raw) return raw;
+    return "Não foi possível concluir. Tenta de novo.";
+  }
+
+  function marioProfilePayload() {
+    return {
+      user_id: user.id,
+      age: 39,
+      sex: "male",
+      height_cm: 180,
+      weight_kg: 97,
+      goals: ["weight_loss", "fitness"],
+      experience: "returning",
+      background: "10 anos de CrossFit, futebol federado e natação; a regressar após uma pausa.",
+      days_per_week: 3,
+      session_minutes: 50,
+      injuries: "",
+      equipment: "full_gym",
+      cardio_pref: "mixed",
+      gym_name: "TTF Maia",
+      onboarding_completed: true,
+      use_default_plan: true,
+      plan: null,
+      updated_at: new Date().toISOString(),
+    };
+  }
+
+  async function loadProfile() {
+    if (!user) return null;
+    const { data, error } = await supabase.from("profiles").select("*").eq("user_id", user.id).maybeSingle();
+    if (error) {
+      console.error(error);
+      return null;
+    }
+    return data;
+  }
+
+  async function saveProfileRow(payload) {
+    const { data, error } = await supabase.from("profiles").upsert(payload, { onConflict: "user_id" }).select("*").maybeSingle();
+    if (error) throw error;
+    profile = data;
+    return data;
+  }
+
+  async function ensureMarioSeed() {
+    if (!user || !isMarioEmail(user.email)) return;
+    const existing = await loadProfile();
+    if (!existing || !existing.onboarding_completed) {
+      await saveProfileRow(marioProfilePayload());
+    } else {
+      profile = existing;
+    }
+    const { data: row } = await supabase
+      .from("plan_progress")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("recorded_on", MARIO_WEIGHT_DATE)
+      .maybeSingle();
+    if (!row) {
+      await supabase.from("plan_progress").upsert({
+        user_id: user.id,
+        recorded_on: MARIO_WEIGHT_DATE,
+        weight_kg: 97,
+        waist_cm: null,
+        updated_at: new Date().toISOString(),
+      }, { onConflict: "user_id,recorded_on" });
+    }
+  }
+
+  function parseHeightCm(raw) {
+    const n = parseDecimal(raw);
+    if (n == null) return null;
+    if (n > 2.5 && n < 272) return Math.round(n * 10) / 10;
+    if (n >= 1.2 && n <= 2.5) return Math.round(n * 1000) / 10;
+    return null;
+  }
+
+  function readOnboardForm() {
+    const sex = (document.querySelector("#onboard-form input[name='sex']:checked") || {}).value;
+    const equipment = (document.querySelector("#onboard-form input[name='equipment']:checked") || {}).value;
+    const cardio = (document.querySelector("#onboard-form input[name='cardio_pref']:checked") || {}).value;
+    const goals = [...document.querySelectorAll("#onboard-form input[name='goals']:checked")].map((x) => x.value);
+    const age = Number(document.getElementById("q-age").value);
+    const height = parseHeightCm(document.getElementById("q-height").value);
+    const weight = parseDecimal(document.getElementById("q-weight").value);
+    const experience = document.getElementById("q-experience").value;
+    const days = Number(document.getElementById("q-days").value);
+    const minutes = Number(document.getElementById("q-minutes").value);
+    const injuries = document.getElementById("q-injuries").value.trim();
+    return { sex, equipment, cardio_pref: cardio, goals, age, height_cm: height, weight_kg: weight, experience, days_per_week: days, session_minutes: minutes, injuries };
+  }
+
+  async function enterApp() {
+    await loadFromCloud();
+    showApp();
+    renderPlanBanner();
+    renderSession();
+    renderProgress();
+  }
+
+  async function onSignedIn(sessionUser) {
+    user = sessionUser;
+    if (isMarioEmail(user.email)) {
+      await ensureMarioSeed();
+      profile = await loadProfile();
+      await enterApp();
+      return;
+    }
+    profile = await loadProfile();
+    if (!profile || !profile.onboarding_completed) {
+      showOnboarding();
+      return;
+    }
+    await enterApp();
+  }
+
+  const authForm = document.getElementById("auth-form");
+  const authMsg = document.getElementById("auth-msg");
+  const otpFields = document.getElementById("otp-fields");
+  const submitBtn = document.getElementById("auth-submit");
+  const toggleModeBtn = document.getElementById("auth-toggle-mode");
+  const passwordInput = document.getElementById("auth-password");
+  const confirmWrap = document.getElementById("auth-confirm-wrap");
+  const confirmInput = document.getElementById("auth-password-confirm");
+  const lede = document.getElementById("auth-lede");
+  let authMode = "signin";
+
+  function setAuthMsg(text, kind, target) {
+    const el = target || authMsg;
+    if (!el) return;
+    el.textContent = text || "";
+    el.className = "auth-msg" + (kind ? " " + kind : "");
+  }
+
+  function setAuthMode(mode) {
+    authMode = mode === "signup" ? "signup" : "signin";
+    const signup = authMode === "signup";
+    confirmWrap.hidden = !signup;
+    confirmInput.required = signup;
+    passwordInput.autocomplete = signup ? "new-password" : "current-password";
+    passwordInput.name = signup ? "new-password" : "password";
+    submitBtn.textContent = signup ? "Criar conta" : "Entrar";
+    toggleModeBtn.textContent = signup ? "Já tenho conta" : "Criar conta";
+    lede.textContent = signup
+      ? "Cria a tua conta com email e uma palavra-passe (mínimo 8 caracteres). Não é preciso confirmar por email. Depois preenches um questionário curto e geramos o teu plano."
+      : "Entra com o teu email e uma palavra-passe. A sessão fica guardada neste telemóvel até carregares em «Sair».";
+  }
+
+  async function signUpViaFunction(email, password) {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    let body = {};
+    try { body = await res.json(); } catch { body = {}; }
+    if (!res.ok) {
+      const err = new Error(body.error || body.message || "signup_failed");
+      err.code = body.code;
+      err.status = res.status;
+      throw err;
+    }
+    return body;
+  }
+
+  authForm.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const email = document.getElementById("auth-email").value.trim();
+    const password = passwordInput.value;
+    const confirm = confirmInput.value;
+    if (!email || !password) return;
+    if (password.length < 8) {
+      setAuthMsg("A palavra-passe deve ter pelo menos 8 caracteres.", "err");
+      return;
+    }
+    if (authMode === "signup" && password !== confirm) {
+      setAuthMsg("As duas palavras-passe não coincidem.", "err");
+      return;
+    }
+    submitBtn.disabled = true;
+    try {
+      if (authMode === "signup") {
+        setAuthMsg("A criar a conta…");
+        await signUpViaFunction(email, password);
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error) { setAuthMsg(translateAuthError(error), "err"); return; }
+        if (data && data.user) await onSignedIn(data.user);
+      } else {
+        setAuthMsg("A entrar…");
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error) { setAuthMsg(translateAuthError(error), "err"); return; }
+        if (data && data.user) await onSignedIn(data.user);
+      }
+    } catch (err) {
+      setAuthMsg(translateAuthError(err), "err");
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+
+  toggleModeBtn.addEventListener("click", () => {
+    setAuthMode(authMode === "signup" ? "signin" : "signup");
+    setAuthMsg("");
+    if (authMode === "signup") confirmInput.focus();
+    else passwordInput.focus();
+  });
+
+  document.getElementById("auth-send-otp").addEventListener("click", async () => {
+    const email = document.getElementById("auth-email").value.trim();
+    if (!email) { setAuthMsg("Indica o email para enviar o código.", "err"); return; }
+    setAuthMsg("A enviar o código…");
+    const { error } = await supabase.auth.signInWithOtp({ email, options: { shouldCreateUser: false } });
+    if (error) { setAuthMsg(translateAuthError(error), "err"); return; }
+    otpFields.hidden = false;
+    document.getElementById("auth-otp").focus();
+    setAuthMsg("Se o email chegar, introduz o código de 6 dígitos. Depois define uma palavra-passe em «Palavra-passe».", "ok");
+  });
+
+  document.getElementById("auth-verify-otp").addEventListener("click", async () => {
+    const email = document.getElementById("auth-email").value.trim();
+    const otp = document.getElementById("auth-otp").value.trim();
+    if (!email || !otp) return;
+    setAuthMsg("A verificar…");
+    const { data, error } = await supabase.auth.verifyOtp({ email, token: otp, type: "email" });
+    if (error) { setAuthMsg(translateAuthError(error), "err"); return; }
+    if (data && data.user) await onSignedIn(data.user);
+  });
+
+  document.getElementById("onboard-form").addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const msg = document.getElementById("onboard-msg");
+    const answers = readOnboardForm();
+    if (!answers.sex || !answers.equipment || !answers.cardio_pref) {
+      setAuthMsg("Preenche todos os campos obrigatórios.", "err", msg);
+      return;
+    }
+    if (!answers.goals.length) {
+      setAuthMsg("Escolhe pelo menos um objetivo.", "err", msg);
+      return;
+    }
+    if (!answers.age || answers.age < 14 || answers.age > 90) {
+      setAuthMsg("Indica uma idade válida.", "err", msg);
+      return;
+    }
+    if (answers.height_cm == null || answers.weight_kg == null || answers.weight_kg <= 0) {
+      setAuthMsg("Indica altura e peso válidos.", "err", msg);
+      return;
+    }
+    if (!answers.experience) {
+      setAuthMsg("Escolhe o teu nível de experiência.", "err", msg);
+      return;
+    }
+    const btn = document.getElementById("onboard-submit");
+    btn.disabled = true;
+    setAuthMsg("A gerar o teu plano…", "", msg);
+    try {
+      const plan = generatePlan(answers, CATALOG);
+      await saveProfileRow({
+        user_id: user.id,
+        age: answers.age,
+        sex: answers.sex,
+        height_cm: answers.height_cm,
+        weight_kg: answers.weight_kg,
+        goals: answers.goals,
+        experience: answers.experience,
+        background: null,
+        days_per_week: answers.days_per_week,
+        session_minutes: answers.session_minutes,
+        injuries: answers.injuries || "",
+        equipment: answers.equipment,
+        cardio_pref: answers.cardio_pref,
+        gym_name: null,
+        onboarding_completed: true,
+        use_default_plan: false,
+        plan,
+        updated_at: new Date().toISOString(),
+      });
+      // seed first weight in Progresso if empty
+      const { data: existing } = await supabase.from("plan_progress").select("id").eq("user_id", user.id).limit(1);
+      if (!existing || !existing.length) {
+        await supabase.from("plan_progress").insert({
+          user_id: user.id,
+          recorded_on: todayISO(),
+          weight_kg: answers.weight_kg,
+          waist_cm: null,
+        });
+      }
+      await enterApp();
+    } catch (err) {
+      console.error(err);
+      setAuthMsg(translateAuthError(err) || "Não foi possível guardar o questionário.", "err", msg);
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  document.getElementById("pw-toggle").addEventListener("click", () => {
+    const form = document.getElementById("pw-form");
+    form.hidden = !form.hidden;
+  });
+
+  document.getElementById("pw-form").addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const a = document.getElementById("pw-new").value;
+    const b = document.getElementById("pw-new2").value;
+    const msg = document.getElementById("pw-msg");
+    if (a.length < 8) { setAuthMsg("A palavra-passe deve ter pelo menos 8 caracteres.", "err", msg); return; }
+    if (a !== b) { setAuthMsg("As duas palavras-passe não coincidem.", "err", msg); return; }
+    const { error } = await supabase.auth.updateUser({ password: a });
+    if (error) { setAuthMsg(translateAuthError(error), "err", msg); return; }
+    setAuthMsg("Palavra-passe atualizada. Já podes usá-la nas próximas entradas.", "ok", msg);
+    document.getElementById("pw-new").value = "";
+    document.getElementById("pw-new2").value = "";
+  });
+
+  document.addEventListener("click", (ev) => {
+    const t = ev.target.closest("button");
+    if (!t) return;
+    if (t.dataset.week) { setWeek(t.dataset.week); return; }
+    if (t.dataset.tab) { setTab(t.dataset.tab); return; }
+    if (t.dataset.dayd) { setDayD(t.dataset.dayd); return; }
+    if (t.dataset.pick) { setPick(t.dataset.pick, t.dataset.side); return; }
+    if (t.dataset.toggle) {
+      const pressed = t.getAttribute("aria-pressed") === "true";
+      setDone(t.dataset.toggle, !pressed);
+      return;
+    }
+    if (t.id === "reset-session") { resetSession(); return; }
+    if (t.id === "export-registo") { exportRegisto(); return; }
+    if (t.id === "import-registo") {
+      document.getElementById("import-file").click();
+      return;
+    }
+    if (t.id === "to-top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    if (t.id === "sign-out") {
+      supabase.auth.signOut().then(() => {
+        user = null;
+        profile = null;
+        state = defaultState();
+        setAuthMode("signin");
+        otpFields.hidden = true;
+        setAuthMsg("");
+        showAuth();
+      });
+    }
+  });
+
+  document.addEventListener("input", (ev) => {
+    const input = ev.target;
+    if (!(input instanceof HTMLInputElement)) return;
+    const set = input.closest(".set");
+    if (!set) return;
+    const id = set.getAttribute("data-log-card");
+    const side = set.getAttribute("data-log-side");
+    const index = Number(set.getAttribute("data-log-index"));
+    const field = input.getAttribute("data-field");
+    if (!id || !side || !field || Number.isNaN(index)) return;
+    if (field === "kg1" || field === "kg2") {
+      const setEl = input.closest(".set");
+      const kg1 = (setEl.querySelector("[data-field='kg1']") || {}).value || "";
+      const kg2 = (setEl.querySelector("[data-field='kg2']") || {}).value || "";
+      saveLoad(state.week, id, side, index, "kg", joinSupersetKg(kg1, kg2));
+      return;
+    }
+    saveLoad(state.week, id, side, index, field, input.value);
+  });
+
+  document.getElementById("import-file").addEventListener("change", (ev) => {
+    const file = ev.target.files && ev.target.files[0];
+    ev.target.value = "";
+    importRegisto(file);
+  });
+
+  document.getElementById("progress-form").addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const date = document.getElementById("progress-date").value;
+    const weight = parseDecimal(document.getElementById("progress-weight").value);
+    const waistRaw = document.getElementById("progress-waist").value;
+    const waist = waistRaw.trim() ? parseDecimal(waistRaw) : null;
+    if (!date || weight == null || weight <= 0) {
+      window.alert("Indica uma data e um peso válido em kg.");
+      return;
+    }
+    if (waistRaw.trim() && (waist == null || waist <= 0)) {
+      window.alert("A cintura, se a preencheres, deve ser um número em cm.");
+      return;
+    }
+    const ok = await saveProgress(date, weight, waist);
+    if (ok) document.getElementById("progress-waist").value = waist == null ? "" : document.getElementById("progress-waist").value;
+  });
+
+  document.addEventListener("click", (ev) => {
+    const del = ev.target.closest("[data-progress-del]");
+    if (!del) return;
+    const id = del.getAttribute("data-progress-del");
+    if (!id) return;
+    if (!window.confirm("Apagar este registo de progresso?")) return;
+    deleteProgress(id);
+  });
+
+  const toTop = document.getElementById("to-top");
+  window.addEventListener("scroll", () => {
+    toTop.classList.toggle("show", window.scrollY > 500);
+  }, { passive: true });
+
+  supabase.auth.getSession().then(async ({ data }) => {
+    if (data && data.session && data.session.user) {
+      await onSignedIn(data.session.user);
+    } else {
+      showAuth();
+    }
+  });
+
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === "SIGNED_OUT") {
+      user = null;
+      profile = null;
+      showAuth();
+    }
+  });
+
+  const installHint = document.getElementById("install-hint");
+  const isStandalone = window.navigator.standalone === true || window.matchMedia("(display-mode: standalone)").matches;
+  if (installHint && isStandalone) installHint.hidden = true;
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js", { scope: "./" }).catch((err) => console.warn("SW", err));
+  }
+
+  window.__treino = { supabase, onSignedIn, generatePlan, isMarioEmail, marioProfilePayload, translateAuthError, signUpViaFunction };
+})();
+</script>
+</body>
+</html>
