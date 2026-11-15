@@ -556,7 +556,15 @@ button.btn.linkish {
 #auth-confirm-wrap[hidden] {
   display: none !important;
 }
-</style>
+
+    button[data-tab].suggested { box-shadow: inset 0 -3px 0 #1b5c45; }
+    .boxe-log { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 0.8rem; }
+    .boxe-log .field-notes { grid-column: 1 / -1; }
+    #week-objective { margin: 0 0 1rem; }
+    @media (max-width: 420px) {
+      .boxe-log { grid-template-columns: 1fr; }
+    }
+    </style>
 </head>
 <body>
   <div id="auth-screen" class="auth-screen" hidden>
@@ -812,7 +820,7 @@ button.btn.linkish {
 
     <section class="block" id="sessoes" aria-labelledby="sessoes-titulo">
       <h2 id="sessoes-titulo">Sessões, animações e checklist</h2>
-      <p class="caption">As animações abrem no próprio cartão. Começa sempre pelo aquecimento e termina com os alongamentos.</p>
+      <p class="caption">As animações abrem no próprio cartão. Começa sempre pelo aquecimento e termina com os alongamentos. A partir da semana 2, o objetivo é 2 musculação + 1–2 boxe; o Dia D fica opcional.</p>
       <div class="toolbar-actions">
         <button type="button" class="btn" id="export-registo">Exportar registo</button>
         <button type="button" class="btn ghost" id="import-registo">Importar registo</button>
@@ -829,7 +837,8 @@ button.btn.linkish {
           <button type="button" data-tab="a" aria-pressed="true">Treino A</button>
           <button type="button" data-tab="b" aria-pressed="false">Treino B</button>
           <button type="button" data-tab="c" aria-pressed="false">Treino C</button>
-          <button type="button" data-tab="d" aria-pressed="false">Dia D</button>
+          <button type="button" data-tab="boxe" aria-pressed="false">Boxe</button>
+          <button type="button" data-tab="d" aria-pressed="false">Dia D (opcional)</button>
           <button type="button" data-tab="stretch" aria-pressed="false">Alongamentos</button>
         </div>
       </div>
@@ -1080,9 +1089,10 @@ button.btn.linkish {
 if (typeof window !== "undefined") window.generatePlan = generatePlan;
 if (typeof module !== "undefined") module.exports = { generatePlan };
 </script>
-  <script>(() => {
+  <script>
+(() => {
   const WEEKS = ["1", "2", "3", "4"];
-  const TABS = ["warmup", "a", "b", "c", "d", "stretch"];
+  const TABS = ["warmup", "a", "b", "c", "boxe", "d", "stretch"];
   const MAIN_VOLUME = new Set([
     "a-squat", "a-pulldown", "a-press", "a-rdl", "b-lunge", "c-bulgarian",
   ]);
@@ -1118,28 +1128,35 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
         "a-arms": {"id":"a-arms-w2","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl na máquina Scott e extensão com corda por cima da cabeça","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Superset: curl na máquina Scott (braços bem apoiados no banco, sobe sem tirar os cotovelos do apoio e desce até quase estender) e, quase sem pausa, extensão de tríceps com corda na polia, de costas para a máquina — cotovelos junto à cabeça, estende à frente e por cima. Descansa cerca de 60 segundos só no fim do par.","gif":"preacher-curl","gifs":[{"key":"preacher-curl","label":"Curl na máquina Scott"},{"key":"rope-oh-extension","label":"Extensão com corda por cima da cabeça"}]},"alt":{"name":"Curl concentrado e kickback com haltere","dose":"2 séries de 10–12 de cada (por braço), RPE 7","cue":"Se a máquina Scott estiver ocupada: curl concentrado sentado (cotovelo apoiado na parte de dentro da coxa, sobe devagar) e kickback com haltere apoiado no banco (braço colado ao tronco, estende o cotovelo até ao fim). Faz um braço e depois o outro; pausa só no fim do par.","gif":"concentration-curl","gifs":[{"key":"concentration-curl","label":"Curl concentrado"},{"key":"db-kickback","label":"Kickback com haltere"}]}}
       },
       replaceCond: {
-        "a-cond": {"id":"a-cond-w2","title":"Condicionamento (intervalos)","main":{"name":"Intervalos no SkiErg","dose":"8 rondas de 40 s forte + 20 s leve (8 min), RPE 7","cue":"Na área de cross da TTF Maia. Puxa com o corpo todo: braços em cima, dobra a anca e os joelhos ligeiramente e leva as pegas até às coxas. Os 40 s são fortes mas sustentáveis em todas as rondas; nos 20 s continua a deslizar muito leve. Menos tempo de recuperação do que os 30/30 da semana 1, por isso arranca com calma.","gif":"ski-erg"},"alt":{"name":"Intervalos de battle rope","dose":"8 rondas de 30 s forte + 30 s de pausa (8 min), RPE 7","cue":"Pés à largura dos ombros, joelhos fletidos, tronco ligeiramente inclinado. Ondas alternadas rápidas, com os braços a trabalhar a partir dos ombros, sem perder a postura. Na pausa, larga as cordas e respira.","gif":"battle-rope"}}
+        "a-cond": {"id":"a-finisher","title":"Fecho curto","main":{"name":"Remo fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"O boxe já cobre o condicionamento desta semana. Este é só um fecho leve, na máquina de remo da área de cross, para baixar o ritmo antes dos alongamentos. Sem intervalos e sem sprint.","gif":"rowing"},"alt":{"name":"Bicicleta fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"Mesma ideia no cicloergómetro: cadência confortável, resistência baixa, ainda consegues conversar. Pára aos 4 minutos e passa aos alongamentos.","gif":"bike"}}
       },
       replaceB: {
         "b-arms": {"id":"b-arms-w2","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl martelo com corda e pushdown em pegada invertida","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Superset na mesma polia ou em polias vizinhas: curl martelo com corda na polia baixa (palmas viradas uma para a outra, cotovelos fixos) e pushdown com barra em pegada invertida (palmas para cima) na polia alta — cotovelos junto ao tronco, estende até ao fim. Pausa de 60 s só no fim do par.","gif":"rope-hammer-curl","gifs":[{"key":"rope-hammer-curl","label":"Curl martelo com corda"},{"key":"reverse-pushdown","label":"Pushdown em pegada invertida"}]},"alt":{"name":"Curl invertido com barra EZ e mergulhos no banco","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Curl com barra EZ em pegada invertida (palmas para baixo, sem balançar) e mergulhos de tríceps no banco — mãos na borda, desce até os cotovelos fazerem cerca de 90 graus, sem deixar os ombros rolar para a frente. Pernas fletidas para facilitar, estendidas para dificultar. Anota 0 kg nos mergulhos se forem só com o peso do corpo.","gif":"ez-reverse-curl","gifs":[{"key":"ez-reverse-curl","label":"Curl invertido com barra EZ"},{"key":"bench-dips","label":"Mergulhos no banco"}]}},
-        "b-deadbug": {"id":"b-kneeraise","title":"Core","log":true,"main":{"name":"Elevação de joelhos suspenso","dose":"3 séries de 8–12 repetições","cue":"Na barra ou na cadeira romana (apoio de antebraços). Sobe os joelhos em direção ao peito enrolando a bacia, desce devagar e sem balançar. Se o balanço aparecer, faz menos repetições e com pausa em baixo.","gif":"hanging-knee-raise","rest":"60 s"},"alt":{"name":"Crunch invertido","dose":"3 séries de 12–15 repetições","cue":"Deitado, joelhos fletidos a 90 graus, mãos ao lado do corpo. Enrola a bacia e leva os joelhos ao peito, tirando a parte de baixo das costas do chão, e desce controlado sem bater com os pés.","gif":"reverse-crunch","rest":"60 s"}},
-        "b-cond": {"id":"b-cond-w2","title":"Condicionamento na área de cross","main":{"name":"EMOM 8 min: thrusters com kettlebell e slam ball","dose":"8 minutos, RPE 6–7","cue":"Área de cross da TTF Maia. Minutos ímpares: 8 thrusters com uma kettlebell (ou duas leves) — agachamento frontal e, a subir, empurra a carga por cima da cabeça num só movimento. Minutos pares: 10 slam balls (bola de 6–9 kg): sobe a bola por cima da cabeça e atira-a ao chão dobrando a anca. Se o minuto ficar apertado, tira 2 repetições.","gif":"kb-thruster","gifs":[{"key":"kb-thruster","label":"Thruster com kettlebell"},{"key":"ball-slam","label":"Slam ball"}]},"alt":{"name":"8 min: air bike e push press","dose":"8 minutos contínuos, RPE 6–7","cue":"Alterna 40 segundos de air bike a ritmo firme e 8 push press com halteres leves (pequena flexão dos joelhos e empurra os halteres por cima da cabeça com a ajuda das pernas). Sem pausas longas, mas sem sprint.","gif":"air-bike","gifs":[{"key":"air-bike","label":"Air bike"},{"key":"db-push-press","label":"Push press com halteres"}]}}
+        "b-deadbug": {"id":"b-pallof","title":"Core anti-rotação","log":true,"main":{"name":"Pallof press em pé na polia","dose":"2 séries de 10 repetições por lado","cue":"Polia à altura do peito, de lado para ela, pés à largura dos ombros. Empurra a pega à frente do peito, segura 2 segundos sem deixar o tronco rodar e volta devagar. Carga leve: o trabalho é resistir à rotação (útil no boxe). Troca de lado. Duas séries chegam, para caber nos 50 minutos.","gif":"pallof-press","rest":"45–60 s"},"alt":{"name":"Prancha lateral","dose":"2 séries de 25–35 segundos por lado","cue":"Antebraço por baixo do ombro, pés empilhados (ou o de cima à frente), anca alta e corpo em linha. Se a anca cair, termina a série. Anota os segundos no campo das reps.","gif":"side-plank","rest":"45–60 s"}},
+        "b-cond": {"id":"b-finisher","title":"Fecho curto","main":{"name":"SkiErg fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"O boxe já cobre o condicionamento. Fecha em suave no SkiErg da área de cross: puxadas longas e calmas, sem intervalos. Ao fim de 4 minutos, passa aos alongamentos.","gif":"ski-erg"},"alt":{"name":"Air bike fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"Resistência baixa, cadência confortável, ainda consegues falar. Não é um sprint: é só baixar o ritmo depois da força.","gif":"air-bike"}}
       },
       replaceC: {
         "c-arms": {"id":"c-arms-w2","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl com barra e supino de pegada fechada","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Superset: curl com barra direita (cotovelos colados ao tronco, sem balançar as costas) e supino de pegada fechada (mãos à largura dos ombros, cotovelos junto ao corpo, barra até à parte baixa do peito). Usa a barra livre ou a Smith. Pausa de 60 s só no fim do par.","gif":"barbell-curl","gifs":[{"key":"barbell-curl","label":"Curl com barra"},{"key":"close-grip-bench","label":"Supino de pegada fechada"}]},"alt":{"name":"Curl inclinado com halteres e flexões diamante","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Curl com halteres sentado num banco inclinado a cerca de 45–60 graus (braços pendurados atrás do tronco, sobe sem levar os cotovelos à frente) e flexões diamante (mãos juntas por baixo do peito, cotovelos junto ao corpo). Se as flexões ficarem pesadas, faz com os joelhos no chão. Anota 0 kg nas flexões.","gif":"incline-db-curl","gifs":[{"key":"incline-db-curl","label":"Curl inclinado"},{"key":"diamond-pushup","label":"Flexões diamante"}]}},
-        "c-lateral": {"id":"c-cablelat","title":"Ombros","log":true,"main":{"name":"Elevação lateral na polia (um braço)","dose":"3 séries de 12–15 repetições por lado","cue":"Polia baixa, de lado para a máquina, a pega na mão mais afastada. Sobe o braço até à linha do ombro com o cotovelo ligeiramente fletido e desce em três tempos. Carga leve: a polia mantém a tensão em todo o movimento.","gif":"cable-lateral","rest":"45–60 s"},"alt":{"name":"Deltoide posterior na máquina (reverse pec deck)","dose":"3 séries de 12–15 repetições","cue":"Peito encostado ao apoio, pegas à altura dos ombros. Abre os braços para trás até à linha do tronco, sem encolher os ombros, e volta devagar.","gif":"rear-delt-machine","rest":"45–60 s"}},
-        "c-cond": {"id":"c-cond-w2","title":"Condicionamento na área de cross","main":{"name":"3 rondas: snatch com haltere e bear crawl","dose":"3 rondas · 1 min de pausa, RPE 6–7","cue":"Área de cross da TTF Maia. Em cada ronda: 10 snatches alternados com um haltere leve (do chão até por cima da cabeça num só movimento, a força vem da anca) e 2 × 10 m de bear crawl (joelhos a 2–3 cm do chão, costas planas, passos curtos). Pausa completa no minuto.","gif":"db-snatch","gifs":[{"key":"db-snatch","label":"Snatch com haltere"},{"key":"bear-crawl","label":"Bear crawl"}]},"alt":{"name":"3 rondas: plate push e air bike","dose":"3 rondas · 1 min de pausa, RPE 6–7","cue":"Em cada ronda: 2 × 10–15 m a empurrar um disco no chão (ou o trenó, se estiver livre), braços estendidos e passos curtos, e 10 calorias de air bike a ritmo firme. Pausa completa no minuto.","gif":"plate-push","gifs":[{"key":"plate-push","label":"Plate push"},{"key":"air-bike","label":"Air bike"}]}}
+        "c-lateral": {"id":"c-face","title":"Estabilidade de ombro (face pull)","log":true,"main":{"name":"Puxada à face (face pull)","dose":"2 séries de 12–15 repetições","cue":"Corda na polia à altura da cara. Puxa em direção à face, cotovelos altos, e roda as mãos para trás no final. É trabalho de qualidade para o manguito rotador e as costas altas, a apoiar o boxe — não é um exercício de carga máxima. Duas séries chegam.","gif":"face-pull","rest":"45–60 s"},"alt":{"name":"Deltoide posterior na máquina (reverse pec deck)","dose":"2 séries de 12–15 repetições","cue":"Peito encostado ao apoio, pegas à altura dos ombros. Abre os braços para trás até à linha do tronco, sem encolher os ombros, e volta devagar. Mesmo objetivo: ombros e costas altas estáveis.","gif":"rear-delt-machine","rest":"45–60 s"}},
+        "c-cond": {"id":"c-finisher","title":"Fecho curto","main":{"name":"Remo fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"O boxe já cobre o condicionamento. Fecha com 4 minutos de remo suave na área de cross, só para baixar o ritmo, e passa aos alongamentos.","gif":"rowing"},"alt":{"name":"Air bike fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"Resistência baixa, sem sprint. Quatro minutos e está fechado.","gif":"air-bike"}}
+      },
+      insertAfter: {
+        "a-pulldown": {"id":"a-face","title":"Estabilidade de ombro (face pull)","log":true,"main":{"name":"Puxada à face (face pull)","dose":"2 séries de 12–15 repetições","cue":"Corda na polia à altura da cara. Puxa em direção à face, cotovelos altos, e roda as mãos para trás no final. Qualidade para o manguito rotador e as costas altas, a apoiar o boxe. Carga leve, duas séries.","gif":"face-pull","rest":"45–60 s"},"alt":{"name":"Deltoide posterior na máquina (reverse pec deck)","dose":"2 séries de 12–15 repetições","cue":"Peito encostado ao apoio, pegas à altura dos ombros. Abre os braços para trás até à linha do tronco, sem encolher os ombros. Mesmo objetivo: ombros estáveis e costas altas.","gif":"rear-delt-machine","rest":"45–60 s"}},
+        "c-row": {"id":"c-pallof","title":"Core anti-rotação","log":true,"main":{"name":"Pallof press na polia (semi-ajoelhado)","dose":"2 séries de 10 repetições por lado","cue":"Polia à altura do peito, de lado para ela, um joelho no chão. Empurra a pega à frente do peito, segura 2 segundos sem deixar o tronco rodar e volta devagar. Carga leve: resistir à rotação, o mesmo padrão que no boxe. Troca de lado. Duas séries chegam.","gif":"pallof-press","rest":"45–60 s"},"alt":{"name":"Prancha lateral","dose":"2 séries de 25–35 segundos por lado","cue":"Antebraço por baixo do ombro, corpo em linha, anca alta. Se a anca cair, termina a série. Anota os segundos no campo das reps.","gif":"side-plank","rest":"45–60 s"}}
       },
       replaceD: {
         "d-metcon": {"id":"d-metcon-w2","title":"Metcon leve na área de cross","main":{"name":"AMRAP 10 min: SkiErg, push press e slam ball","dose":"10 minutos suaves, RPE 6","cue":"Área de cross da TTF Maia. Durante 10 minutos, repete: 150 m de SkiErg, 8 push press com halteres leves e 8 slam balls. Conta as rondas, sem corrida contra o relógio. Se precisares, alonga o SkiErg e reduz 2 repetições.","gif":"ski-erg","gifs":[{"key":"ski-erg","label":"SkiErg"},{"key":"db-push-press","label":"Push press com halteres"},{"key":"ball-slam","label":"Slam ball"}]},"alt":{"name":"4 rondas: battle rope, thrusters e bear crawl","dose":"4 rondas · 1 min de pausa, RPE 6","cue":"Em cada ronda: 30 s de battle rope, 8 thrusters com kettlebell leve e 10 m de bear crawl. Pausa completa no minuto.","gif":"battle-rope","gifs":[{"key":"battle-rope","label":"Battle rope"},{"key":"kb-thruster","label":"Thruster com kettlebell"},{"key":"bear-crawl","label":"Bear crawl"}]}}
       },
       meta: {
-        a: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Os quatro exercícios principais são os mesmos da semana 1, para comparares cargas — e na semana 1 fizeste as 12 repetições em todas as séries, por isso esta semana a carga sobe um pouco (vê a nota em cada cartão). Mudam o superset de braços (máquina Scott + extensão com corda), o core (Pallof press) e o condicionamento (SkiErg 40/20).</p></aside>
-        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — agachar, puxar, empurrar, romeno, braços e core anti-rotação</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div><div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div><div><dt>Condicionamento</dt><dd>8 × (40 s forte / 20 s leve) no SkiErg, ou battle rope 8 × 30/30</dd></div></dl>`,
-        b: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Os principais (afundos, desenvolvimento, remada com haltere) mantêm-se. Ainda não há registo deste treino, por isso o volume fica igual ao planeado: encontra cargas em RPE 7 e anota-as. Mudam o superset de braços, o core (elevação de joelhos) e o fecho na área de cross.</p></aside>
-        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — afundos, ombros, remada, braços e core</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div><div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div><div><dt>Fecho</dt><dd>EMOM 8 min: thrusters e slam ball (RPE 6–7)</dd></div></dl>`,
-        c: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Os principais (búlgaro, inclinado, remada na polia) mantêm-se. Ainda sem registo deste treino: volume igual, cargas em RPE 7. Mudam o superset de braços (barra + pegada fechada), os ombros (elevação lateral na polia) e o fecho na área de cross.</p></aside>
-        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — afundo búlgaro, inclinado, remada, braços, ombros e fecho na área de cross</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div><div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div><div><dt>Fecho</dt><dd>3 rondas: snatch com haltere + bear crawl (RPE 6–7)</dd></div></dl>`
+        a: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Objetivo da semana: 2 musculação + 1–2 boxe. Os quatro exercícios principais são os mesmos da semana 1, para comparares cargas — e na semana 1 fizeste as 12 em todas as séries, por isso a carga sobe um pouco (vê a nota em cada cartão). Entra também o face pull (ombros e costas altas) e o Pallof press. O fecho é só 4 minutos suaves: o boxe já cobre o condicionamento.</p></aside>
+        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — agachar, puxar, empurrar, romeno, estabilidade de ombro, braços e core anti-rotação</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho curto)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7</dd></div><div><dt>Fecho</dt><dd>4 min de remo ou bicicleta, ritmo de conversa</dd></div></dl>`,
+        b: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Objetivo da semana: 2 musculação + 1–2 boxe. Esta é uma das duas sessões de força sugeridas (juntamente com o C). Os principais (afundos, desenvolvimento, remada) mantêm-se: encontra cargas em RPE 7 e anota-as. O face pull apoia os ombros no boxe; o core passa a Pallof press (anti-rotação). O fecho é só 4 minutos suaves.</p></aside>
+        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — afundos, ombros, remada, estabilidade de ombro, braços e core anti-rotação</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho curto)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7</dd></div><div><dt>Fecho</dt><dd>4 min de SkiErg ou air bike, ritmo de conversa</dd></div></dl>`,
+        c: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Objetivo da semana: 2 musculação + 1–2 boxe. Esta é uma das duas sessões de força sugeridas (juntamente com o B). Os principais (búlgaro, inclinado, remada na polia) mantêm-se: cargas em RPE 7. Entra o Pallof press e o face pull (ombros e costas altas). O fecho é só 4 minutos suaves.</p></aside>
+        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — afundo búlgaro, inclinado, remada, core anti-rotação, estabilidade de ombro e braços</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho curto)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7</dd></div><div><dt>Fecho</dt><dd>4 min de remo ou air bike, ritmo de conversa</dd></div></dl>`,
+        d: `<aside class="callout neutral"><p class="lead">Dia D (opcional)</p><p>A partir desta semana o boxe substitui o Dia D na maior parte das vezes. Só faz esta sessão se não tiveres aula de boxe e ainda te sentires com energia, com pelo menos um dia de folga em relação ao último treino pesado. A zona 2 é a opção mais segura.</p></aside>`,
+        boxe: `<aside class="callout info"><p class="lead">Boxe na TTF Maia</p><p>Tenta uma ou duas aulas por semana. Marca cada aula como feita e anota a duração e o RPE. Não precisas do aquecimento nem dos alongamentos do plano neste dia — a aula já os inclui. Se no dia seguinte os ombros ou as pernas estiverem muito carregados, reduz a carga na musculação.</p></aside>
+        <dl class="props"><div><dt>Objetivo</dt><dd>1–2 aulas por semana</dd></div><div><dt>Duração</dt><dd>a da aula (normalmente 45–60 min)</dd></div><div><dt>Registo</dt><dd>Minutos, RPE 1–10 e notas opcionais</dd></div></dl>`
       }
     }
   };
@@ -1173,6 +1190,20 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
         return card;
       });
     }
+    const inserts = v.insertAfter || {};
+    if (Object.keys(inserts).length) {
+      for (const [key, list] of Object.entries(out)) {
+        const next = [];
+        for (const card of list || []) {
+          next.push(card);
+          if (inserts[card.id]) {
+            const extra = inserts[card.id];
+            next.push(...(Array.isArray(extra) ? extra : [extra]));
+          }
+        }
+        out[key] = next;
+      }
+    }
     variantCache[week] = out;
     return out;
   }
@@ -1193,6 +1224,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     pick: {},
     done: {},
     loads: {},
+    boxe: {},
   });
 
   function gifUrl(key) {
@@ -1241,10 +1273,11 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     const days = meta && !usesDefaultPlan() ? Number(meta.daysPerWeek) || 3 : 4;
     if (usesDefaultPlan() || days >= 3) tabs.push("b");
     if (usesDefaultPlan() || days >= 3) tabs.push("c");
-    // for 2-day plans keep A and B
+    // for 2-day plans keep A and B, plus boxe
     if (!usesDefaultPlan() && days === 2) {
-      return ["warmup", "a", "b", "stretch"];
+      return ["warmup", "a", "b", "boxe", "stretch"];
     }
+    tabs.push("boxe");
     if (usesDefaultPlan() || (meta && meta.includeDayD) || (!meta && days >= 4)) tabs.push("d");
     tabs.push("stretch");
     return tabs;
@@ -1259,6 +1292,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       pick: raw.pick && typeof raw.pick === "object" ? raw.pick : {},
       done: raw.done && typeof raw.done === "object" ? raw.done : {},
       loads: raw.loads && typeof raw.loads === "object" ? raw.loads : {},
+      boxe: raw.boxe && typeof raw.boxe === "object" ? raw.boxe : {},
     };
   }
 
@@ -1269,6 +1303,61 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     el.textContent = text;
   }
 
+  const BOXE_CARDS = [
+    {
+      id: "boxe-1",
+      title: "Aula de boxe 1",
+      logKind: "boxe",
+      main: {
+        name: "Aula de boxe na TTF Maia",
+        dose: "1 aula (normalmente 45–60 min)",
+        cue: "Marca a aula como feita e anota a duração e o esforço (RPE 1–10). Não precisas do aquecimento nem dos alongamentos do plano neste dia — a aula já os inclui. Se no dia seguinte os ombros ou as pernas estiverem muito carregados, reduz a carga na musculação.",
+      },
+    },
+    {
+      id: "boxe-2",
+      title: "Aula de boxe 2 (opcional)",
+      logKind: "boxe",
+      main: {
+        name: "Segunda aula de boxe na TTF Maia",
+        dose: "1 aula extra, se as pernas e os ombros estiverem bem",
+        cue: "Só se recuperaste da primeira aula e da musculação. O mínimo da semana é uma aula; a segunda é um bónus. Anota outra vez a duração e o RPE.",
+      },
+    },
+  ];
+
+  function isBoxeCard(id) {
+    return id === "boxe-1" || id === "boxe-2";
+  }
+
+  function boxeKey(week, id) { return `${week}:${id}`; }
+
+  function getBoxeLog(week, id) {
+    const row = state.boxe[boxeKey(week, id)] || {};
+    return {
+      minutes: row.minutes == null ? "" : String(row.minutes),
+      rpe: row.rpe == null ? "" : String(row.rpe),
+      notes: row.notes || "",
+    };
+  }
+
+  function suggestedStrengthTabs(week) {
+    if (week === "1") return ["a", "b", "c"];
+    const rot = { "2": ["b", "c"], "3": ["a", "b"], "4": ["c", "a"] };
+    return rot[week] || ["a", "b"];
+  }
+
+  function weekObjectiveHtml() {
+    if (Number(state.week) < 2) return "";
+    const sug = suggestedStrengthTabs(state.week);
+    const labels = { a: "Treino A", b: "Treino B", c: "Treino C" };
+    const pair = sug.map((t) => labels[t]).join(" e ");
+    return `<aside class="callout info" id="week-objective">
+      <p class="lead">Objetivo: 2 musculação + 1–2 boxe</p>
+      <p>Duas sessões de força (A, B ou C, a rodar) e uma ou duas aulas de boxe na TTF Maia. O Dia D fica opcional — o boxe já cobre o condicionamento. Esta semana, prefere ${esc(pair)}.</p>
+    </aside>`;
+  }
+
   function sessionCards() {
     const cat = activeCatalog();
     const tab = state.tab;
@@ -1276,6 +1365,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     if (tab === "a") return (cat.treinoA || []).concat(cat.condA || []);
     if (tab === "b") return cat.treinoB || [];
     if (tab === "c") return cat.treinoC || [];
+    if (tab === "boxe") return BOXE_CARDS;
     if (tab === "d") return state.dayD === "z2" ? (cat.diaDZ2 || []) : (cat.diaDMetcon || []);
     return cat.alongamentos || [];
   }
@@ -1367,15 +1457,16 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   async function loadFromCloud() {
     if (!user) return;
     setSync("saving", "A carregar…");
-    const [settingsRes, doneRes, loadsRes, progressRes] = await Promise.all([
+    const [settingsRes, doneRes, loadsRes, progressRes, boxeRes] = await Promise.all([
       supabase.from("plan_settings").select("week,tab,day_d,picks").eq("user_id", user.id).maybeSingle(),
       supabase.from("plan_done").select("week,card_id,done").eq("user_id", user.id),
       supabase.from("plan_loads").select("week,card_id,side,set_index,kg,reps").eq("user_id", user.id),
       supabase.from("plan_progress").select("id,recorded_on,weight_kg,waist_cm").eq("user_id", user.id).order("recorded_on", { ascending: true }),
+      supabase.from("plan_boxe_logs").select("week,card_id,minutes,rpe,notes").eq("user_id", user.id),
     ]);
-    if (settingsRes.error || doneRes.error || loadsRes.error || progressRes.error) {
+    if (settingsRes.error || doneRes.error || loadsRes.error || progressRes.error || boxeRes.error) {
       setSync("error", "Não foi possível carregar o registo");
-      console.error(settingsRes.error || doneRes.error || loadsRes.error || progressRes.error);
+      console.error(settingsRes.error || doneRes.error || loadsRes.error || progressRes.error || boxeRes.error);
       return;
     }
     const next = defaultState();
@@ -1397,6 +1488,13 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       const idx = Number(row.set_index) || 0;
       while (next.loads[key].length <= idx) next.loads[key].push({ kg: "", reps: "" });
       next.loads[key][idx] = { kg: row.kg || "", reps: row.reps || "" };
+    }
+    for (const row of boxeRes.data || []) {
+      next.boxe[boxeKey(row.week, row.card_id)] = {
+        minutes: row.minutes == null ? "" : String(row.minutes),
+        rpe: row.rpe == null ? "" : String(row.rpe),
+        notes: row.notes || "",
+      };
     }
     state = next;
     progressRows = progressRes.data || [];
@@ -1597,6 +1695,41 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     }, 400);
   }
 
+  async function saveBoxeLog(week, id, field, value) {
+    if (!user || !isBoxeCard(id)) return;
+    const key = boxeKey(week, id);
+    const current = getBoxeLog(week, id);
+    current[field] = value;
+    state.boxe[key] = current;
+    const timerKey = `boxe:${key}`;
+    clearTimeout(loadTimers[timerKey]);
+    loadTimers[timerKey] = setTimeout(async () => {
+      setSync("saving", "A guardar…");
+      const minutes = parseDecimal(current.minutes);
+      const rpe = parseDecimal(current.rpe);
+      const notes = String(current.notes || "").trim();
+      const empty = minutes == null && rpe == null && !notes;
+      if (empty) {
+        const { error } = await supabase.from("plan_boxe_logs").delete()
+          .eq("user_id", user.id).eq("week", week).eq("card_id", id);
+        if (error) { setSync("error", "Erro ao guardar"); console.error(error); return; }
+        setSync("saved", "Guardado");
+        return;
+      }
+      const { error } = await supabase.from("plan_boxe_logs").upsert({
+        user_id: user.id,
+        week,
+        card_id: id,
+        minutes: minutes == null ? null : Math.round(minutes),
+        rpe,
+        notes: notes || null,
+        updated_at: new Date().toISOString(),
+      });
+      if (error) { setSync("error", "Erro ao guardar"); console.error(error); return; }
+      setSync("saved", "Guardado");
+    }, 400);
+  }
+
   async function resetSessionCloud(cards) {
     if (!user) return;
     setSync("saving", "A guardar…");
@@ -1604,6 +1737,13 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     const { error } = await supabase.from("plan_done").delete()
       .eq("user_id", user.id).eq("week", state.week).in("card_id", ids);
     if (error) { setSync("error", "Erro ao guardar"); console.error(error); return; }
+    const boxeIds = ids.filter(isBoxeCard);
+    if (boxeIds.length) {
+      for (const id of boxeIds) delete state.boxe[boxeKey(state.week, id)];
+      const { error: bErr } = await supabase.from("plan_boxe_logs").delete()
+        .eq("user_id", user.id).eq("week", state.week).in("card_id", boxeIds);
+      if (bErr) { setSync("error", "Erro ao guardar"); console.error(bErr); return; }
+    }
     setSync("saved", "Guardado");
   }
 
@@ -1612,6 +1752,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     setSync("saving", "A importar…");
     await supabase.from("plan_done").delete().eq("user_id", user.id);
     await supabase.from("plan_loads").delete().eq("user_id", user.id);
+    await supabase.from("plan_boxe_logs").delete().eq("user_id", user.id);
     const doneRows = Object.entries(next.done)
       .filter(([, v]) => v)
       .map(([k]) => {
@@ -1641,6 +1782,25 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       const { error } = await supabase.from("plan_loads").upsert(loadRows);
       if (error) { setSync("error", "Erro ao importar"); console.error(error); return false; }
     }
+    const boxeRows = [];
+    for (const [key, row] of Object.entries(next.boxe || {})) {
+      const [week, ...rest] = key.split(":");
+      const cardId = rest.join(":");
+      if (!isBoxeCard(cardId) || !row) continue;
+      const minutes = parseDecimal(row.minutes);
+      const rpe = parseDecimal(row.rpe);
+      const notes = String(row.notes || "").trim();
+      if (minutes == null && rpe == null && !notes) continue;
+      boxeRows.push({
+        user_id: user.id, week, card_id: cardId,
+        minutes: minutes == null ? null : Math.round(minutes),
+        rpe, notes: notes || null, updated_at: new Date().toISOString(),
+      });
+    }
+    if (boxeRows.length) {
+      const { error } = await supabase.from("plan_boxe_logs").upsert(boxeRows);
+      if (error) { setSync("error", "Erro ao importar"); console.error(error); return false; }
+    }
     state = next;
     const { error } = await supabase.from("plan_settings").upsert({
       user_id: user.id,
@@ -1659,7 +1819,17 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     const tab = state.tab;
     const meta = planMeta();
     const ownVariant = WEEK_VARIANTS[state.week];
-    if (usesDefaultPlan() && ownVariant && ownVariant.meta && ownVariant.meta[tab]) return ownVariant.meta[tab];
+    if (usesDefaultPlan() && ownVariant && ownVariant.meta && ownVariant.meta[tab]) {
+      if (tab === "d") {
+        const z2 = state.dayD === "z2";
+        return `${ownVariant.meta[tab]}
+        <div class="seg" role="tablist" aria-label="Opção do Dia D">
+          <button type="button" data-dayd="z2" aria-pressed="${z2 ? "true" : "false"}">Zona 2</button>
+          <button type="button" data-dayd="metcon" aria-pressed="${!z2 ? "true" : "false"}">Metcon leve</button>
+        </div>`;
+      }
+      return ownVariant.meta[tab];
+    }
     if (!usesDefaultPlan() && meta) {
       const dur = `cerca de ${meta.sessionMinutes || 45} minutos`;
       const rpe = `RPE ${meta.rpe || 7}`;
@@ -1727,12 +1897,24 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
           <div><dt>Fecho</dt><dd>WOD curto e leve na área de cross (3 rondas, RPE 6)</dd></div>
         </dl>`;
     }
+    if (tab === "boxe") {
+      return `
+        <aside class="callout info">
+          <p class="lead">Boxe na TTF Maia</p>
+          <p>Tenta uma ou duas aulas por semana. Marca cada aula como feita e anota a duração e o RPE. Não precisas do aquecimento nem dos alongamentos do plano neste dia — a aula já os inclui.</p>
+        </aside>
+        <dl class="props">
+          <div><dt>Objetivo</dt><dd>1–2 aulas por semana</dd></div>
+          <div><dt>Duração</dt><dd>a da aula (normalmente 45–60 min)</dd></div>
+          <div><dt>Registo</dt><dd>Minutos, RPE 1–10 e notas opcionais</dd></div>
+        </dl>`;
+    }
     if (tab === "d") {
       const z2 = state.dayD === "z2";
       return `
         <aside class="callout neutral">
-          <p class="lead">Dia opcional</p>
-          <p>Só se as pernas e os ombros estiverem bem depois de A, B e C, e com pelo menos um dia de folga em relação ao último treino pesado. A zona 2 é a opção preferida. O metcon leve, na área de cross da TTF Maia, é a alternativa — não um acréscimo. São WODs curtos, escalados e de baixo impacto (sem saltos nem corrida contra o relógio).</p>
+          <p class="lead">Dia D (opcional)</p>
+          <p>Só se as pernas e os ombros estiverem bem depois de A, B e C, e com pelo menos um dia de folga em relação ao último treino pesado. A partir da semana 2, o boxe substitui este dia na maior parte das vezes. A zona 2 é a opção preferida. O metcon leve, na área de cross da TTF Maia, é a alternativa — não um acréscimo.</p>
         </aside>
         <div class="seg" role="tablist" aria-label="Opção do Dia D">
           <button type="button" data-dayd="z2" aria-pressed="${z2 ? "true" : "false"}">Zona 2</button>
@@ -1764,6 +1946,32 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   }
 
   function logHtml(card, side) {
+    if (card.logKind === "boxe" || isBoxeCard(card.id)) {
+      const log = getBoxeLog(state.week, card.id);
+      const prevWeek = String(Number(state.week) - 1);
+      const prev = Number(state.week) > 1 ? getBoxeLog(prevWeek, card.id) : null;
+      const hasPrev = prev && (prev.minutes || prev.rpe || prev.notes);
+      const ref = hasPrev
+        ? `<div class="ref">Semana ${esc(prevWeek)}: ${esc(prev.minutes || "—")} min · RPE ${esc(prev.rpe || "—")}${prev.notes ? " · " + esc(prev.notes) : ""}</div>`
+        : (Number(state.week) > 1 ? `<div class="ref">Sem registo na semana anterior.</div>` : "");
+      return `
+      <div class="log">
+        <h4>Registo da aula</h4>
+        <p class="hint">Anota quanto durou a aula e como te sentiste (RPE 1–10). As notas são opcionais.</p>
+        <div class="set boxe-log" data-boxe-card="${esc(card.id)}">
+          <label class="field">Duração (min)
+            <input type="number" inputmode="numeric" min="1" max="180" autocomplete="off" name="min-${esc(card.id)}" value="${esc(log.minutes)}" data-field="minutes" aria-label="Duração da aula em minutos">
+          </label>
+          <label class="field">RPE (1–10)
+            <input type="number" inputmode="decimal" min="1" max="10" step="0.5" autocomplete="off" name="rpe-${esc(card.id)}" value="${esc(log.rpe)}" data-field="rpe" aria-label="Esforço da aula, RPE de 1 a 10">
+          </label>
+          <label class="field field-notes">Notas
+            <input type="text" maxlength="500" autocomplete="off" name="notes-${esc(card.id)}" value="${esc(log.notes)}" data-field="notes" aria-label="Notas da aula de boxe">
+          </label>
+        </div>
+        ${ref}
+      </div>`;
+    }
     const n = setCount(state.week, card.id);
     if (!n) return "";
     const second = SECOND_LABEL[card.id] || "Reps";
@@ -1804,7 +2012,10 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   }
 
   function framesHtml(selected) {
-    const items = Array.isArray(selected.gifs) && selected.gifs.length
+    if (!selected) return "";
+    const hasList = Array.isArray(selected.gifs) && selected.gifs.length;
+    if (!hasList && !selected.gif) return "";
+    const items = hasList
       ? selected.gifs
       : [{ key: selected.gif, label: selected.name }];
     const many = items.length > 1 ? " many" : "";
@@ -1867,10 +2078,16 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     document.querySelectorAll("[data-week]").forEach((btn) => {
       btn.setAttribute("aria-pressed", btn.getAttribute("data-week") === state.week ? "true" : "false");
     });
+    const suggested = Number(state.week) >= 2 ? suggestedStrengthTabs(state.week) : [];
     document.querySelectorAll("[data-tab]").forEach((btn) => {
       const tab = btn.getAttribute("data-tab");
       btn.hidden = tab && !tabs.includes(tab);
       btn.setAttribute("aria-pressed", tab === state.tab ? "true" : "false");
+      if (tab === "a" || tab === "b" || tab === "c") {
+        btn.classList.toggle("suggested", suggested.includes(tab));
+        if (suggested.includes(tab)) btn.setAttribute("title", "Sessão de força sugerida nesta semana");
+        else btn.removeAttribute("title");
+      }
     });
   }
 
@@ -1901,6 +2118,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       ? `<button type="button" class="btn danger" id="reset-session">Recomeçar esta sessão</button>`
       : "";
     root.innerHTML = `
+      ${weekObjectiveHtml()}
       <div class="btn-row" id="session-bar">
         <p class="counter" id="session-counter">Checklist desta sessão: ${n} de ${total} feitos · semana ${esc(state.week)}</p>
         ${reset}
@@ -2375,7 +2593,14 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
 
   document.addEventListener("input", (ev) => {
     const input = ev.target;
-    if (!(input instanceof HTMLInputElement)) return;
+    if (!(input instanceof HTMLInputElement) && !(input instanceof HTMLTextAreaElement)) return;
+    const boxeSet = input.closest("[data-boxe-card]");
+    if (boxeSet) {
+      const id = boxeSet.getAttribute("data-boxe-card");
+      const field = input.getAttribute("data-field");
+      if (id && field) saveBoxeLog(state.week, id, field, input.value);
+      return;
+    }
     const set = input.closest(".set");
     if (!set) return;
     const id = set.getAttribute("data-log-card");
@@ -2455,8 +2680,9 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     navigator.serviceWorker.register("./sw.js", { scope: "./" }).catch((err) => console.warn("SW", err));
   }
 
-  window.__treino = { supabase, onSignedIn, generatePlan, isMarioEmail, marioProfilePayload, translateAuthError, signUpViaFunction };
+  window.__treino = { supabase, onSignedIn, generatePlan, isMarioEmail, marioProfilePayload, translateAuthError, signUpViaFunction, getState: () => state, BOXE_CARDS };
 })();
+
 </script>
 </body>
 </html>
