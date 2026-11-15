@@ -819,10 +819,10 @@ button.btn.linkish {
       </div>
       <div class="toolbar sticky">
         <div class="seg" role="tablist" aria-label="Semana">
-          <button type="button" data-week="1" aria-pressed="true">Semana 1</button>
-          <button type="button" data-week="2" aria-pressed="false">Semana 2</button>
-          <button type="button" data-week="3" aria-pressed="false">Semana 3</button>
-          <button type="button" data-week="4" aria-pressed="false">Semana 4</button>
+          <button type="button" data-week="1" aria-pressed="true">Semana 1 · 10–15 nov</button>
+          <button type="button" data-week="2" aria-pressed="false">Semana 2 · 16–22 nov</button>
+          <button type="button" data-week="3" aria-pressed="false">Semana 3 · 23–29 nov</button>
+          <button type="button" data-week="4" aria-pressed="false">Semana 4 · 30 nov–7 dez</button>
         </div>
         <div class="seg" role="tablist" aria-label="Sessão">
           <button type="button" data-tab="warmup" aria-pressed="false">Aquecimento</button>
@@ -1094,6 +1094,98 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   const ARM_IDS = new Set(["a-arms", "b-arms", "c-arms"]);
   const SECOND_LABEL = {};
 
+  /* Variações semanais do bloco 1 (10 nov – 7 dez 2026).
+     Os exercícios principais mantêm o mesmo id em todas as semanas (para comparar cargas).
+     Cada semana troca finishers e acessórios: os cartões novos têm ids novos.
+     Uma semana sem entrada própria herda a variação da semana anterior mais próxima. */
+  const WEEK_DATES = { "1": "10–15 nov", "2": "16–22 nov", "3": "23–29 nov", "4": "30 nov–7 dez" };
+  const WEEK_VARIANTS = {
+    "2": {
+      notes: {
+        "a-squat": "Semana 2: na semana 1 fizeste 70 → 80 → 90 kg × 12 na prensa. Começa já nos 90 kg nas três séries; se as 12 saírem limpas, sobe a última para 95–100 kg. No goblet, procura um haltere com o qual as 12 fiquem em RPE 7.",
+        "a-pulldown": "Semana 2: fizeste 50 → 55 → 55 kg × 12. Faz 55 kg nas três séries e, se a última ainda deixar 2–3 reps em reserva, tenta 57,5–60 kg.",
+        "a-press": "Semana 2: fizeste 18 → 19 → 20 kg × 12 por haltere. Faz 20 kg nas três séries; se as 12 saírem fáceis, sobe a última para 22 kg.",
+        "a-rdl": "Semana 2: fizeste 25 kg × 10 nas três séries, sempre igual — sinal de que há margem. Sobe para 27,5–30 kg por haltere, mantendo a coluna neutra.",
+        "b-lunge": "Semana 2: ainda sem registo deste treino. Escolhe uma carga em que as 10 por perna fiquem em RPE 7 e anota-a — é a tua referência para as próximas semanas.",
+        "b-press": "Semana 2: ainda sem registo. Começa conservador (RPE 7) e anota a carga.",
+        "b-row": "Semana 2: ainda sem registo. Na remada acessória do Treino A da semana 1 chegaste aos 50 kg × 12 (máquina); com um haltere, começa à volta de 22–26 kg por lado e ajusta.",
+        "c-bulgarian": "Semana 2: ainda sem registo. Começa com halteres leves; a prioridade é o equilíbrio e a amplitude.",
+        "c-incline": "Semana 2: ainda sem registo. Como referência, no supino plano fizeste 20 kg × 12; no inclinado começa por 16–18 kg por haltere.",
+        "c-row": "Semana 2: ainda sem registo. Na remada acessória da semana 1 (máquina) chegaste aos 50 kg × 12; na polia começa nos 45–50 kg e ajusta."
+      },
+      replace: {
+        "a-plank": {"id":"a-pallof","title":"Core anti-rotação","log":true,"main":{"name":"Pallof press na polia (semi-ajoelhado)","dose":"3 séries de 10 repetições por lado","cue":"Polia à altura do peito, de lado para ela, um joelho no chão. Empurra a pega em linha reta à frente do peito, segura 2 segundos sem deixar o tronco rodar e volta devagar. Carga leve: o trabalho é resistir à rotação. Troca de lado.","gif":"pallof-press","rest":"45–60 s"},"alt":{"name":"Prancha lateral","dose":"3 séries de 25–35 segundos por lado","cue":"Antebraço por baixo do ombro, pés empilhados (ou o de cima à frente), anca alta e corpo em linha. Se a anca cair, termina a série. Anota os segundos no campo das reps.","gif":"side-plank","rest":"45–60 s"}},
+        "a-arms": {"id":"a-arms-w2","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl na máquina Scott e extensão com corda por cima da cabeça","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Superset: curl na máquina Scott (braços bem apoiados no banco, sobe sem tirar os cotovelos do apoio e desce até quase estender) e, quase sem pausa, extensão de tríceps com corda na polia, de costas para a máquina — cotovelos junto à cabeça, estende à frente e por cima. Descansa cerca de 60 segundos só no fim do par.","gif":"preacher-curl","gifs":[{"key":"preacher-curl","label":"Curl na máquina Scott"},{"key":"rope-oh-extension","label":"Extensão com corda por cima da cabeça"}]},"alt":{"name":"Curl concentrado e kickback com haltere","dose":"2 séries de 10–12 de cada (por braço), RPE 7","cue":"Se a máquina Scott estiver ocupada: curl concentrado sentado (cotovelo apoiado na parte de dentro da coxa, sobe devagar) e kickback com haltere apoiado no banco (braço colado ao tronco, estende o cotovelo até ao fim). Faz um braço e depois o outro; pausa só no fim do par.","gif":"concentration-curl","gifs":[{"key":"concentration-curl","label":"Curl concentrado"},{"key":"db-kickback","label":"Kickback com haltere"}]}}
+      },
+      replaceCond: {
+        "a-cond": {"id":"a-cond-w2","title":"Condicionamento (intervalos)","main":{"name":"Intervalos no SkiErg","dose":"8 rondas de 40 s forte + 20 s leve (8 min), RPE 7","cue":"Na área de cross da TTF Maia. Puxa com o corpo todo: braços em cima, dobra a anca e os joelhos ligeiramente e leva as pegas até às coxas. Os 40 s são fortes mas sustentáveis em todas as rondas; nos 20 s continua a deslizar muito leve. Menos tempo de recuperação do que os 30/30 da semana 1, por isso arranca com calma.","gif":"ski-erg"},"alt":{"name":"Intervalos de battle rope","dose":"8 rondas de 30 s forte + 30 s de pausa (8 min), RPE 7","cue":"Pés à largura dos ombros, joelhos fletidos, tronco ligeiramente inclinado. Ondas alternadas rápidas, com os braços a trabalhar a partir dos ombros, sem perder a postura. Na pausa, larga as cordas e respira.","gif":"battle-rope"}}
+      },
+      replaceB: {
+        "b-arms": {"id":"b-arms-w2","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl martelo com corda e pushdown em pegada invertida","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Superset na mesma polia ou em polias vizinhas: curl martelo com corda na polia baixa (palmas viradas uma para a outra, cotovelos fixos) e pushdown com barra em pegada invertida (palmas para cima) na polia alta — cotovelos junto ao tronco, estende até ao fim. Pausa de 60 s só no fim do par.","gif":"rope-hammer-curl","gifs":[{"key":"rope-hammer-curl","label":"Curl martelo com corda"},{"key":"reverse-pushdown","label":"Pushdown em pegada invertida"}]},"alt":{"name":"Curl invertido com barra EZ e mergulhos no banco","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Curl com barra EZ em pegada invertida (palmas para baixo, sem balançar) e mergulhos de tríceps no banco — mãos na borda, desce até os cotovelos fazerem cerca de 90 graus, sem deixar os ombros rolar para a frente. Pernas fletidas para facilitar, estendidas para dificultar. Anota 0 kg nos mergulhos se forem só com o peso do corpo.","gif":"ez-reverse-curl","gifs":[{"key":"ez-reverse-curl","label":"Curl invertido com barra EZ"},{"key":"bench-dips","label":"Mergulhos no banco"}]}},
+        "b-deadbug": {"id":"b-kneeraise","title":"Core","log":true,"main":{"name":"Elevação de joelhos suspenso","dose":"3 séries de 8–12 repetições","cue":"Na barra ou na cadeira romana (apoio de antebraços). Sobe os joelhos em direção ao peito enrolando a bacia, desce devagar e sem balançar. Se o balanço aparecer, faz menos repetições e com pausa em baixo.","gif":"hanging-knee-raise","rest":"60 s"},"alt":{"name":"Crunch invertido","dose":"3 séries de 12–15 repetições","cue":"Deitado, joelhos fletidos a 90 graus, mãos ao lado do corpo. Enrola a bacia e leva os joelhos ao peito, tirando a parte de baixo das costas do chão, e desce controlado sem bater com os pés.","gif":"reverse-crunch","rest":"60 s"}},
+        "b-cond": {"id":"b-cond-w2","title":"Condicionamento na área de cross","main":{"name":"EMOM 8 min: thrusters com kettlebell e slam ball","dose":"8 minutos, RPE 6–7","cue":"Área de cross da TTF Maia. Minutos ímpares: 8 thrusters com uma kettlebell (ou duas leves) — agachamento frontal e, a subir, empurra a carga por cima da cabeça num só movimento. Minutos pares: 10 slam balls (bola de 6–9 kg): sobe a bola por cima da cabeça e atira-a ao chão dobrando a anca. Se o minuto ficar apertado, tira 2 repetições.","gif":"kb-thruster","gifs":[{"key":"kb-thruster","label":"Thruster com kettlebell"},{"key":"ball-slam","label":"Slam ball"}]},"alt":{"name":"8 min: air bike e push press","dose":"8 minutos contínuos, RPE 6–7","cue":"Alterna 40 segundos de air bike a ritmo firme e 8 push press com halteres leves (pequena flexão dos joelhos e empurra os halteres por cima da cabeça com a ajuda das pernas). Sem pausas longas, mas sem sprint.","gif":"air-bike","gifs":[{"key":"air-bike","label":"Air bike"},{"key":"db-push-press","label":"Push press com halteres"}]}}
+      },
+      replaceC: {
+        "c-arms": {"id":"c-arms-w2","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl com barra e supino de pegada fechada","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Superset: curl com barra direita (cotovelos colados ao tronco, sem balançar as costas) e supino de pegada fechada (mãos à largura dos ombros, cotovelos junto ao corpo, barra até à parte baixa do peito). Usa a barra livre ou a Smith. Pausa de 60 s só no fim do par.","gif":"barbell-curl","gifs":[{"key":"barbell-curl","label":"Curl com barra"},{"key":"close-grip-bench","label":"Supino de pegada fechada"}]},"alt":{"name":"Curl inclinado com halteres e flexões diamante","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Curl com halteres sentado num banco inclinado a cerca de 45–60 graus (braços pendurados atrás do tronco, sobe sem levar os cotovelos à frente) e flexões diamante (mãos juntas por baixo do peito, cotovelos junto ao corpo). Se as flexões ficarem pesadas, faz com os joelhos no chão. Anota 0 kg nas flexões.","gif":"incline-db-curl","gifs":[{"key":"incline-db-curl","label":"Curl inclinado"},{"key":"diamond-pushup","label":"Flexões diamante"}]}},
+        "c-lateral": {"id":"c-cablelat","title":"Ombros","log":true,"main":{"name":"Elevação lateral na polia (um braço)","dose":"3 séries de 12–15 repetições por lado","cue":"Polia baixa, de lado para a máquina, a pega na mão mais afastada. Sobe o braço até à linha do ombro com o cotovelo ligeiramente fletido e desce em três tempos. Carga leve: a polia mantém a tensão em todo o movimento.","gif":"cable-lateral","rest":"45–60 s"},"alt":{"name":"Deltoide posterior na máquina (reverse pec deck)","dose":"3 séries de 12–15 repetições","cue":"Peito encostado ao apoio, pegas à altura dos ombros. Abre os braços para trás até à linha do tronco, sem encolher os ombros, e volta devagar.","gif":"rear-delt-machine","rest":"45–60 s"}},
+        "c-cond": {"id":"c-cond-w2","title":"Condicionamento na área de cross","main":{"name":"3 rondas: snatch com haltere e bear crawl","dose":"3 rondas · 1 min de pausa, RPE 6–7","cue":"Área de cross da TTF Maia. Em cada ronda: 10 snatches alternados com um haltere leve (do chão até por cima da cabeça num só movimento, a força vem da anca) e 2 × 10 m de bear crawl (joelhos a 2–3 cm do chão, costas planas, passos curtos). Pausa completa no minuto.","gif":"db-snatch","gifs":[{"key":"db-snatch","label":"Snatch com haltere"},{"key":"bear-crawl","label":"Bear crawl"}]},"alt":{"name":"3 rondas: plate push e air bike","dose":"3 rondas · 1 min de pausa, RPE 6–7","cue":"Em cada ronda: 2 × 10–15 m a empurrar um disco no chão (ou o trenó, se estiver livre), braços estendidos e passos curtos, e 10 calorias de air bike a ritmo firme. Pausa completa no minuto.","gif":"plate-push","gifs":[{"key":"plate-push","label":"Plate push"},{"key":"air-bike","label":"Air bike"}]}}
+      },
+      replaceD: {
+        "d-metcon": {"id":"d-metcon-w2","title":"Metcon leve na área de cross","main":{"name":"AMRAP 10 min: SkiErg, push press e slam ball","dose":"10 minutos suaves, RPE 6","cue":"Área de cross da TTF Maia. Durante 10 minutos, repete: 150 m de SkiErg, 8 push press com halteres leves e 8 slam balls. Conta as rondas, sem corrida contra o relógio. Se precisares, alonga o SkiErg e reduz 2 repetições.","gif":"ski-erg","gifs":[{"key":"ski-erg","label":"SkiErg"},{"key":"db-push-press","label":"Push press com halteres"},{"key":"ball-slam","label":"Slam ball"}]},"alt":{"name":"4 rondas: battle rope, thrusters e bear crawl","dose":"4 rondas · 1 min de pausa, RPE 6","cue":"Em cada ronda: 30 s de battle rope, 8 thrusters com kettlebell leve e 10 m de bear crawl. Pausa completa no minuto.","gif":"battle-rope","gifs":[{"key":"battle-rope","label":"Battle rope"},{"key":"kb-thruster","label":"Thruster com kettlebell"},{"key":"bear-crawl","label":"Bear crawl"}]}}
+      },
+      meta: {
+        a: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Os quatro exercícios principais são os mesmos da semana 1, para comparares cargas — e na semana 1 fizeste as 12 repetições em todas as séries, por isso esta semana a carga sobe um pouco (vê a nota em cada cartão). Mudam o superset de braços (máquina Scott + extensão com corda), o core (Pallof press) e o condicionamento (SkiErg 40/20).</p></aside>
+        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — agachar, puxar, empurrar, romeno, braços e core anti-rotação</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div><div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div><div><dt>Condicionamento</dt><dd>8 × (40 s forte / 20 s leve) no SkiErg, ou battle rope 8 × 30/30</dd></div></dl>`,
+        b: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Os principais (afundos, desenvolvimento, remada com haltere) mantêm-se. Ainda não há registo deste treino, por isso o volume fica igual ao planeado: encontra cargas em RPE 7 e anota-as. Mudam o superset de braços, o core (elevação de joelhos) e o fecho na área de cross.</p></aside>
+        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — afundos, ombros, remada, braços e core</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div><div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div><div><dt>Fecho</dt><dd>EMOM 8 min: thrusters e slam ball (RPE 6–7)</dd></div></dl>`,
+        c: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Os principais (búlgaro, inclinado, remada na polia) mantêm-se. Ainda sem registo deste treino: volume igual, cargas em RPE 7. Mudam o superset de braços (barra + pegada fechada), os ombros (elevação lateral na polia) e o fecho na área de cross.</p></aside>
+        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — afundo búlgaro, inclinado, remada, braços, ombros e fecho na área de cross</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div><div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div><div><dt>Fecho</dt><dd>3 rondas: snatch com haltere + bear crawl (RPE 6–7)</dd></div></dl>`
+      }
+    }
+  };
+
+  function variantFor(week) {
+    const idx = WEEKS.indexOf(week);
+    for (let i = idx; i >= 0; i--) {
+      if (WEEK_VARIANTS[WEEKS[i]]) return WEEK_VARIANTS[WEEKS[i]];
+    }
+    return null;
+  }
+
+  const variantCache = {};
+  function catalogForWeek(base, week) {
+    const v = variantFor(week);
+    if (!v) return base;
+    if (variantCache[week]) return variantCache[week];
+    const swaps = Object.assign({}, v.replace || {}, v.replaceCond || {}, v.replaceB || {}, v.replaceC || {}, v.replaceD || {});
+    const own = WEEK_VARIANTS[week];
+    const notes = (own && own.notes) || {};
+    const out = {};
+    for (const [key, list] of Object.entries(base)) {
+      out[key] = (list || []).map((card) => {
+        if (swaps[card.id]) return swaps[card.id];
+        if (notes[card.id]) {
+          const c = JSON.parse(JSON.stringify(card));
+          if (c.main) c.main.cue = `${c.main.cue} ${notes[card.id]}`;
+          if (c.alt) c.alt.cue = `${c.alt.cue} ${notes[card.id]}`;
+          return c;
+        }
+        return card;
+      });
+    }
+    variantCache[week] = out;
+    return out;
+  }
+
+  function weekByDate() {
+    const t = todayISO();
+    if (t >= "2026-11-30") return "4";
+    if (t >= "2026-11-23") return "3";
+    if (t >= "2026-11-16") return "2";
+    return "1";
+  }
+
+
   const defaultState = () => ({
     week: "1",
     tab: "a",
@@ -1133,7 +1225,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   }
 
   function activeCatalog() {
-    if (usesDefaultPlan()) return CATALOG;
+    if (usesDefaultPlan()) return catalogForWeek(CATALOG, state.week);
     return profile.plan.catalog;
   }
 
@@ -1191,9 +1283,14 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   function doneKey(week, id) { return `${week}:${id}`; }
   function loadKey(week, id, side) { return `${week}:${id}:${side}`; }
 
+  function isSupersetCard(id) {
+    const cat = activeCatalog();
+    return Object.values(cat).some((list) => (list || []).some((c) => c && c.id === id && c.logKind === "superset"));
+  }
+
   function setCount(week, id) {
     if (!isLogCard(id)) return 0;
-    if (ARM_IDS.has(id)) return 2;
+    if (ARM_IDS.has(id) || isSupersetCard(id)) return 2;
     const meta = planMeta();
     const base = (meta && meta.sets) ? meta.sets : 3;
     const extraWeeks = (meta && meta.extraSetWeeks) ? meta.extraSetWeeks : ["3", "4"];
@@ -1289,6 +1386,8 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       next.dayD = s.day_d === "metcon" ? "metcon" : "z2";
       if (s.picks && typeof s.picks === "object") next.pick = s.picks;
     }
+    const currentWeek = weekByDate();
+    if (Number(next.week) < Number(currentWeek)) next.week = currentWeek;
     for (const row of doneRes.data || []) {
       if (row.done) next.done[doneKey(row.week, row.card_id)] = true;
     }
@@ -1559,6 +1658,8 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   function sessionMetaHtml() {
     const tab = state.tab;
     const meta = planMeta();
+    const ownVariant = WEEK_VARIANTS[state.week];
+    if (usesDefaultPlan() && ownVariant && ownVariant.meta && ownVariant.meta[tab]) return ownVariant.meta[tab];
     if (!usesDefaultPlan() && meta) {
       const dur = `cerca de ${meta.sessionMinutes || 45} minutos`;
       const rpe = `RPE ${meta.rpe || 7}`;
