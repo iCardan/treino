@@ -1,6 +1,6 @@
 /* Treino TTF — cache the app shell only. HTML always tries the network first
    so a new deploy is picked up. API/auth requests are never cached. */
-const VERSION = "ttf-shell-v3";
+const VERSION = "ttf-shell-v4";
 const PRECACHE = [
   "./manifest.webmanifest",
   "./icons/apple-touch-icon.png",
