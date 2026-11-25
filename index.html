@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ttf-build v5 2026-11-25 40min -->
 <html lang="pt-PT">
 <head>
   <base href="/treino/">
@@ -14,7 +15,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" sizes="180x180">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
-  <title>Plano de treino — 4 semanas · TTF Maia</title>
+  <title>Treino TTF — 40 min · 2 musculação + 1–2 boxe</title>
   <style>/* Plano de treino — Mário · folha autónomo, funciona offline */
 :root {
   --bg: #efe8db;
@@ -254,7 +255,20 @@ ul.notes li { margin: 0 0 0.55rem; }
   gap: 0.45rem 0.7rem;
   align-items: flex-start;
 }
-.card-title { margin: 0; }
+.card-title { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+.card.optional { border-style: dashed; }
+.badge-optional {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent, #1b5c45);
+  background: #e4efe9;
+  border-radius: 999px;
+  padding: 0.12rem 0.5rem;
+  vertical-align: middle;
+}
 .card-dose { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.9rem; }
 .card-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; }
 .frame {
@@ -702,45 +716,44 @@ button.btn.linkish {
     <p class="gym">Ginásio TTF Maia</p>
     <p class="kicker">Personal trainer · bloco 1</p>
     <h1>Plano de treino — 4 semanas</h1>
-    <p class="lede">Três treinos de corpo inteiro por semana, com um quarto dia opcional, a começar a 10 de novembro de 2026, no ginásio TTF Maia. Objetivo: perda de peso e melhor condição física, com esforço inicial a cerca de 70% (RPE&nbsp;7). Cada exercício tem a animação no próprio cartão, uma checklist por semana e, nos exercícios de força, um registo de cargas — tudo guardado na nuvem e sincronizado entre dispositivos.</p>
+    <p class="lede">Dois treinos de corpo inteiro e uma ou duas aulas de boxe por semana, sem dias fixos, no ginásio TTF Maia. Cada sessão de musculação cabe em cerca de 40 minutos, incluindo 5 minutos de aquecimento. Objetivo: perda de peso e melhor condição física, com esforço a cerca de 70% (RPE&nbsp;7). Cada exercício tem a animação no próprio cartão, uma checklist e, nos exercícios de força, um registo de cargas — tudo guardado na nuvem e sincronizado entre dispositivos.</p>
     <ul class="metrics">
-      <li><span class="val">3 + 1</span><span class="lab">Treinos por semana</span><span class="det">Três núcleo, um dia opcional</span></li>
+      <li><span class="val">2 + 1–2</span><span class="lab">Por semana</span><span class="det">Musculação + boxe, sem dias fixos</span></li>
       <li><span class="val">RPE 7</span><span class="lab">Esforço alvo</span><span class="det">Ficam 2–3 repetições em reserva</span></li>
       <li><span class="val">4 sem.</span><span class="lab">Duração deste bloco</span><span class="det">10 nov. a 7 dez. 2026</span></li>
-      <li><span class="val">50 min</span><span class="lab">Duração típica</span><span class="det">Aquecimento, força e cardio</span></li>
+      <li><span class="val">40 min</span><span class="lab">Duração da musculação</span><span class="det">Inclui 5 min de aquecimento</span></li>
     </ul>
   </header>
   <main class="wrap">
     <aside class="callout warn">
       <p class="lead">Começa com prudência</p>
-      <p>Tens uma base sólida (10 anos de CrossFit, futebol e natação), mas a pausa dos últimos anos pede um regresso gradual. O TTF Maia está totalmente equipado, incluindo a área de cross (barras, kettlebells, caixotes, remo, corda, etc.): usamos essa zona nos condicionamentos e no metcon leve do Dia D, com WODs curtos, escalados e de baixo impacto — swings, step-ups, remo e wall balls, sem saltos nem corrida contra o relógio. Peso, altura e lesões ainda não estão definidos, por isso o bloco arranca a cerca de 70% do esforço, com RPE 7: no final de cada série ainda conseguias fazer mais 2 ou 3 repetições com boa técnica. Se sentires dor articular (joelho, ombro, costas), para e troca para a alternativa do cartão, quando existir.</p>
+      <p>Tens uma base sólida (10 anos de CrossFit, futebol e natação), mas a pausa dos últimos anos pede um regresso gradual. As sessões de musculação estão cortadas a cerca de 40 minutos (5 min de cardio leve + cinco blocos de força e um fecho opcional de 4–6 min). O condicionamento principal é o boxe, 1 a 2 vezes por semana. O bloco corre a cerca de 70% do esforço, com RPE 7: no final de cada série ainda conseguias fazer mais 2 ou 3 repetições com boa técnica. Se sentires dor articular (joelho, ombro, costas), para e troca para a alternativa do cartão, quando existir.</p>
     </aside>
     <aside class="callout info" id="plan-banner" hidden></aside>
 
     <section class="block" aria-labelledby="como-usar">
       <h2 id="como-usar">Como usar este plano</h2>
-      <p>O Treino A é a sessão de hoje, 10 de novembro de 2026. Os Treinos B e C completam a semana com padrões diferentes. O Dia D é opcional: zona 2 (preferida) ou um metcon leve na área de cross. Deixa pelo menos um dia de folga entre A, B e C. Se conseguires ir mais vezes, usa o Dia D ou uma caminhada longa, não um quarto treino pesado.</p>
+      <p>Não há dias nem horas fixas. Quando tiveres cerca de 40 minutos, escolhe um treino de força (A, B ou C — a app sugere dois por semana e deixa o terceiro de reserva). O alvo é duas sessões de musculação e uma ou duas aulas de boxe, quando a aula calhar. Se só tiveres 30 minutos, faz os três exercícios principais e os braços e vai-te embora: isso já conta. Tenta deixar um dia de folga entre dois treinos pesados; o boxe pode cair no dia que for.</p>
       <p>Em cada cartão: marca «Feito» quando terminares. Se houver alternativa (o mesmo padrão de movimento em dois aparelhos, ou dois WODs equivalentes), escolhe uma no seletor — a animação, as séries e as dicas passam a ser dessa opção, e o visto aplica-se ao cartão. Nos exercícios de força, anota a carga e as repetições de cada série; na semana seguinte aparece o último registo como referência. A checklist, as escolhas e as cargas são gravadas na tua conta (por semana) e sincronizam entre telemóvel e computador. Usa «Exportar registo» para uma cópia JSON de segurança, e «Importar registo» para a recuperar.</p>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Semana</th>
-              <th>Treino A</th>
-              <th>Treino B</th>
-              <th>Treino C</th>
-              <th>Dia D (opcional)</th>
+              <th>Musculação sugerida</th>
+              <th>Reserva</th>
+              <th>Boxe</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>1 (10–16 nov.)</td><td>Terça 10 (hoje)</td><td>Quinta 12</td><td>Sábado 14</td><td>Domingo 15</td></tr>
-            <tr><td>2 (17–23 nov.)</td><td>Terça 17</td><td>Quinta 19</td><td>Sábado 21</td><td>Domingo 22</td></tr>
-            <tr><td>3 (24–30 nov.)</td><td>Terça 24</td><td>Quinta 26</td><td>Sábado 28</td><td>Domingo 29</td></tr>
-            <tr><td>4 (1–7 dez.)</td><td>Terça 1 dez.</td><td>Quinta 3</td><td>Sábado 5</td><td>Domingo 6</td></tr>
+            <tr><td>1 (10–15 nov.)</td><td>A, B e C (semana de arranque)</td><td>—</td><td>1–2 aulas, quando calhar</td></tr>
+            <tr><td>2 (16–22 nov.)</td><td>Treino B e Treino C</td><td>Treino A</td><td>1–2 aulas, quando calhar</td></tr>
+            <tr><td>3 (23–29 nov.)</td><td>Treino A e Treino B</td><td>Treino C</td><td>1–2 aulas, quando calhar</td></tr>
+            <tr><td>4 (30 nov.–7 dez.)</td><td>Treino C e Treino A</td><td>Treino B</td><td>1–2 aulas, quando calhar</td></tr>
           </tbody>
         </table>
       </div>
-      <p>Se a tua disponibilidade mudar, mantém a ordem A, B, C com um dia de folga no meio. As datas acima são um calendário de referência, não uma obrigação rígida.</p>
+      <p>A tabela só indica quais os treinos de força a preferir em cada semana, não o dia da semana. Entras, fazes a sessão de ~40 minutos e sais.</p>
     </section>
 
     <section class="block" aria-labelledby="progressao">
@@ -760,14 +773,14 @@ button.btn.linkish {
         </li>
         <li>
           <div>
-            <strong>Semana 3 — um pouco mais de volume</strong>
-            Passa a 4 séries nos exercícios principais (prensa ou goblet, puxada, supino, peso morto romeno, afundos ou afundo búlgaro). Os acessórios ficam em 3 séries. O registo passa a mostrar a quarta série automaticamente. Se a semana 2 ficou por fazer, mantém 3 séries e as cargas-alvo da semana 2 (é o que a app mostra neste bloco).
+            <strong>Semana 3 — a sessão cabe em 40 minutos</strong>
+            Mantém 3 séries nos exercícios principais (prensa ou goblet, puxada, supino, afundos ou afundo búlgaro), para o treino não passar dos 40 minutos. Braços e o par ombro/core ficam em 2 séries. Se a semana 2 ficou por fazer, as cargas-alvo repetem as da semana 2 (é o que a app mostra neste bloco).
           </div>
         </li>
         <li>
           <div>
             <strong>Semana 4 — fecha o bloco com qualidade</strong>
-            Mantém 3 ou 4 séries e aplica a mesma regra de carga. Não é semana de recordes: técnica limpa e RPE 7. Depois avaliamos o próximo bloco.
+            Mantém 3 séries e aplica a mesma regra de carga. Não é semana de recordes: técnica limpa e RPE 7. Depois avaliamos o próximo bloco.
           </div>
         </li>
       </ol>
@@ -820,7 +833,7 @@ button.btn.linkish {
 
     <section class="block" id="sessoes" aria-labelledby="sessoes-titulo">
       <h2 id="sessoes-titulo">Sessões, animações e checklist</h2>
-      <p class="caption">As animações abrem no próprio cartão. Começa sempre pelo aquecimento e termina com os alongamentos. A partir da semana 2, o objetivo é 2 musculação + 1–2 boxe; a partir da semana 3 o boxe substitui o Dia D.</p>
+      <p class="caption">As animações abrem no próprio cartão. Começa pelos 5 minutos de cardio leve no separador Aquecimento. Cada sessão de força tem cinco blocos e um fecho opcional de 4–6 min. Objetivo da semana: 2 musculação + 1–2 boxe, sem dias fixos. Os alongamentos no fim são opcionais, se ainda tiveres tempo.</p>
       <div class="toolbar-actions">
         <button type="button" class="btn" id="export-registo">Exportar registo</button>
         <button type="button" class="btn ghost" id="import-registo">Importar registo</button>
@@ -862,7 +875,7 @@ button.btn.linkish {
   <script>
   const SUPABASE_URL = "https://nhipmdxvlvfjjpkrersr.supabase.co";
   const SUPABASE_ANON_KEY = "sb_publishable_l8XpOa4Resdz9xS4wyJT3w_BDuzHEt0";
-  const CATALOG = {"warmup":[{"id":"warmup-cardio","title":"Cardio inicial","main":{"name":"Máquina de remo","dose":"5 minutos, ritmo leve","cue":"Impulso começa nas pernas, tronco ligeiramente atrasado no final da puxada, braços a terminar o movimento. Respira pelo nariz sempre que conseguires.","gif":"rowing"},"alt":{"name":"Bicicleta estática","dose":"5 minutos, ritmo leve","cue":"Selim a uma altura que deixe o joelho quase estendido no ponto baixo, sem balançar a anca. Cadência confortável, resistência baixa.","gif":"bike"}},{"id":"warmup-squat","title":"Agachamento sem peso","main":{"name":"Agachamento sem peso","dose":"2 voltas de 10 repetições","cue":"Pés à largura dos ombros, desce como se te sentasses numa cadeira. Joelhos no sentido dos dedos dos pés, peito aberto, calcanhares no chão.","gif":"bw-squat"}},{"id":"warmup-shoulders","title":"Rotações de ombros","main":{"name":"Rotações de ombros","dose":"2 voltas de 10 repetições","cue":"Braços estendidos, círculos amplos e controlados. Faz metade para a frente e metade para trás, sem encolher os ombros até às orelhas.","gif":"arm-circles"}},{"id":"warmup-hinge","title":"Hip hinge (dobrar a anca)","main":{"name":"Hip hinge (dobrar a anca)","dose":"2 voltas de 10 repetições","cue":"Empurra a anca para trás com os joelhos ligeiramente fletidos e a coluna neutra. O movimento nasce na anca, não numa inclinação da lombar. Podes usar um pau ou toalha nas costas para sentires a linha reta.","gif":"hip-hinge"}},{"id":"warmup-plank","title":"Prancha (aquecimento)","main":{"name":"Prancha","dose":"2 voltas de 20 segundos","cue":"Antebraços e pontas dos pés no chão, corpo em linha. Anca nem caída nem demasiado alta. Respira de forma calma. A demonstração é uma posição estática (o exercício é isométrico).","gif":"plank"}}],"treinoA":[{"id":"a-squat","title":"Padrão de agachamento","main":{"name":"Prensa de pernas","dose":"3 séries de 10–12 repetições","cue":"Pés à largura dos ombros na plataforma, desce com controlo até cerca de 90 graus e empurra sem bloquear os joelhos com um estalo.","gif":"leg-press","rest":"60–90 s"},"alt":{"name":"Agachamento goblet","dose":"3 séries de 10–12 repetições","cue":"Segura o haltere junto ao peito, cotovelos para dentro, desce com o tronco direito e sobe empurrando o chão.","gif":"goblet","rest":"60–90 s"}},{"id":"a-pulldown","title":"Puxada vertical","main":{"name":"Puxada ao peito na polia","dose":"3 séries de 10–12 repetições","cue":"Peito alto, puxa a barra até à parte alta do peito. Imagina os cotovelos a irem para as algibeiras. Evita puxar com um balanceio do tronco.","gif":"lat-pulldown","rest":"60–90 s"}},{"id":"a-press","title":"Press de peito","main":{"name":"Supino com halteres","dose":"3 séries de 10–12 repetições","cue":"Omoplatas assentes no banco, desce os halteres com controlo até cerca da linha do peito e empurra sem bater os pesos no topo.","gif":"db-press","rest":"60–90 s"},"alt":{"name":"Supino na máquina de peito","dose":"3 séries de 10–12 repetições","cue":"Ajusta o assento para as pegas ficarem à altura do peito. Empurra em linha e não deixes os ombros subirem.","gif":"chest-machine","rest":"60–90 s"}},{"id":"a-rdl","title":"Peso morto romeno","main":{"name":"Romeno com halteres","dose":"3 séries de 10 repetições","cue":"O mesmo padrão do hip hinge, agora com carga. Anca para trás, halteres rente às pernas, coluna neutra. Desce até sentires os isquiotibiais e sobe apertando os glúteos.","gif":"db-rdl","rest":"60–90 s"},"alt":{"name":"Romeno com barra","dose":"3 séries de 10 repetições","cue":"Barra rente às pernas, anca para trás, coluna neutra. É o mesmo movimento do romeno com halteres; escolhe a barra se te for mais estável.","gif":"bb-rdl","rest":"60–90 s"}},{"id":"a-arms","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl na polia e pushdown com corda","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Substitui a remada acessória, sem alongar a sessão. Em superset: curl na polia baixa (barra reta ou EZ, cotovelos junto ao tronco) e, quase sem pausa, pushdown com corda na polia alta — abre um pouco as pontas no final, cotovelos fixos. Descansa cerca de 60 segundos só no fim do par. RPE 7: no final de cada série ainda conseguias 2 ou 3 repetições.","gif":"cable-curl","gifs":[{"key":"cable-curl","label":"Curl na polia"},{"key":"rope-pushdown","label":"Pushdown com corda"}]},"alt":{"name":"Curl com halteres e pushdown com barra","dose":"2 séries de 10–12 de cada, RPE 7","cue":"A mesma lógica em superset, se a polia do curl estiver ocupada: curl com halteres sem balançar o tronco, e pushdown com barra ou pega em V na polia alta. Pausa só no fim do par. Anota a carga de cada exercício no registo.","gif":"db-curl","gifs":[{"key":"db-curl","label":"Curl com halteres"},{"key":"bar-pushdown","label":"Pushdown com barra"}]}},{"id":"a-plank","title":"Prancha (bloco de força)","main":{"name":"Prancha","dose":"3 séries de 30–40 segundos","cue":"Mesma linha do aquecimento, agora um pouco mais longa. Se a anca começar a cair, termina a série. Qualidade acima do tempo.","gif":"plank","rest":"60–90 s"}}],"condA":[{"id":"a-cond","title":"Condicionamento (intervalos)","main":{"name":"Intervalos no remo","dose":"10 rondas de 30 s rápido + 30 s lento","cue":"Na máquina de remo da área de cross. O ritmo rápido deve ser exigente, mas não um sprint total. No lento, recupera sem parares. Mantém a mesma máquina nas 10 rondas.","gif":"rowing"},"alt":{"name":"Intervalos na bicicleta","dose":"10 rondas de 30 s rápido + 30 s lento","cue":"Sobe a resistência ou a cadência nos 30 segundos rápidos, sem saltar no selim. Volta a um ritmo em que consigas respirar nos 30 segundos lentos.","gif":"bike"}}],"treinoB":[{"id":"b-lunge","title":"Afundos","main":{"name":"Afundos com halteres","dose":"3 séries de 10 repetições por perna","cue":"Passada longa o suficiente para o joelho da frente ficar a prumo do tornozelo. Tronco direito, desce o joelho de trás em direção ao chão sem bater. Se o equilíbrio falhar, faz o afundo no sítio.","gif":"db-lunge","rest":"60–90 s"}},{"id":"b-press","title":"Desenvolvimento de ombros","main":{"name":"Desenvolvimento com halteres","dose":"3 séries de 8–10 repetições","cue":"Sentado ou em pé, costas direitas. Empurra os halteres à vertical até quase estender os cotovelos, sem arqueares a lombar. Desce com controlo até à altura das orelhas.","gif":"db-shoulder-press","rest":"60–90 s"}},{"id":"b-row","title":"Remada com haltere","main":{"name":"Remada com haltere","dose":"3 séries de 10–12 repetições por lado","cue":"Apoia uma mão e o joelho no banco, tronco quase paralelo ao chão. Puxa o haltere até à anca, cotovelo junto ao corpo, e desce sem rodares o tronco.","gif":"db-row","rest":"60–90 s"}},{"id":"b-arms","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl martelo e extensão de tríceps por cima da cabeça","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Substitui o trabalho acessório de anca, para caber nos 50 minutos. Superset com halteres: curl martelo (palmas a olhar uma para a outra, cotovelos estáveis) e, de seguida, extensão de tríceps sentado por cima da cabeça — cotovelo junto à cabeça, desce o peso atrás da nuca com controlo. 60 segundos de pausa só no fim do par. RPE 7.","gif":"hammer-curl","gifs":[{"key":"hammer-curl","label":"Curl martelo"},{"key":"seated-oh-extension","label":"Extensão por cima da cabeça"}]},"alt":{"name":"Curl com halteres e extensão deitada","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Alternativa no mesmo padrão: curl clássico com halteres e extensão de tríceps deitado (cotovelos a apontar para o tecto, desce os halteres ao lado da cabeça sem abrir os cotovelos). Superset, pausa só no fim do par.","gif":"db-curl","gifs":[{"key":"db-curl","label":"Curl com halteres"},{"key":"lying-triceps-ext","label":"Extensão deitada"}]}},{"id":"b-face","title":"Puxada à face","main":{"name":"Puxada à face (face pull)","dose":"3 séries de 12–15 repetições","cue":"Corda na polia à altura da cara. Puxa em direção à face, cotovelos altos, e roda as mãos para trás no final. É um exercício de qualidade para os ombros, não de carga máxima.","gif":"face-pull","rest":"60 s"}},{"id":"b-deadbug","title":"Dead bug","main":{"name":"Dead bug","dose":"3 séries de 8 repetições por lado","cue":"Lombar colada ao chão. Estende o braço e a perna opostos sem arqueares as costas. Se a lombar descolar, reduz a amplitude.","gif":"dead-bug","rest":"60 s"}},{"id":"b-cond","title":"Condicionamento na área de cross","main":{"name":"EMOM 8 min: swings e step-ups","dose":"8 minutos, RPE 6","cue":"Área de cross da TTF Maia. Minutos ímpares: 10 swings russos com kettlebell (o peso sobe até à linha dos ombros, não por cima da cabeça). Minutos pares: 8 subidas ao caixote por perna, sem salto — caixote baixo, cerca de 40–50 cm, com o peso do corpo ou um par de halteres leves. Se o minuto ficar apertado, reduz 2 repetições. Não é uma corrida contra o relógio.","gif":"kb-swing","gifs":[{"key":"kb-swing","label":"Swing com kettlebell"},{"key":"box-stepup","label":"Subida ao caixote"}]},"alt":{"name":"8 min: remo e wall balls","dose":"8 minutos contínuos, RPE 6","cue":"Repete 45 segundos de remo em ritmo de conversa e 8 wall balls com bola leve (4–6 kg). O alvo pode ser mais baixo do que o da competição. Sem RPE acima de 6 e sem saltar para o caixote.","gif":"wall-ball","gifs":[{"key":"rowing","label":"Remo"},{"key":"wall-ball","label":"Wall ball"}]}}],"treinoC":[{"id":"c-bulgarian","title":"Afundo búlgaro","main":{"name":"Afundo búlgaro com halteres","dose":"3 séries de 8–10 repetições por perna","cue":"Pé de trás apoiado num banco baixo. A maior parte do peso fica na perna da frente. Desce no vertical, tronco ligeiramente inclinado para a frente, e sobe sem empurrares com o pé de trás.","gif":"bulgarian","rest":"60–90 s"}},{"id":"c-incline","title":"Supino inclinado","main":{"name":"Supino inclinado com halteres","dose":"3 séries de 8–10 repetições","cue":"Banco a cerca de 30–45 graus. Omoplatas assentes, desce os halteres em linha com a parte alta do peito e empurra sem fechares os cotovelos com um estalo.","gif":"incline-db","rest":"60–90 s"}},{"id":"c-row","title":"Remada na polia","main":{"name":"Remada sentado na polia","dose":"3 séries de 10–12 repetições","cue":"Pés na plataforma, tronco estável. Puxa o pegador até ao abdómen, peito aberto, e controla o regresso.","gif":"seated-cable-row","rest":"60–90 s"}},{"id":"c-arms","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl com barra EZ e mergulhos na máquina","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Substitui a flexão de pernas na máquina. Superset: curl com barra EZ (pega inclinada, mais amiga dos pulsos, sem balançar) e mergulhos na máquina de tríceps — cotovelos junto ao tronco, desce com controlo e estende sem estalar. 60 segundos de pausa só no fim do par. RPE 7.","gif":"ez-curl","gifs":[{"key":"ez-curl","label":"Curl com barra EZ"},{"key":"dip-machine","label":"Mergulhos na máquina"}]},"alt":{"name":"Curl com halteres e pushdown com barra","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Se a máquina de mergulhos ou a barra EZ não estiverem livres: curl com halteres e pushdown com barra na polia alta. Mesmo superset, mesma cadência, pausa só no fim do par.","gif":"db-curl","gifs":[{"key":"db-curl","label":"Curl com halteres"},{"key":"bar-pushdown","label":"Pushdown com barra"}]}},{"id":"c-lateral","title":"Elevações laterais","main":{"name":"Elevações laterais com halteres","dose":"3 séries de 12–15 repetições","cue":"Carga ligeira. Sobe os braços até à linha dos ombros, polegares um pouco inclinados para a frente, e desce em três tempos. Se precisares de balançar o corpo, o peso está alto demais.","gif":"lateral-raise","rest":"60 s"}},{"id":"c-cond","title":"Condicionamento na área de cross","main":{"name":"3 rondas: farmer e swings","dose":"3 rondas confortáveis · 1 min de pausa, RPE 6","cue":"Área de cross da TTF Maia. Em cada ronda: 20–30 m de farmer walk (dois halteres ou kettlebells estáveis, ombros baixos, passada curta) e 10 swings russos até à linha dos ombros. Pausa completa no minuto. Qualidade acima da velocidade.","gif":"farmers","gifs":[{"key":"farmers","label":"Farmer walk"},{"key":"kb-swing","label":"Swing com kettlebell"}]},"alt":{"name":"3 rondas: wall balls e step-ups","dose":"3 rondas confortáveis · 1 min de pausa, RPE 6","cue":"Em cada ronda: 10 wall balls com bola leve e 8 subidas ao caixote por perna, sem salto. Caixote baixo, alvo do wall ball à altura que controlares. Pausa completa no minuto.","gif":"wall-ball","gifs":[{"key":"wall-ball","label":"Wall ball"},{"key":"box-stepup","label":"Subida ao caixote"}]}}],"diaDZ2":[{"id":"d-z2","title":"Zona 2 (opção preferida)","main":{"name":"Remo em zona 2","dose":"30–40 minutos contínuos","cue":"Na máquina de remo da área de cross. Ritmo de conversa: consegues falar por frases, mas não cantar. Técnica do remo: pernas, tronco, braços — e o inverso no regresso. Este é o dia mais leve da semana.","gif":"rowing"},"alt":{"name":"Bicicleta em zona 2","dose":"30–40 minutos contínuos","cue":"Resistência moderada, cadência estável, conversação possível. Este é o dia mais leve da semana, não um treino de intervalos.","gif":"bike"}}],"alongamentos":[{"id":"s-hip","title":"Flexores da anca","main":{"name":"Alongamento dos flexores da anca","dose":"30–45 segundos por lado","cue":"Joelho de trás no chão, pé da frente à frente. Empurra a anca para a frente com o tronco direito, sem arqueares a lombar.","gif":"hip-stretch"}},{"id":"s-ham","title":"Isquiotibiais","main":{"name":"Alongamento dos isquiotibiais sentado","dose":"30–45 segundos por perna","cue":"Uma perna estendida, a outra fletida. Inclina o tronco sobre a perna estendida com a coluna longa, sem puxar o pé com força.","gif":"ham-stretch"}},{"id":"s-chest","title":"Peitoral","main":{"name":"Alongamento do peitoral sentado","dose":"30–45 segundos","cue":"Mãos apoiadas atrás no banco ou no chão, peito aberto, ombros longe das orelhas. Respira fundo e alarga o peito na inspiração.","gif":"chest-stretch"}},{"id":"s-back","title":"Costas","main":{"name":"Postura da criança à cobra","dose":"4–6 transições lentas","cue":"Recua para a postura da criança, depois desliza para a frente até à cobra baixa, sem forçar a lombar. Movimento lento e respirado.","gif":"child-cobra"}}],"diaDMetcon":[{"id":"d-metcon","title":"Metcon leve na área de cross","main":{"name":"AMRAP 12 min: swings, step-ups e remo","dose":"12 minutos suaves, RPE 6","cue":"Área de cross da TTF Maia. Durante 12 minutos, repete: 8 swings russos, 6 subidas ao caixote por perna (sem salto) e 150 m de remo. Conta as rondas, mas não corras contra o relógio. Se precisares, alonga o remo e reduz 2 repetições. Este é um regresso ao CrossFit, não um WOD de competição.","gif":"kb-swing","gifs":[{"key":"kb-swing","label":"Swing com kettlebell"},{"key":"box-stepup","label":"Subida ao caixote"},{"key":"rowing","label":"Remo"}]},"alt":{"name":"4 rondas: wall balls, goblets e farmer","dose":"4 rondas · 1 min de pausa, RPE 6","cue":"Em cada ronda: 10 wall balls (bola leve), 8 agachamentos goblet controlados e 20–30 m de farmer walk. Pausa completa no minuto. Se o ombro ou o joelho protestarem, reduz a bola ou troca para a outra opção.","gif":"wall-ball","gifs":[{"key":"wall-ball","label":"Wall ball"},{"key":"goblet","label":"Agachamento goblet"},{"key":"farmers","label":"Farmer walk"}]}}]};
+    const CATALOG = {"warmup":[{"id":"warmup-cardio","title":"Aquecimento — cardio leve","main":{"name":"Máquina de remo","dose":"5 minutos, ritmo leve (é o aquecimento todo)","cue":"Cinco minutos chegam para aquecer e a sessão caber em 40 minutos. Impulso começa nas pernas, tronco ligeiramente atrasado no final da puxada, braços a terminar o movimento. Ritmo de conversa. Se os ombros estiverem rígidos, faz uns círculos de braços no sítio, sem alongar o aquecimento.","gif":"rowing"},"alt":{"name":"Bicicleta estática","dose":"5 minutos, ritmo leve (é o aquecimento todo)","cue":"Cinco minutos chegam para aquecer e a sessão caber em 40 minutos. Selim a uma altura que deixe o joelho quase estendido no ponto baixo, sem balançar a anca. Cadência confortável, resistência baixa, ritmo de conversa.","gif":"bike"}}],"treinoA":[{"id":"a-squat","title":"Padrão de agachamento","main":{"name":"Prensa de pernas","dose":"3 séries de 10–12 repetições","cue":"Pés à largura dos ombros na plataforma, desce com controlo até cerca de 90 graus e empurra sem bloquear os joelhos com um estalo.","gif":"leg-press","rest":"60–90 s"},"alt":{"name":"Agachamento goblet","dose":"3 séries de 10–12 repetições","cue":"Segura o haltere junto ao peito, cotovelos para dentro, desce com o tronco direito e sobe empurrando o chão.","gif":"goblet","rest":"60–90 s"}},{"id":"a-pulldown","title":"Puxada vertical","main":{"name":"Puxada ao peito na polia","dose":"3 séries de 10–12 repetições","cue":"Peito alto, puxa a barra até à parte alta do peito. Imagina os cotovelos a irem para as algibeiras. Evita puxar com um balanceio do tronco.","gif":"lat-pulldown","rest":"60–90 s"}},{"id":"a-press","title":"Press de peito","main":{"name":"Supino com halteres","dose":"3 séries de 10–12 repetições","cue":"Omoplatas assentes no banco, desce os halteres com controlo até cerca da linha do peito e empurra sem bater os pesos no topo.","gif":"db-press","rest":"60–90 s"},"alt":{"name":"Supino na máquina de peito","dose":"3 séries de 10–12 repetições","cue":"Ajusta o assento para as pegas ficarem à altura do peito. Empurra em linha e não deixes os ombros subirem.","gif":"chest-machine","rest":"60–90 s"}},{"id":"a-arms","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl na polia e pushdown com corda","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Substitui a remada acessória, sem alongar a sessão. Em superset: curl na polia baixa (barra reta ou EZ, cotovelos junto ao tronco) e, quase sem pausa, pushdown com corda na polia alta — abre um pouco as pontas no final, cotovelos fixos. Descansa cerca de 60 segundos só no fim do par. RPE 7: no final de cada série ainda conseguias 2 ou 3 repetições.","gif":"cable-curl","gifs":[{"key":"cable-curl","label":"Curl na polia"},{"key":"rope-pushdown","label":"Pushdown com corda"}]},"alt":{"name":"Curl com halteres e pushdown com barra","dose":"2 séries de 10–12 de cada, RPE 7","cue":"A mesma lógica em superset, se a polia do curl estiver ocupada: curl com halteres sem balançar o tronco, e pushdown com barra ou pega em V na polia alta. Pausa só no fim do par. Anota a carga de cada exercício no registo.","gif":"db-curl","gifs":[{"key":"db-curl","label":"Curl com halteres"},{"key":"bar-pushdown","label":"Pushdown com barra"}]}},{"id":"a-sc","title":"Ombro e core (superset)","log":true,"logKind":"superset","main":{"name":"Puxada à face e Pallof press na polia (semi-ajoelhado)","dose":"2 séries de 12–15 face pull e 10 Pallof por lado","cue":"Superset curto: puxada à face com a corda na polia à altura da cara — cotovelos altos, roda as mãos para trás no final, carga leve. Depois, sem pausa longa, Pallof press semi-ajoelhado: polia à altura do peito, de lado para ela, um joelho no chão. Empurra a pega à frente do peito, segura 2 segundos sem deixar o tronco rodar, volta e troca de lado. Carga leve no Pallof: o trabalho é resistir à rotação, o mesmo controlo de tronco do boxe. Descansa 45–60 s só no fim do par. Duas séries chegam.","gif":"face-pull","gifs":[{"key":"face-pull","label":"Puxada à face"},{"key":"pallof-press","label":"Pallof press"}],"rest":"45–60 s","logLabels":["Face pull","Pallof"]},"alt":{"name":"Reverse fly com halteres e prancha lateral","dose":"2 séries de 12–15 reverse fly e 25–35 s de prancha lateral por lado","cue":"Se a polia estiver ocupada: reverse fly inclinado com halteres leves (tronco a 45°, abre até à linha dos ombros apertando as omoplatas) e prancha lateral — antebraço por baixo do ombro, anca alta, 25–35 segundos por lado. Anota os segundos no segundo campo.","gif":"db-reverse-fly","gifs":[{"key":"db-reverse-fly","label":"Reverse fly com halteres"},{"key":"side-plank","label":"Prancha lateral"}],"rest":"45–60 s","logLabels":["Reverse fly","Prancha lateral"]}}],"condA":[{"id":"a-cond","title":"Fecho curto (opcional)","main":{"name":"Remo fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa — opcional","cue":"Só se ainda tiveres tempo e pernas no fim da força. O boxe já cobre o condicionamento. Remo suave na área de cross, sem intervalos e sem sprint. Ao fim de 4 minutos, podes ir embora ou fazer os alongamentos se quiseres.","gif":"rowing"},"alt":{"name":"Bicicleta fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa — opcional","cue":"Mesma ideia no cicloergómetro: cadência confortável, resistência baixa, ainda consegues conversar. Quatro minutos e está fechado.","gif":"bike"},"optional":true}],"treinoB":[{"id":"b-lunge","title":"Afundos","main":{"name":"Afundos com halteres","dose":"3 séries de 10 repetições por perna","cue":"Passada longa o suficiente para o joelho da frente ficar a prumo do tornozelo. Tronco direito, desce o joelho de trás em direção ao chão sem bater. Se o equilíbrio falhar, faz o afundo no sítio.","gif":"db-lunge","rest":"60–90 s"}},{"id":"b-press","title":"Desenvolvimento de ombros","main":{"name":"Desenvolvimento com halteres","dose":"3 séries de 8–10 repetições","cue":"Sentado ou em pé, costas direitas. Empurra os halteres à vertical até quase estender os cotovelos, sem arqueares a lombar. Desce com controlo até à altura das orelhas.","gif":"db-shoulder-press","rest":"60–90 s"}},{"id":"b-row","title":"Remada com haltere","main":{"name":"Remada com haltere","dose":"3 séries de 10–12 repetições por lado","cue":"Apoia uma mão e o joelho no banco, tronco quase paralelo ao chão. Puxa o haltere até à anca, cotovelo junto ao corpo, e desce sem rodares o tronco.","gif":"db-row","rest":"60–90 s"}},{"id":"b-arms","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl martelo e extensão de tríceps por cima da cabeça","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Superset com halteres, para a sessão caber em 40 minutos: curl martelo (palmas a olhar uma para a outra, cotovelos estáveis) e, de seguida, extensão de tríceps sentado por cima da cabeça — cotovelo junto à cabeça, desce o peso atrás da nuca com controlo. 60 segundos de pausa só no fim do par. RPE 7.","gif":"hammer-curl","gifs":[{"key":"hammer-curl","label":"Curl martelo"},{"key":"seated-oh-extension","label":"Extensão por cima da cabeça"}]},"alt":{"name":"Curl com halteres e extensão deitada","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Alternativa no mesmo padrão: curl clássico com halteres e extensão de tríceps deitado (cotovelos a apontar para o tecto, desce os halteres ao lado da cabeça sem abrir os cotovelos). Superset, pausa só no fim do par.","gif":"db-curl","gifs":[{"key":"db-curl","label":"Curl com halteres"},{"key":"lying-triceps-ext","label":"Extensão deitada"}]}},{"id":"b-face","title":"Ombro e core (superset)","log":true,"logKind":"superset","main":{"name":"Puxada à face e Pallof press em pé na polia","dose":"2 séries de 12–15 face pull e 10 Pallof por lado","cue":"Superset curto: puxada à face com a corda na polia à altura da cara — cotovelos altos, roda as mãos para trás no final, carga leve. Depois, sem pausa longa, Pallof press em pé: polia à altura do peito, de lado para ela, pés à largura dos ombros. Empurra a pega à frente do peito, segura 2 segundos sem deixar o tronco rodar, volta e troca de lado. Carga leve no Pallof: o trabalho é resistir à rotação, o mesmo controlo de tronco do boxe. Descansa 45–60 s só no fim do par. Duas séries chegam.","gif":"face-pull","gifs":[{"key":"face-pull","label":"Puxada à face"},{"key":"pallof-press","label":"Pallof press"}],"rest":"45–60 s","logLabels":["Face pull","Pallof"]},"alt":{"name":"Reverse fly com halteres e prancha lateral","dose":"2 séries de 12–15 reverse fly e 25–35 s de prancha lateral por lado","cue":"Se a polia estiver ocupada: reverse fly inclinado com halteres leves (tronco a 45°, abre até à linha dos ombros apertando as omoplatas) e prancha lateral — antebraço por baixo do ombro, anca alta, 25–35 segundos por lado. Anota os segundos no segundo campo.","gif":"db-reverse-fly","gifs":[{"key":"db-reverse-fly","label":"Reverse fly com halteres"},{"key":"side-plank","label":"Prancha lateral"}],"rest":"45–60 s","logLabels":["Reverse fly","Prancha lateral"]}},{"id":"b-cond","title":"Fecho curto (opcional)","main":{"name":"SkiErg fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa — opcional","cue":"Só se ainda tiveres tempo no fim da força. O boxe já cobre o condicionamento. Fecha em suave no SkiErg da área de cross: puxadas longas e calmas, sem intervalos.","gif":"ski-erg"},"alt":{"name":"Air bike fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa — opcional","cue":"Resistência baixa, cadência confortável, ainda consegues falar. Não é um sprint: é só baixar o ritmo.","gif":"air-bike"},"optional":true}],"treinoC":[{"id":"c-bulgarian","title":"Afundo búlgaro","main":{"name":"Afundo búlgaro com halteres","dose":"3 séries de 8–10 repetições por perna","cue":"Pé de trás apoiado num banco baixo. A maior parte do peso fica na perna da frente. Desce no vertical, tronco ligeiramente inclinado para a frente, e sobe sem empurrares com o pé de trás.","gif":"bulgarian","rest":"60–90 s"}},{"id":"c-incline","title":"Supino inclinado","main":{"name":"Supino inclinado com halteres","dose":"3 séries de 8–10 repetições","cue":"Banco a cerca de 30–45 graus. Omoplatas assentes, desce os halteres em linha com a parte alta do peito e empurra sem fechares os cotovelos com um estalo.","gif":"incline-db","rest":"60–90 s"}},{"id":"c-row","title":"Remada na polia","main":{"name":"Remada sentado na polia","dose":"3 séries de 10–12 repetições","cue":"Pés na plataforma, tronco estável. Puxa o pegador até ao abdómen, peito aberto, e controla o regresso.","gif":"seated-cable-row","rest":"60–90 s"}},{"id":"c-arms","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl com barra EZ e mergulhos na máquina","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Substitui a flexão de pernas na máquina. Superset: curl com barra EZ (pega inclinada, mais amiga dos pulsos, sem balançar) e mergulhos na máquina de tríceps — cotovelos junto ao tronco, desce com controlo e estende sem estalar. 60 segundos de pausa só no fim do par. RPE 7.","gif":"ez-curl","gifs":[{"key":"ez-curl","label":"Curl com barra EZ"},{"key":"dip-machine","label":"Mergulhos na máquina"}]},"alt":{"name":"Curl com halteres e pushdown com barra","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Se a máquina de mergulhos ou a barra EZ não estiverem livres: curl com halteres e pushdown com barra na polia alta. Mesmo superset, mesma cadência, pausa só no fim do par.","gif":"db-curl","gifs":[{"key":"db-curl","label":"Curl com halteres"},{"key":"bar-pushdown","label":"Pushdown com barra"}]}},{"id":"c-sc","title":"Ombro e core (superset)","log":true,"logKind":"superset","main":{"name":"Puxada à face e Pallof press na polia (semi-ajoelhado)","dose":"2 séries de 12–15 face pull e 10 Pallof por lado","cue":"Superset curto: puxada à face com a corda na polia à altura da cara — cotovelos altos, roda as mãos para trás no final, carga leve. Depois, sem pausa longa, Pallof press semi-ajoelhado: polia à altura do peito, de lado para ela, um joelho no chão. Empurra a pega à frente do peito, segura 2 segundos sem deixar o tronco rodar, volta e troca de lado. Carga leve no Pallof: o trabalho é resistir à rotação, o mesmo controlo de tronco do boxe. Descansa 45–60 s só no fim do par. Duas séries chegam.","gif":"face-pull","gifs":[{"key":"face-pull","label":"Puxada à face"},{"key":"pallof-press","label":"Pallof press"}],"rest":"45–60 s","logLabels":["Face pull","Pallof"]},"alt":{"name":"Reverse fly com halteres e prancha lateral","dose":"2 séries de 12–15 reverse fly e 25–35 s de prancha lateral por lado","cue":"Se a polia estiver ocupada: reverse fly inclinado com halteres leves (tronco a 45°, abre até à linha dos ombros apertando as omoplatas) e prancha lateral — antebraço por baixo do ombro, anca alta, 25–35 segundos por lado. Anota os segundos no segundo campo.","gif":"db-reverse-fly","gifs":[{"key":"db-reverse-fly","label":"Reverse fly com halteres"},{"key":"side-plank","label":"Prancha lateral"}],"rest":"45–60 s","logLabels":["Reverse fly","Prancha lateral"]}},{"id":"c-cond","title":"Fecho curto (opcional)","main":{"name":"Remo fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa — opcional","cue":"Só se ainda tiveres tempo no fim da força. O boxe já cobre o condicionamento. Quatro minutos de remo suave na área de cross e podes ir embora.","gif":"rowing"},"alt":{"name":"Air bike fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa — opcional","cue":"Resistência baixa, sem sprint. Quatro minutos e está fechado.","gif":"air-bike"},"optional":true}],"diaDZ2":[{"id":"d-z2","title":"Zona 2 (opção preferida)","main":{"name":"Remo em zona 2","dose":"30–40 minutos contínuos","cue":"Na máquina de remo da área de cross. Ritmo de conversa: consegues falar por frases, mas não cantar. Técnica do remo: pernas, tronco, braços — e o inverso no regresso. Este é o dia mais leve da semana.","gif":"rowing"},"alt":{"name":"Bicicleta em zona 2","dose":"30–40 minutos contínuos","cue":"Resistência moderada, cadência estável, conversação possível. Este é o dia mais leve da semana, não um treino de intervalos.","gif":"bike"}}],"alongamentos":[{"id":"s-hip","title":"Flexores da anca","main":{"name":"Alongamento dos flexores da anca","dose":"30–45 segundos por lado","cue":"Joelho de trás no chão, pé da frente à frente. Empurra a anca para a frente com o tronco direito, sem arqueares a lombar.","gif":"hip-stretch"}},{"id":"s-ham","title":"Isquiotibiais","main":{"name":"Alongamento dos isquiotibiais sentado","dose":"30–45 segundos por perna","cue":"Uma perna estendida, a outra fletida. Inclina o tronco sobre a perna estendida com a coluna longa, sem puxar o pé com força.","gif":"ham-stretch"}},{"id":"s-chest","title":"Peitoral","main":{"name":"Alongamento do peitoral sentado","dose":"30–45 segundos","cue":"Mãos apoiadas atrás no banco ou no chão, peito aberto, ombros longe das orelhas. Respira fundo e alarga o peito na inspiração.","gif":"chest-stretch"}},{"id":"s-back","title":"Costas","main":{"name":"Postura da criança à cobra","dose":"4–6 transições lentas","cue":"Recua para a postura da criança, depois desliza para a frente até à cobra baixa, sem forçar a lombar. Movimento lento e respirado.","gif":"child-cobra"}}],"diaDMetcon":[{"id":"d-metcon","title":"Metcon leve na área de cross","main":{"name":"AMRAP 12 min: swings, step-ups e remo","dose":"12 minutos suaves, RPE 6","cue":"Área de cross da TTF Maia. Durante 12 minutos, repete: 8 swings russos, 6 subidas ao caixote por perna (sem salto) e 150 m de remo. Conta as rondas, mas não corras contra o relógio. Se precisares, alonga o remo e reduz 2 repetições. Este é um regresso ao CrossFit, não um WOD de competição.","gif":"kb-swing","gifs":[{"key":"kb-swing","label":"Swing com kettlebell"},{"key":"box-stepup","label":"Subida ao caixote"},{"key":"rowing","label":"Remo"}]},"alt":{"name":"4 rondas: wall balls, goblets e farmer","dose":"4 rondas · 1 min de pausa, RPE 6","cue":"Em cada ronda: 10 wall balls (bola leve), 8 agachamentos goblet controlados e 20–30 m de farmer walk. Pausa completa no minuto. Se o ombro ou o joelho protestarem, reduz a bola ou troca para a outra opção.","gif":"wall-ball","gifs":[{"key":"wall-ball","label":"Wall ball"},{"key":"goblet","label":"Agachamento goblet"},{"key":"farmers","label":"Farmer walk"}]}}]};
   </script>
   <script>function generatePlan(answers, baseCatalog) {
   const catalog = JSON.parse(JSON.stringify(baseCatalog));
@@ -944,22 +957,25 @@ button.btn.linkish {
       if (card.id === "c-row") replaceExercise(card, "Remada com haltere", "db-row", `${sets} séries de 10–12 repetições por lado`, "Substitui a polia: remada com haltere, um lado de cada vez.");
     });
     catalog.treinoB.forEach((card) => {
-      if (card.id === "b-face") replaceExercise(card, "Elevações laterais leves", "lateral-raise", `${sets} séries de 12 repetições`, "Sem polia para face pull: elevações laterais muito leves, só até à linha dos ombros. Se incomodar o ombro, reduz a amplitude.");
+      if (card.id === "b-face" || card.id === "a-sc" || card.id === "c-sc") { card.main = { name: "Reverse fly com halteres e prancha lateral", dose: "2 séries de 12–15 reverse fly e 25–35 s de prancha lateral por lado", cue: "Em casa, sem polia: reverse fly inclinado com halteres leves e prancha lateral, 25–35 segundos por lado.", gif: "db-reverse-fly", gifs: [{ key: "db-reverse-fly", label: "Reverse fly com halteres" }, { key: "side-plank", label: "Prancha lateral" }], rest: "45–60 s", logLabels: ["Reverse fly", "Prancha lateral"] }; delete card.alt; card.logKind = "superset"; card.title = "Ombro e core (superset)"; }
       if (card.id === "b-cond") {
-        card.main = { name: "EMOM 8 min: goblets e step-ups no degrau", dose: `8 minutos, RPE ${rpe}`, cue: "Em casa. Minutos ímpares: 8 agachamentos goblet lentos. Minutos pares: 8 subidas a um degrau ou caixa baixa por perna, sem salto. Se o minuto ficar apertado, reduz 2 repetições.", gif: "goblet", gifs: [{ key: "goblet", label: "Agachamento goblet" }, { key: "box-stepup", label: "Subida ao degrau" }] };
-        card.alt = { name: "8 min: ponte e swings leves", dose: `8 minutos contínuos, RPE ${rpe}`, cue: "Alterna 8 pontes de glúteos e 8 swings com kettlebell ou haltere (só até à linha dos ombros). Ritmo de conversa.", gif: "glute-bridge", gifs: [{ key: "glute-bridge", label: "Ponte de glúteos" }, { key: "kb-swing", label: "Swing" }] };
+        card.optional = true; card.title = "Fecho curto (opcional)";
+        card.main = { name: "EMOM 6 min: goblets e step-ups no degrau", dose: `6 minutos, RPE ${rpe} — opcional`, cue: "Só se ainda tiveres tempo. Em casa. Minutos ímpares: 8 agachamentos goblet lentos. Minutos pares: 8 subidas a um degrau ou caixa baixa por perna, sem salto. Se o minuto ficar apertado, reduz 2 repetições.", gif: "goblet", gifs: [{ key: "goblet", label: "Agachamento goblet" }, { key: "box-stepup", label: "Subida ao degrau" }] };
+        card.alt = { name: "4 min: ponte e swings leves", dose: `4 minutos contínuos, RPE ${rpe} — opcional`, cue: "Alterna 8 pontes de glúteos e 8 swings com kettlebell ou haltere (só até à linha dos ombros). Ritmo de conversa. Para aos 4 minutos.", gif: "glute-bridge", gifs: [{ key: "glute-bridge", label: "Ponte de glúteos" }, { key: "kb-swing", label: "Swing" }] };
       }
     });
     catalog.treinoC.forEach((card) => {
       if (card.id === "c-cond") {
-        card.main = { name: "3 rondas: farmer e goblets", dose: `3 rondas confortáveis · 1 min de pausa, RPE ${rpe}`, cue: "Em cada ronda: 30–40 metros (ou 40 segundos no sítio) de farmer com halteres e 8 agachamentos goblet. Sem pressa.", gif: "farmers", gifs: [{ key: "farmers", label: "Farmer carry" }, { key: "goblet", label: "Goblet" }] };
-        card.alt = { name: "3 rondas: step-ups e ponte", dose: `3 rondas confortáveis · 1 min de pausa, RPE ${rpe}`, cue: "8 subidas ao degrau por perna e 10 pontes de glúteos. Sem saltos.", gif: "box-stepup", gifs: [{ key: "box-stepup", label: "Step-up" }, { key: "glute-bridge", label: "Ponte" }] };
+        card.optional = true; card.title = "Fecho curto (opcional)";
+        card.main = { name: "2 rondas: farmer e goblets", dose: `2 rondas confortáveis · 1 min de pausa, RPE ${rpe} — opcional`, cue: "Só se ainda tiveres tempo. Em cada ronda: 30–40 metros (ou 40 segundos no sítio) de farmer com halteres e 8 agachamentos goblet. Sem pressa.", gif: "farmers", gifs: [{ key: "farmers", label: "Farmer carry" }, { key: "goblet", label: "Goblet" }] };
+        card.alt = { name: "2 rondas: step-ups e ponte", dose: `2 rondas confortáveis · 1 min de pausa, RPE ${rpe} — opcional`, cue: "8 subidas ao degrau por perna e 10 pontes de glúteos. Sem saltos. Duas rondas chegam.", gif: "box-stepup", gifs: [{ key: "box-stepup", label: "Step-up" }, { key: "glute-bridge", label: "Ponte" }] };
       }
     });
     catalog.condA.forEach((card) => {
       if (card.id === "a-cond") {
-        card.main = { name: "Intervalos em marcha rápida ou bicicleta", dose: "8 rondas de 30 s rápido + 30 s lento", cue: "Se tiveres bicicleta, usa-a. Senão, marcha no sítio ou no corredor, 30 segundos um pouco mais rápido e 30 segundos lento. Sem sprint.", gif: "bike" };
-        card.alt = { name: "Marcha contínua", dose: "8–10 minutos, ritmo de conversa", cue: "Caminhada ou marcha no sítio, respiração controlada.", gif: "bike" };
+        card.optional = true; card.title = "Fecho curto (opcional)";
+        card.main = { name: "Intervalos em marcha rápida ou bicicleta", dose: "4 rondas de 30 s rápido + 30 s lento — opcional", cue: "Só se ainda tiveres tempo. Se tiveres bicicleta, usa-a. Senão, marcha no sítio ou no corredor, 30 segundos um pouco mais rápido e 30 segundos lento. Sem sprint.", gif: "bike" };
+        card.alt = { name: "Marcha contínua", dose: "4 minutos, ritmo de conversa — opcional", cue: "Caminhada ou marcha no sítio, respiração controlada. Para aos 4 minutos.", gif: "bike" };
       }
     });
     catalog.diaDZ2.forEach((card) => {
@@ -999,7 +1015,7 @@ button.btn.linkish {
     }
   }
   function swapShoulder(card) {
-    if (card.id === "b-press" || card.id === "c-lateral") {
+    if (card.id === "b-press") {
       replaceExercise(card, "Supino com halteres (apoiado)", "db-press", `${sets} séries de 8–12 repetições`, "Em vez de desenvolvimento ou elevações laterais: press horizontal, omoplatas estáveis, amplitude sem dor no ombro.", { name: "Puxada à face leve", gif: "face-pull", dose: `${sets} séries de 12–15 repetições`, cue: "Se tiveres polia ou elástico: puxada à face, muito leve, para o ombro." });
       card.log = true;
     }
@@ -1026,18 +1042,11 @@ button.btn.linkish {
   });
 
   if (minutes <= 30) {
-    notes.push("Sessões mais curtas: menos séries e um condicionamento breve.");
-    const drop = new Set(["b-face", "c-lateral", "b-deadbug"]);
+    notes.push("Sessões de cerca de 30 minutos: 2 séries nos principais e sem o fecho opcional.");
+    const drop = new Set(["a-cond", "b-cond", "c-cond"]);
     catalog.treinoB = catalog.treinoB.filter((c) => !drop.has(c.id));
     catalog.treinoC = catalog.treinoC.filter((c) => !drop.has(c.id));
-    catalog.condA.forEach((c) => {
-      if (c.main) c.main.dose = "6 rondas de 30 s rápido + 30 s lento";
-    });
-    catalog.treinoB.concat(catalog.treinoC).forEach((c) => {
-      if (c.id && c.id.endsWith("-cond") && c.main) {
-        c.main.dose = c.main.dose.replace(/8 minutos|8 min|12 minutos|3 rondas/g, (m) => (m.includes("3") ? "2 rondas" : "6 minutos"));
-      }
-    });
+    catalog.condA = (catalog.condA || []).filter((c) => !drop.has(c.id));
   }
 
   if (goals.includes("muscle_gain") && !goals.includes("weight_loss")) {
@@ -1060,7 +1069,7 @@ button.btn.linkish {
     notes.push("Cardio de baixo impacto: remo, bicicleta ou marcha, sem saltos.");
   }
 
-  const strengthIds = new Set(["a-squat", "a-pulldown", "a-press", "a-rdl", "a-arms", "b-lunge", "b-press", "b-row", "b-arms", "b-face", "c-bulgarian", "c-incline", "c-row", "c-arms", "c-lateral"]);
+  const strengthIds = new Set(["a-squat", "a-pulldown", "a-press", "a-arms", "a-sc", "b-lunge", "b-press", "b-row", "b-arms", "b-face", "c-bulgarian", "c-incline", "c-row", "c-arms", "c-sc"]);
   Object.values(catalog).forEach((list) => {
     (list || []).forEach((card) => {
       if (strengthIds.has(card.id) || card.log) card.log = true;
@@ -1094,12 +1103,12 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   const WEEKS = ["1", "2", "3", "4"];
   const TABS = ["warmup", "a", "b", "c", "boxe", "d", "stretch"];
   const MAIN_VOLUME = new Set([
-    "a-squat", "a-pulldown", "a-press", "a-rdl", "b-lunge", "c-bulgarian",
+    "a-squat", "a-pulldown", "a-press", "b-lunge", "c-bulgarian",
   ]);
   const LOG_IDS = new Set([
-    "a-squat", "a-pulldown", "a-press", "a-rdl", "a-arms",
+    "a-squat", "a-pulldown", "a-press", "a-rdl", "a-arms", "a-sc",
     "b-lunge", "b-press", "b-row", "b-arms", "b-face", "b-deadbug",
-    "c-bulgarian", "c-incline", "c-row", "c-arms", "c-lateral",
+    "c-bulgarian", "c-incline", "c-row", "c-arms", "c-lateral", "c-sc",
   ]);
   const ARM_IDS = new Set(["a-arms", "b-arms", "c-arms"]);
   const SECOND_LABEL = {};
@@ -1111,7 +1120,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   const WEEK_DATES = { "1": "10–15 nov", "2": "16–22 nov", "3": "23–29 nov", "4": "30 nov–7 dez" };
   const WEEK_VARIANTS = {
     "2": {
-      notes: {
+      "notes": {
         "a-squat": "Semana 2: na semana 1 fizeste 70 → 80 → 90 kg × 12 na prensa. Começa já nos 90 kg nas três séries; se as 12 saírem limpas, sobe a última para 95–100 kg. No goblet, procura um haltere com o qual as 12 fiquem em RPE 7.",
         "a-pulldown": "Semana 2: fizeste 50 → 55 → 55 kg × 12. Faz 55 kg nas três séries e, se a última ainda deixar 2–3 reps em reserva, tenta 57,5–60 kg.",
         "a-press": "Semana 2: fizeste 18 → 19 → 20 kg × 12 por haltere. Faz 20 kg nas três séries; se as 12 saírem fáceis, sobe a última para 22 kg.",
@@ -1123,77 +1132,774 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
         "c-incline": "Semana 2: ainda sem registo. Como referência, no supino plano fizeste 20 kg × 12; no inclinado começa por 16–18 kg por haltere.",
         "c-row": "Semana 2: ainda sem registo. Na remada acessória da semana 1 (máquina) chegaste aos 50 kg × 12; na polia começa nos 45–50 kg e ajusta."
       },
-      replace: {
-        "a-plank": {"id":"a-pallof","title":"Core anti-rotação","log":true,"main":{"name":"Pallof press na polia (semi-ajoelhado)","dose":"3 séries de 10 repetições por lado","cue":"Polia à altura do peito, de lado para ela, um joelho no chão. Empurra a pega em linha reta à frente do peito, segura 2 segundos sem deixar o tronco rodar e volta devagar. Carga leve: o trabalho é resistir à rotação. Troca de lado.","gif":"pallof-press","rest":"45–60 s"},"alt":{"name":"Prancha lateral","dose":"3 séries de 25–35 segundos por lado","cue":"Antebraço por baixo do ombro, pés empilhados (ou o de cima à frente), anca alta e corpo em linha. Se a anca cair, termina a série. Anota os segundos no campo das reps.","gif":"side-plank","rest":"45–60 s"}},
-        "a-arms": {"id":"a-arms-w2","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl na máquina Scott e extensão com corda por cima da cabeça","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Superset: curl na máquina Scott (braços bem apoiados no banco, sobe sem tirar os cotovelos do apoio e desce até quase estender) e, quase sem pausa, extensão de tríceps com corda na polia, de costas para a máquina — cotovelos junto à cabeça, estende à frente e por cima. Descansa cerca de 60 segundos só no fim do par.","gif":"preacher-curl","gifs":[{"key":"preacher-curl","label":"Curl na máquina Scott"},{"key":"rope-oh-extension","label":"Extensão com corda por cima da cabeça"}]},"alt":{"name":"Curl concentrado e kickback com haltere","dose":"2 séries de 10–12 de cada (por braço), RPE 7","cue":"Se a máquina Scott estiver ocupada: curl concentrado sentado (cotovelo apoiado na parte de dentro da coxa, sobe devagar) e kickback com haltere apoiado no banco (braço colado ao tronco, estende o cotovelo até ao fim). Faz um braço e depois o outro; pausa só no fim do par.","gif":"concentration-curl","gifs":[{"key":"concentration-curl","label":"Curl concentrado"},{"key":"db-kickback","label":"Kickback com haltere"}]}}
+      "replace": {
+        "a-arms": {
+          "id": "a-arms-w2",
+          "title": "Bíceps e tríceps (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Curl na máquina Scott e extensão com corda por cima da cabeça",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Superset: curl na máquina Scott (braços bem apoiados no banco, sobe sem tirar os cotovelos do apoio e desce até quase estender) e, quase sem pausa, extensão de tríceps com corda na polia, de costas para a máquina — cotovelos junto à cabeça, estende à frente e por cima. Descansa cerca de 60 segundos só no fim do par.",
+            "gif": "preacher-curl",
+            "gifs": [
+              {
+                "key": "preacher-curl",
+                "label": "Curl na máquina Scott"
+              },
+              {
+                "key": "rope-oh-extension",
+                "label": "Extensão com corda por cima da cabeça"
+              }
+            ]
+          },
+          "alt": {
+            "name": "Curl concentrado e kickback com haltere",
+            "dose": "2 séries de 10–12 de cada (por braço), RPE 7",
+            "cue": "Se a máquina Scott estiver ocupada: curl concentrado sentado (cotovelo apoiado na parte de dentro da coxa, sobe devagar) e kickback com haltere apoiado no banco (braço colado ao tronco, estende o cotovelo até ao fim). Faz um braço e depois o outro; pausa só no fim do par.",
+            "gif": "concentration-curl",
+            "gifs": [
+              {
+                "key": "concentration-curl",
+                "label": "Curl concentrado"
+              },
+              {
+                "key": "db-kickback",
+                "label": "Kickback com haltere"
+              }
+            ]
+          }
+        },
+        "a-sc": {
+          "id": "a-face",
+          "title": "Ombro e core (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Puxada à face e Pallof press na polia (semi-ajoelhado)",
+            "dose": "2 séries de 12–15 face pull e 10 Pallof por lado",
+            "cue": "Superset curto para caber nos 40 minutos: puxada à face com a corda na polia à altura da cara — cotovelos altos, roda as mãos para trás no final, carga leve. Depois Pallof press semi-ajoelhado: polia à altura do peito, de lado para ela, um joelho no chão; empurra a pega à frente do peito, segura 2 segundos sem deixar o tronco rodar e troca de lado. Descansa 45–60 s só no fim do par.",
+            "gif": "face-pull",
+            "gifs": [
+              {
+                "key": "face-pull",
+                "label": "Puxada à face"
+              },
+              {
+                "key": "pallof-press",
+                "label": "Pallof press"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Face pull",
+              "Pallof"
+            ]
+          },
+          "alt": {
+            "name": "Deltoide posterior na máquina e prancha lateral",
+            "dose": "2 séries de 12–15 reverse pec deck e 25–35 s de prancha lateral por lado",
+            "cue": "Peito encostado ao apoio, abre os braços até à linha do tronco sem encolher os ombros. Depois prancha lateral, antebraço por baixo do ombro, anca alta, 25–35 segundos por lado. Anota os segundos no segundo campo.",
+            "gif": "rear-delt-machine",
+            "gifs": [
+              {
+                "key": "rear-delt-machine",
+                "label": "Deltoide posterior na máquina"
+              },
+              {
+                "key": "side-plank",
+                "label": "Prancha lateral"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Reverse pec deck",
+              "Prancha lateral"
+            ]
+          }
+        }
       },
-      replaceCond: {
-        "a-cond": {"id":"a-finisher","title":"Fecho curto","main":{"name":"Remo fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"O boxe já cobre o condicionamento desta semana. Este é só um fecho leve, na máquina de remo da área de cross, para baixar o ritmo antes dos alongamentos. Sem intervalos e sem sprint.","gif":"rowing"},"alt":{"name":"Bicicleta fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"Mesma ideia no cicloergómetro: cadência confortável, resistência baixa, ainda consegues conversar. Pára aos 4 minutos e passa aos alongamentos.","gif":"bike"}}
+      "replaceCond": {
+        "a-cond": {
+          "id": "a-finisher",
+          "title": "Fecho curto (opcional)",
+          "main": {
+            "name": "Remo fácil, 4 minutos",
+            "dose": "4 minutos contínuos, ritmo de conversa — opcional",
+            "cue": "Só se ainda tiveres tempo no fim da força. O boxe já cobre o condicionamento desta semana. Este é só um fecho leve, na máquina de remo da área de cross, para baixar o ritmo antes dos alongamentos. Sem intervalos e sem sprint.",
+            "gif": "rowing"
+          },
+          "alt": {
+            "name": "Bicicleta fácil, 4 minutos",
+            "dose": "4 minutos contínuos, ritmo de conversa — opcional",
+            "cue": "Só se ainda tiveres tempo. Mesma ideia no cicloergómetro: cadência confortável, resistência baixa, ainda consegues conversar. Pára aos 4 minutos e passa aos alongamentos.",
+            "gif": "bike"
+          },
+          "optional": true
+        }
       },
-      replaceB: {
-        "b-arms": {"id":"b-arms-w2","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl martelo com corda e pushdown em pegada invertida","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Superset na mesma polia ou em polias vizinhas: curl martelo com corda na polia baixa (palmas viradas uma para a outra, cotovelos fixos) e pushdown com barra em pegada invertida (palmas para cima) na polia alta — cotovelos junto ao tronco, estende até ao fim. Pausa de 60 s só no fim do par.","gif":"rope-hammer-curl","gifs":[{"key":"rope-hammer-curl","label":"Curl martelo com corda"},{"key":"reverse-pushdown","label":"Pushdown em pegada invertida"}]},"alt":{"name":"Curl invertido com barra EZ e mergulhos no banco","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Curl com barra EZ em pegada invertida (palmas para baixo, sem balançar) e mergulhos de tríceps no banco — mãos na borda, desce até os cotovelos fazerem cerca de 90 graus, sem deixar os ombros rolar para a frente. Pernas fletidas para facilitar, estendidas para dificultar. Anota 0 kg nos mergulhos se forem só com o peso do corpo.","gif":"ez-reverse-curl","gifs":[{"key":"ez-reverse-curl","label":"Curl invertido com barra EZ"},{"key":"bench-dips","label":"Mergulhos no banco"}]}},
-        "b-deadbug": {"id":"b-pallof","title":"Core anti-rotação","log":true,"main":{"name":"Pallof press em pé na polia","dose":"2 séries de 10 repetições por lado","cue":"Polia à altura do peito, de lado para ela, pés à largura dos ombros. Empurra a pega à frente do peito, segura 2 segundos sem deixar o tronco rodar e volta devagar. Carga leve: o trabalho é resistir à rotação (útil no boxe). Troca de lado. Duas séries chegam, para caber nos 50 minutos.","gif":"pallof-press","rest":"45–60 s"},"alt":{"name":"Prancha lateral","dose":"2 séries de 25–35 segundos por lado","cue":"Antebraço por baixo do ombro, pés empilhados (ou o de cima à frente), anca alta e corpo em linha. Se a anca cair, termina a série. Anota os segundos no campo das reps.","gif":"side-plank","rest":"45–60 s"}},
-        "b-cond": {"id":"b-finisher","title":"Fecho curto","main":{"name":"SkiErg fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"O boxe já cobre o condicionamento. Fecha em suave no SkiErg da área de cross: puxadas longas e calmas, sem intervalos. Ao fim de 4 minutos, passa aos alongamentos.","gif":"ski-erg"},"alt":{"name":"Air bike fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"Resistência baixa, cadência confortável, ainda consegues falar. Não é um sprint: é só baixar o ritmo depois da força.","gif":"air-bike"}}
+      "replaceB": {
+        "b-arms": {
+          "id": "b-arms-w2",
+          "title": "Bíceps e tríceps (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Curl martelo com corda e pushdown em pegada invertida",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Superset na mesma polia ou em polias vizinhas: curl martelo com corda na polia baixa (palmas viradas uma para a outra, cotovelos fixos) e pushdown com barra em pegada invertida (palmas para cima) na polia alta — cotovelos junto ao tronco, estende até ao fim. Pausa de 60 s só no fim do par.",
+            "gif": "rope-hammer-curl",
+            "gifs": [
+              {
+                "key": "rope-hammer-curl",
+                "label": "Curl martelo com corda"
+              },
+              {
+                "key": "reverse-pushdown",
+                "label": "Pushdown em pegada invertida"
+              }
+            ]
+          },
+          "alt": {
+            "name": "Curl invertido com barra EZ e mergulhos no banco",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Curl com barra EZ em pegada invertida (palmas para baixo, sem balançar) e mergulhos de tríceps no banco — mãos na borda, desce até os cotovelos fazerem cerca de 90 graus, sem deixar os ombros rolar para a frente. Pernas fletidas para facilitar, estendidas para dificultar. Anota 0 kg nos mergulhos se forem só com o peso do corpo.",
+            "gif": "ez-reverse-curl",
+            "gifs": [
+              {
+                "key": "ez-reverse-curl",
+                "label": "Curl invertido com barra EZ"
+              },
+              {
+                "key": "bench-dips",
+                "label": "Mergulhos no banco"
+              }
+            ]
+          }
+        },
+        "b-cond": {
+          "id": "b-finisher",
+          "title": "Fecho curto (opcional)",
+          "main": {
+            "name": "SkiErg fácil, 4 minutos",
+            "dose": "4 minutos contínuos, ritmo de conversa — opcional",
+            "cue": "Só se ainda tiveres tempo no fim da força. O boxe já cobre o condicionamento. Fecha em suave no SkiErg da área de cross: puxadas longas e calmas, sem intervalos. Ao fim de 4 minutos, passa aos alongamentos.",
+            "gif": "ski-erg"
+          },
+          "alt": {
+            "name": "Air bike fácil, 4 minutos",
+            "dose": "4 minutos contínuos, ritmo de conversa — opcional",
+            "cue": "Só se ainda tiveres tempo. Resistência baixa, cadência confortável, ainda consegues falar. Não é um sprint: é só baixar o ritmo depois da força.",
+            "gif": "air-bike"
+          },
+          "optional": true
+        },
+        "b-face": {
+          "id": "b-face",
+          "title": "Ombro e core (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Puxada à face e Pallof press em pé na polia",
+            "dose": "2 séries de 12–15 face pull e 10 Pallof por lado",
+            "cue": "Superset curto: puxada à face com a corda na polia à altura da cara — cotovelos altos, roda as mãos para trás no final, carga leve (apoia os ombros no boxe). Depois Pallof press em pé: polia à altura do peito, de lado para ela, pés à largura dos ombros; empurra a pega, segura 2 segundos sem deixar o tronco rodar e troca de lado. Descansa 45–60 s só no fim do par.",
+            "gif": "face-pull",
+            "gifs": [
+              {
+                "key": "face-pull",
+                "label": "Puxada à face"
+              },
+              {
+                "key": "pallof-press",
+                "label": "Pallof press"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Face pull",
+              "Pallof"
+            ]
+          },
+          "alt": {
+            "name": "Deltoide posterior na máquina e prancha lateral",
+            "dose": "2 séries de 12–15 reverse pec deck e 25–35 s de prancha lateral por lado",
+            "cue": "Peito encostado ao apoio, abre os braços até à linha do tronco sem encolher os ombros. Depois prancha lateral, 25–35 segundos por lado, anca alta. Anota os segundos no segundo campo.",
+            "gif": "rear-delt-machine",
+            "gifs": [
+              {
+                "key": "rear-delt-machine",
+                "label": "Deltoide posterior na máquina"
+              },
+              {
+                "key": "side-plank",
+                "label": "Prancha lateral"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Reverse pec deck",
+              "Prancha lateral"
+            ]
+          }
+        }
       },
-      replaceC: {
-        "c-arms": {"id":"c-arms-w2","title":"Bíceps e tríceps (superset)","log":true,"logKind":"superset","main":{"name":"Curl com barra e supino de pegada fechada","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Superset: curl com barra direita (cotovelos colados ao tronco, sem balançar as costas) e supino de pegada fechada (mãos à largura dos ombros, cotovelos junto ao corpo, barra até à parte baixa do peito). Usa a barra livre ou a Smith. Pausa de 60 s só no fim do par.","gif":"barbell-curl","gifs":[{"key":"barbell-curl","label":"Curl com barra"},{"key":"close-grip-bench","label":"Supino de pegada fechada"}]},"alt":{"name":"Curl inclinado com halteres e flexões diamante","dose":"2 séries de 10–12 de cada, RPE 7","cue":"Curl com halteres sentado num banco inclinado a cerca de 45–60 graus (braços pendurados atrás do tronco, sobe sem levar os cotovelos à frente) e flexões diamante (mãos juntas por baixo do peito, cotovelos junto ao corpo). Se as flexões ficarem pesadas, faz com os joelhos no chão. Anota 0 kg nas flexões.","gif":"incline-db-curl","gifs":[{"key":"incline-db-curl","label":"Curl inclinado"},{"key":"diamond-pushup","label":"Flexões diamante"}]}},
-        "c-lateral": {"id":"c-face","title":"Estabilidade de ombro (face pull)","log":true,"main":{"name":"Puxada à face (face pull)","dose":"2 séries de 12–15 repetições","cue":"Corda na polia à altura da cara. Puxa em direção à face, cotovelos altos, e roda as mãos para trás no final. É trabalho de qualidade para o manguito rotador e as costas altas, a apoiar o boxe — não é um exercício de carga máxima. Duas séries chegam.","gif":"face-pull","rest":"45–60 s"},"alt":{"name":"Deltoide posterior na máquina (reverse pec deck)","dose":"2 séries de 12–15 repetições","cue":"Peito encostado ao apoio, pegas à altura dos ombros. Abre os braços para trás até à linha do tronco, sem encolher os ombros, e volta devagar. Mesmo objetivo: ombros e costas altas estáveis.","gif":"rear-delt-machine","rest":"45–60 s"}},
-        "c-cond": {"id":"c-finisher","title":"Fecho curto","main":{"name":"Remo fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"O boxe já cobre o condicionamento. Fecha com 4 minutos de remo suave na área de cross, só para baixar o ritmo, e passa aos alongamentos.","gif":"rowing"},"alt":{"name":"Air bike fácil, 4 minutos","dose":"4 minutos contínuos, ritmo de conversa","cue":"Resistência baixa, sem sprint. Quatro minutos e está fechado.","gif":"air-bike"}}
+      "replaceC": {
+        "c-arms": {
+          "id": "c-arms-w2",
+          "title": "Bíceps e tríceps (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Curl com barra e supino de pegada fechada",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Superset: curl com barra direita (cotovelos colados ao tronco, sem balançar as costas) e supino de pegada fechada (mãos à largura dos ombros, cotovelos junto ao corpo, barra até à parte baixa do peito). Usa a barra livre ou a Smith. Pausa de 60 s só no fim do par.",
+            "gif": "barbell-curl",
+            "gifs": [
+              {
+                "key": "barbell-curl",
+                "label": "Curl com barra"
+              },
+              {
+                "key": "close-grip-bench",
+                "label": "Supino de pegada fechada"
+              }
+            ]
+          },
+          "alt": {
+            "name": "Curl inclinado com halteres e flexões diamante",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Curl com halteres sentado num banco inclinado a cerca de 45–60 graus (braços pendurados atrás do tronco, sobe sem levar os cotovelos à frente) e flexões diamante (mãos juntas por baixo do peito, cotovelos junto ao corpo). Se as flexões ficarem pesadas, faz com os joelhos no chão. Anota 0 kg nas flexões.",
+            "gif": "incline-db-curl",
+            "gifs": [
+              {
+                "key": "incline-db-curl",
+                "label": "Curl inclinado"
+              },
+              {
+                "key": "diamond-pushup",
+                "label": "Flexões diamante"
+              }
+            ]
+          }
+        },
+        "c-cond": {
+          "id": "c-finisher",
+          "title": "Fecho curto (opcional)",
+          "main": {
+            "name": "Remo fácil, 4 minutos",
+            "dose": "4 minutos contínuos, ritmo de conversa — opcional",
+            "cue": "Só se ainda tiveres tempo no fim da força. O boxe já cobre o condicionamento. Fecha com 4 minutos de remo suave na área de cross, só para baixar o ritmo, e passa aos alongamentos.",
+            "gif": "rowing"
+          },
+          "alt": {
+            "name": "Air bike fácil, 4 minutos",
+            "dose": "4 minutos contínuos, ritmo de conversa — opcional",
+            "cue": "Só se ainda tiveres tempo. Resistência baixa, sem sprint. Quatro minutos e está fechado.",
+            "gif": "air-bike"
+          },
+          "optional": true
+        },
+        "c-sc": {
+          "id": "c-face",
+          "title": "Ombro e core (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Puxada à face e Pallof press na polia (semi-ajoelhado)",
+            "dose": "2 séries de 12–15 face pull e 10 Pallof por lado",
+            "cue": "Superset curto para caber nos 40 minutos: puxada à face com a corda na polia à altura da cara — cotovelos altos, roda as mãos para trás no final, carga leve. Depois Pallof press semi-ajoelhado: polia à altura do peito, de lado para ela, um joelho no chão; empurra a pega à frente do peito, segura 2 segundos sem deixar o tronco rodar e troca de lado. Descansa 45–60 s só no fim do par.",
+            "gif": "face-pull",
+            "gifs": [
+              {
+                "key": "face-pull",
+                "label": "Puxada à face"
+              },
+              {
+                "key": "pallof-press",
+                "label": "Pallof press"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Face pull",
+              "Pallof"
+            ]
+          },
+          "alt": {
+            "name": "Deltoide posterior na máquina e prancha lateral",
+            "dose": "2 séries de 12–15 reverse pec deck e 25–35 s de prancha lateral por lado",
+            "cue": "Peito encostado ao apoio, abre os braços até à linha do tronco sem encolher os ombros. Depois prancha lateral, antebraço por baixo do ombro, anca alta, 25–35 segundos por lado. Anota os segundos no segundo campo.",
+            "gif": "rear-delt-machine",
+            "gifs": [
+              {
+                "key": "rear-delt-machine",
+                "label": "Deltoide posterior na máquina"
+              },
+              {
+                "key": "side-plank",
+                "label": "Prancha lateral"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Reverse pec deck",
+              "Prancha lateral"
+            ]
+          }
+        }
       },
-      insertAfter: {
-        "a-pulldown": {"id":"a-face","title":"Estabilidade de ombro (face pull)","log":true,"main":{"name":"Puxada à face (face pull)","dose":"2 séries de 12–15 repetições","cue":"Corda na polia à altura da cara. Puxa em direção à face, cotovelos altos, e roda as mãos para trás no final. Qualidade para o manguito rotador e as costas altas, a apoiar o boxe. Carga leve, duas séries.","gif":"face-pull","rest":"45–60 s"},"alt":{"name":"Deltoide posterior na máquina (reverse pec deck)","dose":"2 séries de 12–15 repetições","cue":"Peito encostado ao apoio, pegas à altura dos ombros. Abre os braços para trás até à linha do tronco, sem encolher os ombros. Mesmo objetivo: ombros estáveis e costas altas.","gif":"rear-delt-machine","rest":"45–60 s"}},
-        "c-row": {"id":"c-pallof","title":"Core anti-rotação","log":true,"main":{"name":"Pallof press na polia (semi-ajoelhado)","dose":"2 séries de 10 repetições por lado","cue":"Polia à altura do peito, de lado para ela, um joelho no chão. Empurra a pega à frente do peito, segura 2 segundos sem deixar o tronco rodar e volta devagar. Carga leve: resistir à rotação, o mesmo padrão que no boxe. Troca de lado. Duas séries chegam.","gif":"pallof-press","rest":"45–60 s"},"alt":{"name":"Prancha lateral","dose":"2 séries de 25–35 segundos por lado","cue":"Antebraço por baixo do ombro, corpo em linha, anca alta. Se a anca cair, termina a série. Anota os segundos no campo das reps.","gif":"side-plank","rest":"45–60 s"}}
+      "replaceD": {
+        "d-metcon": {
+          "id": "d-metcon-w2",
+          "title": "Metcon leve na área de cross",
+          "main": {
+            "name": "AMRAP 10 min: SkiErg, push press e slam ball",
+            "dose": "10 minutos suaves, RPE 6",
+            "cue": "Área de cross da TTF Maia. Durante 10 minutos, repete: 150 m de SkiErg, 8 push press com halteres leves e 8 slam balls. Conta as rondas, sem corrida contra o relógio. Se precisares, alonga o SkiErg e reduz 2 repetições.",
+            "gif": "ski-erg",
+            "gifs": [
+              {
+                "key": "ski-erg",
+                "label": "SkiErg"
+              },
+              {
+                "key": "db-push-press",
+                "label": "Push press com halteres"
+              },
+              {
+                "key": "ball-slam",
+                "label": "Slam ball"
+              }
+            ]
+          },
+          "alt": {
+            "name": "4 rondas: battle rope, thrusters e bear crawl",
+            "dose": "4 rondas · 1 min de pausa, RPE 6",
+            "cue": "Em cada ronda: 30 s de battle rope, 8 thrusters com kettlebell leve e 10 m de bear crawl. Pausa completa no minuto.",
+            "gif": "battle-rope",
+            "gifs": [
+              {
+                "key": "battle-rope",
+                "label": "Battle rope"
+              },
+              {
+                "key": "kb-thruster",
+                "label": "Thruster com kettlebell"
+              },
+              {
+                "key": "bear-crawl",
+                "label": "Bear crawl"
+              }
+            ]
+          }
+        }
       },
-      replaceD: {
-        "d-metcon": {"id":"d-metcon-w2","title":"Metcon leve na área de cross","main":{"name":"AMRAP 10 min: SkiErg, push press e slam ball","dose":"10 minutos suaves, RPE 6","cue":"Área de cross da TTF Maia. Durante 10 minutos, repete: 150 m de SkiErg, 8 push press com halteres leves e 8 slam balls. Conta as rondas, sem corrida contra o relógio. Se precisares, alonga o SkiErg e reduz 2 repetições.","gif":"ski-erg","gifs":[{"key":"ski-erg","label":"SkiErg"},{"key":"db-push-press","label":"Push press com halteres"},{"key":"ball-slam","label":"Slam ball"}]},"alt":{"name":"4 rondas: battle rope, thrusters e bear crawl","dose":"4 rondas · 1 min de pausa, RPE 6","cue":"Em cada ronda: 30 s de battle rope, 8 thrusters com kettlebell leve e 10 m de bear crawl. Pausa completa no minuto.","gif":"battle-rope","gifs":[{"key":"battle-rope","label":"Battle rope"},{"key":"kb-thruster","label":"Thruster com kettlebell"},{"key":"bear-crawl","label":"Bear crawl"}]}}
-      },
-      meta: {
-        a: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Objetivo da semana: 2 musculação + 1–2 boxe. Os quatro exercícios principais são os mesmos da semana 1, para comparares cargas — e na semana 1 fizeste as 12 em todas as séries, por isso a carga sobe um pouco (vê a nota em cada cartão). Entra também o face pull (ombros e costas altas) e o Pallof press. O fecho é só 4 minutos suaves: o boxe já cobre o condicionamento.</p></aside>
-        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — agachar, puxar, empurrar, romeno, estabilidade de ombro, braços e core anti-rotação</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho curto)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7</dd></div><div><dt>Fecho</dt><dd>4 min de remo ou bicicleta, ritmo de conversa</dd></div></dl>`,
-        b: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Objetivo da semana: 2 musculação + 1–2 boxe. Esta é uma das duas sessões de força sugeridas (juntamente com o C). Os principais (afundos, desenvolvimento, remada) mantêm-se: encontra cargas em RPE 7 e anota-as. O face pull apoia os ombros no boxe; o core passa a Pallof press (anti-rotação). O fecho é só 4 minutos suaves.</p></aside>
-        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — afundos, ombros, remada, estabilidade de ombro, braços e core anti-rotação</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho curto)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7</dd></div><div><dt>Fecho</dt><dd>4 min de SkiErg ou air bike, ritmo de conversa</dd></div></dl>`,
-        c: `<aside class="callout info"><p class="lead">Semana 2 (16–22 de novembro de 2026)</p><p>Objetivo da semana: 2 musculação + 1–2 boxe. Esta é uma das duas sessões de força sugeridas (juntamente com o B). Os principais (búlgaro, inclinado, remada na polia) mantêm-se: cargas em RPE 7. Entra o Pallof press e o face pull (ombros e costas altas). O fecho é só 4 minutos suaves.</p></aside>
-        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — afundo búlgaro, inclinado, remada, core anti-rotação, estabilidade de ombro e braços</dd></div><div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho curto)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7</dd></div><div><dt>Fecho</dt><dd>4 min de remo ou air bike, ritmo de conversa</dd></div></dl>`,
-        d: `<aside class="callout neutral"><p class="lead">Dia D (opcional)</p><p>A partir desta semana o boxe substitui o Dia D na maior parte das vezes. Só faz esta sessão se não tiveres aula de boxe e ainda te sentires com energia, com pelo menos um dia de folga em relação ao último treino pesado. A zona 2 é a opção mais segura.</p></aside>`,
-        boxe: `<aside class="callout info"><p class="lead">Boxe na TTF Maia</p><p>Tenta uma ou duas aulas por semana. Marca cada aula como feita e anota a duração e o RPE. Não precisas do aquecimento nem dos alongamentos do plano neste dia — a aula já os inclui. Se no dia seguinte os ombros ou as pernas estiverem muito carregados, reduz a carga na musculação.</p></aside>
-        <dl class="props"><div><dt>Objetivo</dt><dd>1–2 aulas por semana</dd></div><div><dt>Duração</dt><dd>a da aula (normalmente 45–60 min)</dd></div><div><dt>Registo</dt><dd>Minutos, RPE 1–10 e notas opcionais</dd></div></dl>`
+      "meta": {
+        "a": "<aside class=\"callout info\"><p class=\"lead\">Semana 2 (16–22 de novembro de 2026)</p><p>Objetivo: 2 musculação + 1–2 boxe, sem dias fixos. Os três exercícios principais (prensa, puxada, supino) são os mesmos da semana 1, para comparares cargas — e na semana 1 fizeste as 12 em todas as séries, por isso a carga sobe um pouco (vê a nota em cada cartão). Seguem o superset de braços e o par ombro/core (face pull + Pallof). O fecho de 4 minutos é opcional.</p></aside>\n        <dl class=\"props\"><div><dt>Foco</dt><dd>Corpo inteiro — agachar, puxar, empurrar, braços, ombro e core</dd></div><div><dt>Duração</dt><dd>cerca de 40 minutos (inclui 5 min de aquecimento e o fecho opcional)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; braços e ombro/core em 2 séries</dd></div><div><dt>Fecho</dt><dd>4 min de remo ou bicicleta, ritmo de conversa — opcional</dd></div></dl>",
+        "b": "<aside class=\"callout info\"><p class=\"lead\">Semana 2 (16–22 de novembro de 2026)</p><p>Objetivo: 2 musculação + 1–2 boxe, sem dias fixos. Esta é uma das duas sessões de força sugeridas (juntamente com o C). Os principais (afundos, desenvolvimento, remada) mantêm-se: encontra cargas em RPE 7 e anota-as. Seguem o superset de braços e o par ombro/core (face pull + Pallof). O fecho de 4 minutos é opcional.</p></aside>\n        <dl class=\"props\"><div><dt>Foco</dt><dd>Corpo inteiro — afundos, ombros, remada, braços, ombro e core</dd></div><div><dt>Duração</dt><dd>cerca de 40 minutos (inclui 5 min de aquecimento e o fecho opcional)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; braços e ombro/core em 2 séries</dd></div><div><dt>Fecho</dt><dd>4 min de SkiErg ou air bike, ritmo de conversa — opcional</dd></div></dl>",
+        "c": "<aside class=\"callout info\"><p class=\"lead\">Semana 2 (16–22 de novembro de 2026)</p><p>Objetivo: 2 musculação + 1–2 boxe, sem dias fixos. Esta é uma das duas sessões de força sugeridas (juntamente com o B). Os principais (búlgaro, inclinado, remada na polia) mantêm-se: cargas em RPE 7. Seguem o superset de braços e o par ombro/core (face pull + Pallof). O fecho de 4 minutos é opcional.</p></aside>\n        <dl class=\"props\"><div><dt>Foco</dt><dd>Corpo inteiro — afundo búlgaro, inclinado, remada, braços, ombro e core</dd></div><div><dt>Duração</dt><dd>cerca de 40 minutos (inclui 5 min de aquecimento e o fecho opcional)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; braços e ombro/core em 2 séries</dd></div><div><dt>Fecho</dt><dd>4 min de remo ou air bike, ritmo de conversa — opcional</dd></div></dl>",
+        "d": "<aside class=\"callout neutral\"><p class=\"lead\">Dia D (opcional)</p><p>A partir desta semana o boxe substitui o Dia D na maior parte das vezes. Só faz esta sessão se não tiveres aula de boxe e ainda te sentires com energia, com pelo menos um dia de folga em relação ao último treino pesado. A zona 2 é a opção mais segura.</p></aside>",
+        "boxe": "<aside class=\"callout info\"><p class=\"lead\">Boxe na TTF Maia</p><p>Uma ou duas aulas por semana, quando calhar — não há dia fixo. Marca cada aula como feita e anota a duração e o RPE. Não precisas do aquecimento nem dos alongamentos do plano neste dia — a aula já os inclui. Se no dia seguinte os ombros ou as pernas estiverem muito carregados, reduz a carga na musculação.</p></aside>\n        <dl class=\"props\"><div><dt>Objetivo</dt><dd>1–2 aulas por semana, sem dia fixo</dd></div><div><dt>Duração</dt><dd>a da aula (normalmente 45–60 min)</dd></div><div><dt>Registo</dt><dd>Minutos, RPE 1–10 e notas opcionais</dd></div></dl>"
       }
     },
     "3": {
-      notes: {"a-squat": "Semana 3: a semana 2 ficou sem registo na app, por isso a carga não sobe mais — o último registo é de 10 nov (70 → 80 → 90 kg × 12). Faz uma série de aproximação leve e depois 90 kg nas três séries; se as 12 saírem limpas em RPE 7, sobe a última para 95 kg. Mantemos 3 séries esta semana (a 4.ª série fica para quando houver semanas seguidas feitas).", "a-pulldown": "Semana 3: último registo (10 nov) 50 → 55 → 55 kg × 12. Faz 55 kg nas três séries; se a última ainda deixar 2–3 reps em reserva, tenta 57,5 kg.", "a-press": "Semana 3: último registo (10 nov) 18 → 19 → 20 kg × 12 por haltere. Faz 20 kg nas três séries; se as 12 saírem fáceis, sobe a última para 22 kg.", "a-rdl": "Semana 3: em 10 nov fizeste 25 kg × 10 nas três séries, sempre igual — há margem. Faz 27,5 kg por haltere (o alvo da semana 2, que ficou por fazer), coluna neutra.", "b-lunge": "Semana 3: ainda não há nenhum registo deste exercício. Escolhe uma carga em que as 10 por perna fiquem em RPE 7 (para começar, 12–14 kg por haltere) e anota-a — fica a ser a tua referência.", "b-press": "Semana 3: ainda sem registo. Como no supino fizeste 20 kg × 12, no desenvolvimento começa por 14–16 kg por haltere, RPE 7, e anota.", "b-row": "Semana 3: ainda sem registo. Na remada da sessão de 10 nov chegaste aos 50 kg × 12 (máquina); com um haltere, começa à volta de 22–24 kg por lado e ajusta.", "c-bulgarian": "Semana 3: ainda sem registo. Começa com halteres leves (8–10 kg); a prioridade é o equilíbrio e a amplitude. Anota a carga.", "c-incline": "Semana 3: ainda sem registo. Como referência, no supino plano fizeste 20 kg × 12; no inclinado começa por 16–18 kg por haltere.", "c-row": "Semana 3: ainda sem registo. Na remada de 10 nov (máquina) chegaste aos 50 kg × 12; na polia começa nos 45–50 kg e ajusta."},
-      mainSets: 3,
-      noDayD: true,
-      replace: {
-        "a-plank": {"id": "a-core-w3", "title": "Core anti-rotação", "log": true, "sets": 2, "main": {"name": "Bird dog com pausa", "dose": "2 séries de 8 repetições por lado", "cue": "De quatro apoios, mãos por baixo dos ombros e joelhos por baixo da anca. Estende o braço e a perna opostos até ficarem em linha com o tronco, segura 2 segundos sem deixar a anca rodar nem a lombar afundar, e volta devagar. É anti-rotação pura — o mesmo controlo de tronco de que precisas para soltar os socos.", "gif": "bird-dog", "rest": "30–45 s"}, "alt": {"name": "Prancha com elevação de braço", "dose": "2 séries de 8 repetições por lado", "cue": "Prancha de antebraços, pés um pouco mais afastados do que o normal. Leva um braço em frente, segura 2 segundos sem deixar a anca rodar, volta e troca. Se a anca balançar, afasta mais os pés.", "gif": "plank-arm-lift", "rest": "30–45 s"}},
-        "a-arms": {"id": "a-arms-w3", "title": "Bíceps e tríceps (superset)", "log": true, "logKind": "superset", "main": {"name": "Curl Zottman e extensão unilateral na polia por cima da cabeça", "dose": "2 séries de 10–12 de cada, RPE 7", "cue": "Superset: curl Zottman com halteres (sobe com as palmas para cima, roda as palmas para baixo no topo e desce devagar em pegada invertida — trabalha bíceps e antebraço, bom para segurar a guarda) e, quase sem pausa, extensão de tríceps com um braço na polia, de costas para a máquina, cotovelo junto à cabeça. Começa à volta de 8–10 kg no Zottman e carga leve na polia. Descansa cerca de 60 segundos só no fim do par.", "gif": "zottman-curl", "gifs": [{"key": "zottman-curl", "label": "Curl Zottman"}, {"key": "cable-oh-ext-1arm", "label": "Extensão unilateral na polia por cima da cabeça"}]}, "alt": {"name": "Curl martelo no banco Scott e skull crusher com halteres", "dose": "2 séries de 10–12 de cada, RPE 7", "cue": "Se a polia estiver ocupada: curl martelo com haltere apoiado no banco Scott (braço todo no apoio, palma virada para dentro) e skull crusher com halteres deitado no banco (cotovelos apontados ao teto, desces os halteres ao lado da cabeça e estendes). Pausa só no fim do par.", "gif": "db-hammer-preacher", "gifs": [{"key": "db-hammer-preacher", "label": "Curl martelo no banco Scott"}, {"key": "db-skull-crusher", "label": "Skull crusher com halteres"}]}}
+      "notes": {
+        "a-squat": "Semana 3: a semana 2 ficou sem registo na app, por isso a carga não sobe mais — o último registo é de 10 nov (70 → 80 → 90 kg × 12). Faz uma série de aproximação leve e depois 90 kg nas três séries; se as 12 saírem limpas em RPE 7, sobe a última para 95 kg. Mantemos 3 séries esta semana (a 4.ª série fica para quando houver semanas seguidas feitas).",
+        "a-pulldown": "Semana 3: último registo (10 nov) 50 → 55 → 55 kg × 12. Faz 55 kg nas três séries; se a última ainda deixar 2–3 reps em reserva, tenta 57,5 kg.",
+        "a-press": "Semana 3: último registo (10 nov) 18 → 19 → 20 kg × 12 por haltere. Faz 20 kg nas três séries; se as 12 saírem fáceis, sobe a última para 22 kg.",
+        "a-rdl": "Semana 3: em 10 nov fizeste 25 kg × 10 nas três séries, sempre igual — há margem. Faz 27,5 kg por haltere (o alvo da semana 2, que ficou por fazer), coluna neutra.",
+        "b-lunge": "Semana 3: ainda não há nenhum registo deste exercício. Escolhe uma carga em que as 10 por perna fiquem em RPE 7 (para começar, 12–14 kg por haltere) e anota-a — fica a ser a tua referência.",
+        "b-press": "Semana 3: ainda sem registo. Como no supino fizeste 20 kg × 12, no desenvolvimento começa por 14–16 kg por haltere, RPE 7, e anota.",
+        "b-row": "Semana 3: ainda sem registo. Na remada da sessão de 10 nov chegaste aos 50 kg × 12 (máquina); com um haltere, começa à volta de 22–24 kg por lado e ajusta.",
+        "c-bulgarian": "Semana 3: ainda sem registo. Começa com halteres leves (8–10 kg); a prioridade é o equilíbrio e a amplitude. Anota a carga.",
+        "c-incline": "Semana 3: ainda sem registo. Como referência, no supino plano fizeste 20 kg × 12; no inclinado começa por 16–18 kg por haltere.",
+        "c-row": "Semana 3: ainda sem registo. Na remada de 10 nov (máquina) chegaste aos 50 kg × 12; na polia começa nos 45–50 kg e ajusta."
       },
-      replaceCond: {
-        "a-cond": {"id": "a-finisher-w3", "title": "Finisher curto (6 min)", "main": {"name": "EMOM 6 min: remada invertida e mountain climbers", "dose": "6 minutos, RPE 6–7", "cue": "Área de cross da TTF Maia. Minuto ímpar: 8–10 remadas invertidas na barra baixa ou no TRX (corpo em prancha, puxa o peito à barra). Minuto par: 20 mountain climbers controlados (passo, sem salto). Descansa o que sobrar de cada minuto. Mais costas altas, menos impacto — o boxe já trata do resto do condicionamento.", "gif": "inverted-row", "gifs": [{"key": "inverted-row", "label": "Remada invertida"}, {"key": "mountain-climber", "label": "Mountain climbers"}]}, "alt": {"name": "EMOM 6 min: lançamentos de bola medicinal e prancha alta", "dose": "6 minutos, RPE 6–7", "cue": "Minuto ímpar: 8 lançamentos de bola medicinal leve (4–6 kg) por cima da cabeça contra a parede, apanha e repete, sem saltar. Minuto par: 30 segundos de prancha alta, mãos por baixo dos ombros, corpo em linha.", "gif": "mb-overhead-throw", "gifs": [{"key": "mb-overhead-throw", "label": "Lançamento de bola medicinal"}, {"key": "high-plank", "label": "Prancha alta"}]}}
+      "mainSets": 3,
+      "noDayD": true,
+      "replace": {
+        "a-arms": {
+          "id": "a-arms-w3",
+          "title": "Bíceps e tríceps (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Curl Zottman e extensão unilateral na polia por cima da cabeça",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Superset: curl Zottman com halteres (sobe com as palmas para cima, roda as palmas para baixo no topo e desce devagar em pegada invertida — trabalha bíceps e antebraço, bom para segurar a guarda) e, quase sem pausa, extensão de tríceps com um braço na polia, de costas para a máquina, cotovelo junto à cabeça. Começa à volta de 8–10 kg no Zottman e carga leve na polia. Descansa cerca de 60 segundos só no fim do par.",
+            "gif": "zottman-curl",
+            "gifs": [
+              {
+                "key": "zottman-curl",
+                "label": "Curl Zottman"
+              },
+              {
+                "key": "cable-oh-ext-1arm",
+                "label": "Extensão unilateral na polia por cima da cabeça"
+              }
+            ]
+          },
+          "alt": {
+            "name": "Curl martelo no banco Scott e skull crusher com halteres",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Se a polia estiver ocupada: curl martelo com haltere apoiado no banco Scott (braço todo no apoio, palma virada para dentro) e skull crusher com halteres deitado no banco (cotovelos apontados ao teto, desces os halteres ao lado da cabeça e estendes). Pausa só no fim do par.",
+            "gif": "db-hammer-preacher",
+            "gifs": [
+              {
+                "key": "db-hammer-preacher",
+                "label": "Curl martelo no banco Scott"
+              },
+              {
+                "key": "db-skull-crusher",
+                "label": "Skull crusher com halteres"
+              }
+            ]
+          }
+        },
+        "a-sc": {
+          "id": "a-shoulder-w3",
+          "title": "Ombro e core (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Rotação externa na polia e bird dog com pausa",
+            "dose": "2 séries de 12–15 rotações e 8 bird dogs por lado, carga leve",
+            "cue": "Superset curto: rotação externa na polia à altura do cotovelo, de lado para ela, cotovelo colado ao corpo a 90° (uma toalha enrolada entre o braço e o tronco ajuda); roda o antebraço para fora devagar e volta. Faz os dois lados. Depois bird dog: de quatro apoios, estende o braço e a perna opostos até ficarem em linha com o tronco, segura 2 segundos sem deixar a anca rodar nem a lombar afundar, e volta. Coifa dos rotadores e anti-rotação no mesmo bloco, a apoiar o boxe. Descansa 45–60 s só no fim do par.",
+            "gif": "cable-ext-rotation-90",
+            "gifs": [
+              {
+                "key": "cable-ext-rotation-90",
+                "label": "Rotação externa na polia"
+              },
+              {
+                "key": "bird-dog",
+                "label": "Bird dog com pausa"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Rotação externa",
+              "Bird dog"
+            ]
+          },
+          "alt": {
+            "name": "Rotação externa deitado com haltere e prancha com elevação de braço",
+            "dose": "2 séries de 12–15 rotações e 8 elevações por lado, carga leve",
+            "cue": "Deitado de lado num banco ou no chão, cotovelo colado à anca a 90°, roda o haltere (2–4 kg) para cima e desce devagar; troca de lado. Depois prancha de antebraços: leva um braço em frente, segura 2 segundos sem deixar a anca rodar, volta e troca. Se a anca balançar, afasta mais os pés.",
+            "gif": "db-lying-ext-rotation",
+            "gifs": [
+              {
+                "key": "db-lying-ext-rotation",
+                "label": "Rotação externa deitado com haltere"
+              },
+              {
+                "key": "plank-arm-lift",
+                "label": "Prancha com elevação de braço"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Rotação externa",
+              "Prancha"
+            ]
+          }
+        }
       },
-      replaceB: {
-        "b-face": {"id": "b-shoulder-w3", "title": "Ombro e costas altas (superset)", "log": true, "logKind": "superset", "main": {"name": "Reverse fly inclinado na polia e rotação cubana", "dose": "2 séries de 12–15 de cada, carga leve", "cue": "Superset: reverse fly com os cabos cruzados, tronco inclinado à frente com as costas neutras — abre os braços até à linha dos ombros, aperta as omoplatas e volta devagar. Depois rotação cubana com halteres leves (3–5 kg): sobe os cotovelos até à linha dos ombros e roda os antebraços para cima até ficarem verticais, desce na ordem inversa. Coifa e costas altas para aguentar a guarda no boxe.", "gif": "bent-reverse-cable-fly", "gifs": [{"key": "bent-reverse-cable-fly", "label": "Reverse fly inclinado na polia"}, {"key": "cuban-rotation", "label": "Rotação cubana"}], "rest": "45–60 s", "logLabels": ["Reverse fly", "Rotação cubana"]}, "alt": {"name": "Reverse fly deitado na polia e rotação externa na polia", "dose": "2 séries de 12–15 de cada, carga leve", "cue": "Deitado no banco com os cabos cruzados por cima, abre os braços até à linha dos ombros. Depois rotação externa na polia com o cotovelo colado ao corpo a 90°, lenta, dos dois lados.", "gif": "lying-cable-reverse-fly", "gifs": [{"key": "lying-cable-reverse-fly", "label": "Reverse fly deitado na polia"}, {"key": "cable-ext-rotation-90", "label": "Rotação externa na polia"}], "rest": "45–60 s", "logLabels": ["Reverse fly", "Rotação externa"]}},
-        "b-arms": {"id": "b-arms-w3", "title": "Bíceps e tríceps (superset)", "log": true, "logKind": "superset", "main": {"name": "Curl spider com barra e extensão por cima da cabeça com barra EZ", "dose": "2 séries de 10–12 de cada, RPE 7", "cue": "Superset: curl spider deitado de barriga no banco inclinado, braços pendurados na vertical — sobe a barra sem balanço e desce até quase estender (começa com uma barra leve, 15–20 kg no total). Depois extensão de tríceps sentado com barra EZ por cima da cabeça, cotovelos apontados para cima e perto da cabeça. Descansa cerca de 60 segundos só no fim do par.", "gif": "prone-incline-curl", "gifs": [{"key": "prone-incline-curl", "label": "Curl spider com barra"}, {"key": "ez-oh-extension", "label": "Extensão por cima da cabeça com barra EZ"}]}, "alt": {"name": "Curl na polia alta e kickback na polia", "dose": "2 séries de 10–12 de cada, RPE 7", "cue": "Se o banco estiver ocupado: curl com as duas polias altas (braços abertos à altura dos ombros, puxa as mãos até às orelhas sem baixar os cotovelos) e kickback de tríceps na polia baixa, tronco inclinado, braço colado ao tronco. Pausa só no fim do par.", "gif": "overhead-cable-curl", "gifs": [{"key": "overhead-cable-curl", "label": "Curl na polia alta"}, {"key": "cable-kickback", "label": "Kickback na polia"}]}},
-        "b-deadbug": {"id": "b-core-w3", "title": "Core anti-rotação", "log": true, "sets": 2, "main": {"name": "Remada renegada com halteres", "dose": "2 séries de 6 repetições por lado", "cue": "Prancha alta com as mãos nos halteres (hexagonais, leves: 8–12 kg) e os pés afastados. Rema um haltere até à anca sem deixar a anca rodar nem subir, pousa e troca. Se a anca rodar, afasta mais os pés ou baixa a carga. Anti-rotação e costas altas no mesmo exercício.", "gif": "renegade-row", "rest": "45–60 s"}, "alt": {"name": "Landmine twist controlado", "dose": "2 séries de 8 repetições por lado", "cue": "Barra no landmine, braços esticados à frente do peito. Leva a ponta da barra de um lado ao outro num arco, com a anca e as pernas paradas — é o tronco que trava o movimento. Lento e com carga leve (só a barra ou um disco pequeno).", "gif": "landmine-twist", "rest": "45–60 s"}},
-        "b-cond": {"id": "b-finisher-w3", "title": "Finisher curto (6 min)", "main": {"name": "EMOM 6 min: arremesso rotacional com bola medicinal e sombra", "dose": "6 minutos, RPE 6–7", "cue": "Área de cross. Minuto ímpar: 6 arremessos rotacionais por lado com bola medicinal leve (4–6 kg) contra a parede — a rotação nasce nas ancas e nos pés, como num gancho. Minuto par: 30 segundos de sombra (jab, direto, gancho) solto e técnico. Sem saltos.", "gif": "mb-rotational-throw", "gifs": [{"key": "mb-rotational-throw", "label": "Arremesso rotacional com bola medicinal"}, {"key": "shadow-boxing", "label": "Sombra"}]}, "alt": {"name": "6 min de sombra com halteres leves", "dose": "3 rondas de 1 min jab-direto + 1 min jab-jab-uppercut", "cue": "Halteres de 1 kg (ou sem peso). Ronda: 1 minuto de jab-direto, 1 minuto de jab-jab-uppercut, guarda sempre em cima e ombros soltos. Ritmo moderado, sem saltar.", "gif": "jab-straight", "gifs": [{"key": "jab-straight", "label": "Jab-direto"}, {"key": "jab-jab-uppercut", "label": "Jab-jab-uppercut"}]}}
+      "replaceCond": {
+        "a-cond": {
+          "id": "a-finisher-w3",
+          "title": "Finisher curto (6 min, opcional)",
+          "main": {
+            "name": "EMOM 6 min: remada invertida e mountain climbers",
+            "dose": "6 minutos, RPE 6–7 — opcional",
+            "cue": "Só se ainda tiveres tempo no fim da força. Área de cross da TTF Maia. Minuto ímpar: 8–10 remadas invertidas na barra baixa ou no TRX (corpo em prancha, puxa o peito à barra). Minuto par: 20 mountain climbers controlados (passo, sem salto). Descansa o que sobrar de cada minuto. Mais costas altas, menos impacto — o boxe já trata do resto do condicionamento.",
+            "gif": "inverted-row",
+            "gifs": [
+              {
+                "key": "inverted-row",
+                "label": "Remada invertida"
+              },
+              {
+                "key": "mountain-climber",
+                "label": "Mountain climbers"
+              }
+            ]
+          },
+          "alt": {
+            "name": "EMOM 6 min: lançamentos de bola medicinal e prancha alta",
+            "dose": "6 minutos, RPE 6–7 — opcional",
+            "cue": "Só se ainda tiveres tempo. Minuto ímpar: 8 lançamentos de bola medicinal leve (4–6 kg) por cima da cabeça contra a parede, apanha e repete, sem saltar. Minuto par: 30 segundos de prancha alta, mãos por baixo dos ombros, corpo em linha.",
+            "gif": "mb-overhead-throw",
+            "gifs": [
+              {
+                "key": "mb-overhead-throw",
+                "label": "Lançamento de bola medicinal"
+              },
+              {
+                "key": "high-plank",
+                "label": "Prancha alta"
+              }
+            ]
+          },
+          "optional": true
+        }
       },
-      replaceC: {
-        "c-lateral": {"id": "c-shoulder-w3", "title": "Estabilidade de ombro (superset)", "log": true, "logKind": "superset", "main": {"name": "Press meio-ajoelhado com kettlebell e wall slides", "dose": "2 séries de 8 por lado + 10 wall slides", "cue": "Superset: press com kettlebell leve (8–12 kg) meio-ajoelhado, um joelho no chão, glúteo apertado e costelas para baixo — sobe a kettlebell em linha sem arquear a lombar; faz os dois lados. Depois wall slides: costas e antebraços na parede, desliza os braços para cima e para baixo sem perder o contacto. Ombro estável, omoplatas a trabalhar, bom para a guarda.", "gif": "kb-press-half-kneel", "gifs": [{"key": "kb-press-half-kneel", "label": "Press meio-ajoelhado com kettlebell"}, {"key": "wall-slide", "label": "Wall slides"}], "rest": "45–60 s", "logLabels": ["Press KB", "Wall slides"]}, "alt": {"name": "Turkish get-up leve e wall slides", "dose": "2 séries de 2 por lado + 10 wall slides", "cue": "Turkish get-up com kettlebell leve (8 kg ou menos): braço esticado com a kettlebell sempre por cima do ombro e os olhos nela, sobe e desce passo a passo, sem pressa. Depois 10 wall slides. Excelente para a coifa dos rotadores.", "gif": "turkish-getup", "gifs": [{"key": "turkish-getup", "label": "Turkish get-up"}, {"key": "wall-slide", "label": "Wall slides"}], "rest": "45–60 s", "logLabels": ["Get-up", "Wall slides"]}},
-        "c-arms": {"id": "c-arms-w3", "title": "Bíceps e tríceps (superset)", "log": true, "logKind": "superset", "main": {"name": "Curl unilateral na polia baixa e extensão de tríceps deitado na polia", "dose": "2 séries de 10–12 de cada, RPE 7", "cue": "Superset: curl com um braço na polia baixa (cotovelo fixo junto ao corpo, sobe e roda ligeiramente o mindinho para fora) e extensão de tríceps deitado no banco com a corda ou a barra da polia baixa atrás da cabeça, cotovelos apontados ao teto. Pausa só no fim do par.", "gif": "one-arm-cable-curl", "gifs": [{"key": "one-arm-cable-curl", "label": "Curl unilateral na polia"}, {"key": "cable-lying-triceps", "label": "Extensão de tríceps deitado na polia"}]}, "alt": {"name": "Curl com barra Z pegada fechada e extensão unilateral com haltere", "dose": "2 séries de 10–12 de cada, RPE 7", "cue": "Curl com barra Z em pegada fechada (cotovelos colados ao tronco, sem balanço) e extensão de tríceps sentado com um haltere por cima da cabeça, um braço de cada vez. Pausa só no fim do par.", "gif": "close-grip-z-curl", "gifs": [{"key": "close-grip-z-curl", "label": "Curl com barra Z pegada fechada"}, {"key": "db-oh-ext-1arm", "label": "Extensão unilateral com haltere"}]}},
-        "c-cond": {"id": "c-finisher-w3", "title": "Finisher curto (6 min)", "main": {"name": "EMOM 6 min: peso morto com kettlebell e remada com kettlebell", "dose": "6 minutos, RPE 6–7", "cue": "Área de cross. Minuto ímpar: 10 pesos mortos com kettlebell (16–20 kg), anca para trás e coluna neutra. Minuto par: 8 remadas com kettlebell por lado, tronco inclinado. Ritmo constante, sem saltos — mais costas altas a apoiar o boxe.", "gif": "kb-deadlift", "gifs": [{"key": "kb-deadlift", "label": "Peso morto com kettlebell"}, {"key": "kb-row", "label": "Remada com kettlebell"}]}, "alt": {"name": "EMOM 6 min: mountain climbers e prancha alta", "dose": "6 minutos, RPE 6", "cue": "Minuto ímpar: 20 mountain climbers controlados (passo, sem salto). Minuto par: 30 segundos de prancha alta. Descansa o que sobrar do minuto.", "gif": "mountain-climber", "gifs": [{"key": "mountain-climber", "label": "Mountain climbers"}, {"key": "high-plank", "label": "Prancha alta"}]}}
+      "replaceB": {
+        "b-face": {
+          "id": "b-shoulder-w3",
+          "title": "Ombro e core (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Reverse fly inclinado na polia e remada renegada",
+            "dose": "2 séries de 12–15 reverse fly e 6 remadas renegadas por lado, carga leve",
+            "cue": "Superset curto: reverse fly com os cabos cruzados, tronco inclinado à frente com as costas neutras — abre os braços até à linha dos ombros, aperta as omoplatas e volta devagar. Depois remada renegada: prancha alta com as mãos nos halteres (hexagonais, leves: 8–12 kg) e os pés afastados; rema um haltere até à anca sem deixar a anca rodar nem subir, pousa e troca. Coifa, costas altas e anti-rotação no mesmo bloco, a apoiar a guarda no boxe. Descansa 45–60 s só no fim do par.",
+            "gif": "bent-reverse-cable-fly",
+            "gifs": [
+              {
+                "key": "bent-reverse-cable-fly",
+                "label": "Reverse fly inclinado na polia"
+              },
+              {
+                "key": "renegade-row",
+                "label": "Remada renegada"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Reverse fly",
+              "Renegada"
+            ]
+          },
+          "alt": {
+            "name": "Rotação cubana e landmine twist controlado",
+            "dose": "2 séries de 12–15 rotações cubanas e 8 landmine twists por lado, carga leve",
+            "cue": "Rotação cubana com halteres leves (3–5 kg): sobe os cotovelos até à linha dos ombros e roda os antebraços para cima até ficarem verticais, desce na ordem inversa. Depois landmine twist: barra no landmine, braços esticados à frente do peito, leva a ponta da barra de um lado ao outro com a anca parada — lento e com carga leve.",
+            "gif": "cuban-rotation",
+            "gifs": [
+              {
+                "key": "cuban-rotation",
+                "label": "Rotação cubana"
+              },
+              {
+                "key": "landmine-twist",
+                "label": "Landmine twist"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Rotação cubana",
+              "Landmine"
+            ]
+          }
+        },
+        "b-arms": {
+          "id": "b-arms-w3",
+          "title": "Bíceps e tríceps (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Curl spider com barra e extensão por cima da cabeça com barra EZ",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Superset: curl spider deitado de barriga no banco inclinado, braços pendurados na vertical — sobe a barra sem balanço e desce até quase estender (começa com uma barra leve, 15–20 kg no total). Depois extensão de tríceps sentado com barra EZ por cima da cabeça, cotovelos apontados para cima e perto da cabeça. Descansa cerca de 60 segundos só no fim do par.",
+            "gif": "prone-incline-curl",
+            "gifs": [
+              {
+                "key": "prone-incline-curl",
+                "label": "Curl spider com barra"
+              },
+              {
+                "key": "ez-oh-extension",
+                "label": "Extensão por cima da cabeça com barra EZ"
+              }
+            ]
+          },
+          "alt": {
+            "name": "Curl na polia alta e kickback na polia",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Se o banco estiver ocupado: curl com as duas polias altas (braços abertos à altura dos ombros, puxa as mãos até às orelhas sem baixar os cotovelos) e kickback de tríceps na polia baixa, tronco inclinado, braço colado ao tronco. Pausa só no fim do par.",
+            "gif": "overhead-cable-curl",
+            "gifs": [
+              {
+                "key": "overhead-cable-curl",
+                "label": "Curl na polia alta"
+              },
+              {
+                "key": "cable-kickback",
+                "label": "Kickback na polia"
+              }
+            ]
+          }
+        },
+        "b-cond": {
+          "id": "b-finisher-w3",
+          "title": "Finisher curto (6 min, opcional)",
+          "main": {
+            "name": "EMOM 6 min: arremesso rotacional com bola medicinal e sombra",
+            "dose": "6 minutos, RPE 6–7 — opcional",
+            "cue": "Só se ainda tiveres tempo no fim da força. Área de cross. Minuto ímpar: 6 arremessos rotacionais por lado com bola medicinal leve (4–6 kg) contra a parede — a rotação nasce nas ancas e nos pés, como num gancho. Minuto par: 30 segundos de sombra (jab, direto, gancho) solto e técnico. Sem saltos.",
+            "gif": "mb-rotational-throw",
+            "gifs": [
+              {
+                "key": "mb-rotational-throw",
+                "label": "Arremesso rotacional com bola medicinal"
+              },
+              {
+                "key": "shadow-boxing",
+                "label": "Sombra"
+              }
+            ]
+          },
+          "alt": {
+            "name": "6 min de sombra com halteres leves",
+            "dose": "3 rondas de 1 min jab-direto + 1 min jab-jab-uppercut — opcional",
+            "cue": "Só se ainda tiveres tempo. Halteres de 1 kg (ou sem peso). Ronda: 1 minuto de jab-direto, 1 minuto de jab-jab-uppercut, guarda sempre em cima e ombros soltos. Ritmo moderado, sem saltar.",
+            "gif": "jab-straight",
+            "gifs": [
+              {
+                "key": "jab-straight",
+                "label": "Jab-direto"
+              },
+              {
+                "key": "jab-jab-uppercut",
+                "label": "Jab-jab-uppercut"
+              }
+            ]
+          },
+          "optional": true
+        }
       },
-      insertAfter: {
-        "a-pulldown": {"id": "a-shoulder-w3", "title": "Ombro e costas altas (superset)", "log": true, "logKind": "superset", "main": {"name": "Rotação externa na polia e band pull-apart", "dose": "2 séries de 12–15 de cada, carga leve", "cue": "Superset para a coifa dos rotadores e as costas altas, a apoiar o boxe. Rotação externa: polia à altura do cotovelo, de lado para ela, cotovelo colado ao corpo a 90° (uma toalha enrolada entre o braço e o tronco ajuda); roda o antebraço para fora devagar e volta. Faz os dois lados. Depois, band pull-apart: elástico à altura dos ombros, braços esticados, afasta as mãos até o elástico tocar no peito, juntando as omoplatas. Carga mesmo leve — é qualidade, não força.", "gif": "cable-ext-rotation-90", "gifs": [{"key": "cable-ext-rotation-90", "label": "Rotação externa na polia"}, {"key": "band-pull-apart", "label": "Band pull-apart"}], "rest": "45–60 s", "logLabels": ["Rotação externa", "Pull-apart"]}, "alt": {"name": "Rotação externa deitado com haltere e reverse fly com halteres", "dose": "2 séries de 12–15 de cada, carga leve", "cue": "Deitado de lado num banco ou no chão, cotovelo colado à anca a 90°, roda o haltere (2–4 kg) para cima e desce devagar; troca de lado. Depois reverse fly inclinado no banco ou em pé com o tronco a 45°: braços quase esticados, abre até à linha dos ombros apertando as omoplatas.", "gif": "db-lying-ext-rotation", "gifs": [{"key": "db-lying-ext-rotation", "label": "Rotação externa deitado com haltere"}, {"key": "db-reverse-fly", "label": "Reverse fly com halteres"}], "rest": "45–60 s", "logLabels": ["Rotação externa", "Reverse fly"]}},
-        "c-row": {"id": "c-core-w3", "title": "Core anti-rotação", "log": true, "sets": 2, "main": {"name": "Prancha com braço e perna opostos", "dose": "2 séries de 6 repetições por lado", "cue": "Prancha de antebraços com os pés afastados. Eleva o braço e a perna opostos ao mesmo tempo, segura 2 segundos sem deixar a anca rodar, volta e troca. Se a anca balançar, eleva só o braço.", "gif": "plank-arm-leg-lift", "rest": "30–45 s"}, "alt": {"name": "Lenhador alto→baixo na polia, controlado", "dose": "2 séries de 8 repetições por lado", "cue": "Polia alta, de lado para ela, pés firmes. Puxa a pega em diagonal até à anca oposta com os braços quase esticados e trava no fim, sem deixar a anca acompanhar; volta devagar a resistir à polia. Carga leve.", "gif": "cable-high-low-chop", "rest": "30–45 s"}}
+      "replaceC": {
+        "c-arms": {
+          "id": "c-arms-w3",
+          "title": "Bíceps e tríceps (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Curl unilateral na polia baixa e extensão de tríceps deitado na polia",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Superset: curl com um braço na polia baixa (cotovelo fixo junto ao corpo, sobe e roda ligeiramente o mindinho para fora) e extensão de tríceps deitado no banco com a corda ou a barra da polia baixa atrás da cabeça, cotovelos apontados ao teto. Pausa só no fim do par.",
+            "gif": "one-arm-cable-curl",
+            "gifs": [
+              {
+                "key": "one-arm-cable-curl",
+                "label": "Curl unilateral na polia"
+              },
+              {
+                "key": "cable-lying-triceps",
+                "label": "Extensão de tríceps deitado na polia"
+              }
+            ]
+          },
+          "alt": {
+            "name": "Curl com barra Z pegada fechada e extensão unilateral com haltere",
+            "dose": "2 séries de 10–12 de cada, RPE 7",
+            "cue": "Curl com barra Z em pegada fechada (cotovelos colados ao tronco, sem balanço) e extensão de tríceps sentado com um haltere por cima da cabeça, um braço de cada vez. Pausa só no fim do par.",
+            "gif": "close-grip-z-curl",
+            "gifs": [
+              {
+                "key": "close-grip-z-curl",
+                "label": "Curl com barra Z pegada fechada"
+              },
+              {
+                "key": "db-oh-ext-1arm",
+                "label": "Extensão unilateral com haltere"
+              }
+            ]
+          }
+        },
+        "c-cond": {
+          "id": "c-finisher-w3",
+          "title": "Finisher curto (6 min, opcional)",
+          "main": {
+            "name": "EMOM 6 min: peso morto com kettlebell e remada com kettlebell",
+            "dose": "6 minutos, RPE 6–7 — opcional",
+            "cue": "Só se ainda tiveres tempo no fim da força. Área de cross. Minuto ímpar: 10 pesos mortos com kettlebell (16–20 kg), anca para trás e coluna neutra. Minuto par: 8 remadas com kettlebell por lado, tronco inclinado. Ritmo constante, sem saltos — mais costas altas a apoiar o boxe.",
+            "gif": "kb-deadlift",
+            "gifs": [
+              {
+                "key": "kb-deadlift",
+                "label": "Peso morto com kettlebell"
+              },
+              {
+                "key": "kb-row",
+                "label": "Remada com kettlebell"
+              }
+            ]
+          },
+          "alt": {
+            "name": "EMOM 6 min: mountain climbers e prancha alta",
+            "dose": "6 minutos, RPE 6 — opcional",
+            "cue": "Só se ainda tiveres tempo. Minuto ímpar: 20 mountain climbers controlados (passo, sem salto). Minuto par: 30 segundos de prancha alta. Descansa o que sobrar do minuto.",
+            "gif": "mountain-climber",
+            "gifs": [
+              {
+                "key": "mountain-climber",
+                "label": "Mountain climbers"
+              },
+              {
+                "key": "high-plank",
+                "label": "Prancha alta"
+              }
+            ]
+          },
+          "optional": true
+        },
+        "c-sc": {
+          "id": "c-shoulder-w3",
+          "title": "Ombro e core (superset)",
+          "log": true,
+          "logKind": "superset",
+          "main": {
+            "name": "Press meio-ajoelhado com kettlebell e prancha com braço e perna opostos",
+            "dose": "2 séries de 8 press por lado e 6 pranchas por lado",
+            "cue": "Superset curto: press com kettlebell leve (8–12 kg) meio-ajoelhado, um joelho no chão, glúteo apertado e costelas para baixo — sobe a kettlebell em linha sem arquear a lombar; faz os dois lados. Depois prancha de antebraços com os pés afastados: eleva o braço e a perna opostos ao mesmo tempo, segura 2 segundos sem deixar a anca rodar, volta e troca. Ombro estável e anti-rotação no mesmo bloco, bom para a guarda. Descansa 45–60 s só no fim do par.",
+            "gif": "kb-press-half-kneel",
+            "gifs": [
+              {
+                "key": "kb-press-half-kneel",
+                "label": "Press meio-ajoelhado com kettlebell"
+              },
+              {
+                "key": "plank-arm-leg-lift",
+                "label": "Prancha com braço e perna opostos"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Press KB",
+              "Prancha"
+            ]
+          },
+          "alt": {
+            "name": "Wall slides e lenhador alto→baixo na polia, controlado",
+            "dose": "2 séries de 10 wall slides e 8 lenhadores por lado",
+            "cue": "Wall slides: costas e antebraços na parede, desliza os braços para cima e para baixo sem perder o contacto. Depois lenhador: polia alta, de lado para ela, puxa a pega em diagonal até à anca oposta com os braços quase esticados e trava no fim, sem deixar a anca acompanhar; volta devagar. Carga leve.",
+            "gif": "wall-slide",
+            "gifs": [
+              {
+                "key": "wall-slide",
+                "label": "Wall slides"
+              },
+              {
+                "key": "cable-high-low-chop",
+                "label": "Lenhador alto→baixo na polia"
+              }
+            ],
+            "rest": "45–60 s",
+            "logLabels": [
+              "Wall slides",
+              "Lenhador"
+            ]
+          }
+        }
       },
-      meta: {
-        a: `<aside class="callout info"><p class="lead">Semana 3 (23–29 de novembro de 2026)</p><p>Objetivo: 2 musculação + 1–2 boxe — esta semana A e B. Na semana 2 não ficou registado nenhum treino nem aula de boxe, por isso as cargas dos principais repetem os alvos da semana 2 (vê a nota em cada cartão) e ficamos em 3 séries. Novos: rotação externa + band pull-apart (ombro e costas altas), bird dog (anti-rotação), superset Zottman + extensão unilateral, e um EMOM de 6 minutos.</p></aside>
-        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — agachar, puxar, coifa/costas altas, empurrar, romeno, braços e core anti-rotação</dd></div><div><dt>Duração</dt><dd>até 50 minutos (inclui aquecimento e finisher)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; acessórios em 2 séries</dd></div><div><dt>Finisher</dt><dd>6 min, sem saltos — curto, porque o boxe já cobre o condicionamento</dd></div></dl>`,
-        b: `<aside class="callout info"><p class="lead">Semana 3 (23–29 de novembro de 2026)</p><p>Objetivo: 2 musculação + 1–2 boxe — esta semana A e B. Os principais (afundos, desenvolvimento, remada) mantêm-se e ainda não têm registo: encontra cargas em RPE 7 e anota-as. Novos: reverse fly + rotação cubana (coifa e costas altas), remada renegada (anti-rotação), curl spider + extensão com barra EZ e um EMOM de 6 minutos com arremessos rotacionais e sombra.</p></aside>
-        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — afundos, ombros, remada, coifa/costas altas, braços e core anti-rotação</dd></div><div><dt>Duração</dt><dd>até 50 minutos (inclui aquecimento e finisher)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; acessórios em 2 séries</dd></div><div><dt>Finisher</dt><dd>6 min, sem saltos — curto, porque o boxe já cobre o condicionamento</dd></div></dl>`,
-        c: `<aside class="callout info"><p class="lead">Semana 3 (23–29 de novembro de 2026)</p><p>Esta semana a sugestão é A e B; usa o C se faltares a um deles. Os principais (búlgaro, inclinado, remada na polia) mantêm-se e ainda não têm registo: cargas em RPE 7. Novos: press meio-ajoelhado com kettlebell + wall slides (estabilidade de ombro), prancha com braço e perna (anti-rotação), curl unilateral na polia + extensão deitado na polia e um EMOM de 6 minutos com kettlebell.</p></aside>
-        <dl class="props"><div><dt>Foco</dt><dd>Corpo inteiro — afundo búlgaro, inclinado, remada, core anti-rotação, estabilidade de ombro e braços</dd></div><div><dt>Duração</dt><dd>até 50 minutos (inclui aquecimento e finisher)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; acessórios em 2 séries</dd></div><div><dt>Finisher</dt><dd>6 min, sem saltos — curto, porque o boxe já cobre o condicionamento</dd></div></dl>`,
-        boxe: `<aside class="callout info"><p class="lead">Boxe na TTF Maia — semana 3</p><p>O boxe substitui o Dia D: o objetivo é uma ou duas aulas esta semana. Marca cada aula como feita e anota a duração e o RPE — na semana 2 não ficou nenhuma aula registada. Não precisas do aquecimento nem dos alongamentos do plano neste dia. Se no dia seguinte os ombros ou as pernas estiverem muito carregados, reduz a carga na musculação.</p></aside>
-        <dl class="props"><div><dt>Objetivo</dt><dd>1–2 aulas por semana</dd></div><div><dt>Duração</dt><dd>a da aula (normalmente 45–60 min)</dd></div><div><dt>Registo</dt><dd>Minutos, RPE 1–10 e notas opcionais</dd></div></dl>`
+      "meta": {
+        "a": "<aside class=\"callout info\"><p class=\"lead\">Semana 3 (23–29 de novembro de 2026)</p><p>Objetivo: 2 musculação + 1–2 boxe, sem dias fixos — esta semana A e B (C de reserva). A sessão cabe em cerca de 40 minutos: 5 min de cardio leve, três principais, braços e um par ombro/core. Na semana 2 não ficou registado nenhum treino nem aula de boxe, por isso as cargas dos principais repetem os alvos da semana 2 (vê a nota em cada cartão) e ficamos em 3 séries. Ombro/core desta semana: rotação externa na polia + bird dog. O fecho de 6 minutos é opcional.</p></aside>\n        <dl class=\"props\"><div><dt>Foco</dt><dd>Corpo inteiro — agachar, puxar, empurrar, braços, ombro e core</dd></div><div><dt>Duração</dt><dd>cerca de 40 minutos (inclui 5 min de aquecimento e o fecho opcional)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; braços e ombro/core em 2 séries</dd></div><div><dt>Fecho</dt><dd>EMOM de 6 min, opcional — o boxe já cobre o condicionamento</dd></div></dl>",
+        "b": "<aside class=\"callout info\"><p class=\"lead\">Semana 3 (23–29 de novembro de 2026)</p><p>Objetivo: 2 musculação + 1–2 boxe, sem dias fixos — esta semana A e B (C de reserva). Os principais (afundos, desenvolvimento, remada) mantêm-se e ainda não têm registo: encontra cargas em RPE 7 e anota-as. Ombro/core desta semana: reverse fly na polia + remada renegada. O fecho de 6 minutos é opcional.</p></aside>\n        <dl class=\"props\"><div><dt>Foco</dt><dd>Corpo inteiro — afundos, ombros, remada, braços, ombro e core</dd></div><div><dt>Duração</dt><dd>cerca de 40 minutos (inclui 5 min de aquecimento e o fecho opcional)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; braços e ombro/core em 2 séries</dd></div><div><dt>Fecho</dt><dd>EMOM de 6 min, opcional — o boxe já cobre o condicionamento</dd></div></dl>",
+        "c": "<aside class=\"callout info\"><p class=\"lead\">Semana 3 (23–29 de novembro de 2026)</p><p>Esta semana a sugestão é A e B; usa o C se faltares a um deles, também sem dia fixo. Os principais (búlgaro, inclinado, remada na polia) mantêm-se e ainda não têm registo: cargas em RPE 7. Ombro/core desta semana: press meio-ajoelhado com kettlebell + prancha com braço e perna opostos. O fecho de 6 minutos é opcional.</p></aside>\n        <dl class=\"props\"><div><dt>Foco</dt><dd>Corpo inteiro — afundo búlgaro, inclinado, remada, braços, ombro e core</dd></div><div><dt>Duração</dt><dd>cerca de 40 minutos (inclui 5 min de aquecimento e o fecho opcional)</dd></div><div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; braços e ombro/core em 2 séries</dd></div><div><dt>Fecho</dt><dd>EMOM de 6 min, opcional — o boxe já cobre o condicionamento</dd></div></dl>",
+        "boxe": "<aside class=\"callout info\"><p class=\"lead\">Boxe na TTF Maia — semana 3</p><p>Uma ou duas aulas esta semana, quando calhar — não há dia fixo. Marca cada aula como feita e anota a duração e o RPE — na semana 2 não ficou nenhuma aula registada. Não precisas do aquecimento nem dos alongamentos do plano neste dia. Se no dia seguinte os ombros ou as pernas estiverem muito carregados, reduz a carga na musculação.</p></aside>\n        <dl class=\"props\"><div><dt>Objetivo</dt><dd>1–2 aulas por semana, sem dia fixo</dd></div><div><dt>Duração</dt><dd>a da aula (normalmente 45–60 min)</dd></div><div><dt>Registo</dt><dd>Minutos, RPE 1–10 e notas opcionais</dd></div></dl>"
       }
     }
   };
@@ -1214,9 +1920,10 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     const swaps = Object.assign({}, v.replace || {}, v.replaceCond || {}, v.replaceB || {}, v.replaceC || {}, v.replaceD || {});
     const own = WEEK_VARIANTS[week];
     const notes = (own && own.notes) || {};
+    const drop = new Set(v.drop || []);
     const out = {};
     for (const [key, list] of Object.entries(base)) {
-      out[key] = (list || []).map((card) => {
+      out[key] = (list || []).filter((card) => !drop.has(card.id)).map((card) => {
         if (swaps[card.id]) return swaps[card.id];
         if (notes[card.id]) {
           const c = JSON.parse(JSON.stringify(card));
@@ -1238,7 +1945,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
             next.push(...(Array.isArray(extra) ? extra : [extra]));
           }
         }
-        out[key] = next;
+        out[key] = next.filter((card) => !drop.has(card.id));
       }
     }
     variantCache[week] = out;
@@ -1387,13 +2094,14 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   }
 
   function weekObjectiveHtml() {
-    if (Number(state.week) < 2) return "";
     const sug = suggestedStrengthTabs(state.week);
     const labels = { a: "Treino A", b: "Treino B", c: "Treino C" };
     const pair = sug.map((t) => labels[t]).join(" e ");
+    const reserve = ["a", "b", "c"].filter((t) => !sug.includes(t));
+    const reserveTxt = reserve.length ? ` O ${reserve.map((t) => labels[t]).join(" e o ")} fica de reserva, se faltares a um deles.` : "";
     return `<aside class="callout info" id="week-objective">
-      <p class="lead">Objetivo: 2 musculação + 1–2 boxe</p>
-      <p>Duas sessões de força (A, B ou C, a rodar) e uma ou duas aulas de boxe na TTF Maia. ${Number(state.week) >= 3 ? "O boxe substitui o Dia D — esta semana não há Dia D." : "O Dia D fica opcional — o boxe já cobre o condicionamento."} Esta semana, prefere ${esc(pair)}.</p>
+      <p class="lead">Objetivo: 2 musculação + 1–2 boxe, sem dias fixos</p>
+      <p>Quando tiveres cerca de 40 minutos, faz um treino de força. O alvo da semana é duas sessões (esta semana, prefere ${esc(pair)}) e uma ou duas aulas de boxe na TTF Maia, quando a aula calhar.${reserveTxt} Não há dias nem horas marcados.</p>
     </aside>`;
   }
 
@@ -1427,8 +2135,8 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     const extraWeeks = (meta && meta.extraSetWeeks) ? meta.extraSetWeeks : ["3", "4"];
     if (usesDefaultPlan()) {
       if ((week === "3" || week === "4") && MAIN_VOLUME.has(id)) {
-        const own = WEEK_VARIANTS[week];
-        return (own && own.mainSets) ? own.mainSets : 4;
+        const own = WEEK_VARIANTS[week] || variantFor(week);
+        return (own && own.mainSets) ? own.mainSets : 3;
       }
       return 3;
     }
@@ -1493,9 +2201,11 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   }
 
   function countDone(cards) {
-    const total = cards.length;
-    const n = cards.filter((c) => state.done[doneKey(state.week, c.id)] === true).length;
-    return { n, total };
+    const required = cards.filter((c) => !c.optional);
+    const total = required.length;
+    const n = required.filter((c) => state.done[doneKey(state.week, c.id)] === true).length;
+    const optionalTotal = cards.length - required.length;
+    return { n, total, optionalTotal };
   }
 
   async function loadFromCloud() {
@@ -1905,47 +2615,55 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       return `
         <dl class="props">
           <div><dt>Quando</dt><dd>No início de A, B e C</dd></div>
-          <div><dt>Duração</dt><dd>cerca de 10 minutos</dd></div>
-          <div><dt>Estrutura</dt><dd>5 min de remo ou bicicleta + 2 voltas dos quatro movimentos</dd></div>
+          <div><dt>Duração</dt><dd>cerca de 5 minutos</dd></div>
+          <div><dt>Estrutura</dt><dd>5 min de remo ou bicicleta, ritmo de conversa</dd></div>
         </dl>
-        <p>No cardio inicial, fica num ritmo em que ainda consegues conversar. Depois faz duas voltas de 10 agachamentos sem peso, 10 rotações de ombros, 10 hip hinges e 20 segundos de prancha. O remo está na área de cross da TTF Maia.</p>`;
+        <p>É só isto: cinco minutos leves, para a sessão de força caber em 40 minutos. O remo está na área de cross da TTF Maia; a bicicleta serve na mesma. Se os ombros estiverem rígidos, faz uns círculos de braços no sítio e avança para o treino.</p>`;
     }
     if (tab === "a") {
       return `
         <aside class="callout info">
-          <p class="lead">Sessão de hoje (terça, 10 de novembro de 2026)</p>
-          <p>Este é o Treino A. Faz o aquecimento primeiro e termina com os alongamentos. Na prensa e no goblet, no supino com halteres ou na máquina, no romeno e no superset de braços, escolhe uma das duas opções no próprio cartão. O condicionamento final é no remo (ou bicicleta) da área de cross.</p>
+          <p class="lead">Treino A — sessão de 40 minutos</p>
+          <p>Começa pelos 5 minutos de cardio leve no separador Aquecimento. Depois são cinco blocos: prensa (ou goblet), puxada, supino, superset de braços e o par ombro/core. O fecho de 4 minutos é opcional — salta-o se o tempo apertar. Não há dia fixo: faz este treino quando tiveres a janela.</p>
         </aside>
         <dl class="props">
-          <div><dt>Foco</dt><dd>Corpo inteiro — agachar, puxar, empurrar, romeno, braços e prancha</dd></div>
-          <div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div>
-          <div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div>
-          <div><dt>Condicionamento</dt><dd>10 × (30 s rápido / 30 s lento) no remo ou bicicleta</dd></div>
+          <div><dt>Foco</dt><dd>Corpo inteiro — agachar, puxar, empurrar, braços, ombro e core</dd></div>
+          <div><dt>Duração</dt><dd>cerca de 40 minutos (inclui 5 min de aquecimento e o fecho opcional)</dd></div>
+          <div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; braços e ombro/core em 2 séries</dd></div>
+          <div><dt>Fecho</dt><dd>4 min suaves, opcional — o boxe já cobre o condicionamento</dd></div>
         </dl>`;
     }
     if (tab === "b") {
       return `
+        <aside class="callout info">
+          <p class="lead">Treino B — sessão de 40 minutos</p>
+          <p>Começa pelos 5 minutos de cardio leve no separador Aquecimento. Depois: afundos, desenvolvimento, remada, superset de braços e o par ombro/core. O fecho de 4 minutos é opcional. Faz este treino quando tiveres a janela, sem dia fixo.</p>
+        </aside>
         <dl class="props">
-          <div><dt>Foco</dt><dd>Corpo inteiro — afundos, ombros, remada, braços e core</dd></div>
-          <div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div>
-          <div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div>
-          <div><dt>Fecho</dt><dd>WOD curto e leve na área de cross (8 min, RPE 6)</dd></div>
+          <div><dt>Foco</dt><dd>Corpo inteiro — afundos, ombros, remada, braços, ombro e core</dd></div>
+          <div><dt>Duração</dt><dd>cerca de 40 minutos (inclui 5 min de aquecimento e o fecho opcional)</dd></div>
+          <div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; braços e ombro/core em 2 séries</dd></div>
+          <div><dt>Fecho</dt><dd>4 min suaves, opcional — o boxe já cobre o condicionamento</dd></div>
         </dl>`;
     }
     if (tab === "c") {
       return `
+        <aside class="callout info">
+          <p class="lead">Treino C — sessão de 40 minutos</p>
+          <p>Começa pelos 5 minutos de cardio leve no separador Aquecimento. Depois: afundo búlgaro, supino inclinado, remada na polia, superset de braços e o par ombro/core. O fecho de 4 minutos é opcional. É a sessão de reserva quando A ou B falharem, também sem dia fixo.</p>
+        </aside>
         <dl class="props">
-          <div><dt>Foco</dt><dd>Corpo inteiro — afundo búlgaro, inclinado, remada, braços e fecho na área de cross</dd></div>
-          <div><dt>Duração</dt><dd>cerca de 50 minutos (inclui aquecimento e fecho)</dd></div>
-          <div><dt>Força</dt><dd>3 séries, descanso 60–90 s, RPE 7</dd></div>
-          <div><dt>Fecho</dt><dd>WOD curto e leve na área de cross (3 rondas, RPE 6)</dd></div>
+          <div><dt>Foco</dt><dd>Corpo inteiro — afundo búlgaro, inclinado, remada, braços, ombro e core</dd></div>
+          <div><dt>Duração</dt><dd>cerca de 40 minutos (inclui 5 min de aquecimento e o fecho opcional)</dd></div>
+          <div><dt>Força</dt><dd>3 séries nos principais, descanso 60–90 s, RPE 7; braços e ombro/core em 2 séries</dd></div>
+          <div><dt>Fecho</dt><dd>4 min suaves, opcional — o boxe já cobre o condicionamento</dd></div>
         </dl>`;
     }
     if (tab === "boxe") {
       return `
         <aside class="callout info">
           <p class="lead">Boxe na TTF Maia</p>
-          <p>Tenta uma ou duas aulas por semana. Marca cada aula como feita e anota a duração e o RPE. Não precisas do aquecimento nem dos alongamentos do plano neste dia — a aula já os inclui.</p>
+          <p>Uma ou duas aulas por semana, quando calhar — não há dia fixo. Marca cada aula como feita e anota a duração e o RPE. Não precisas do aquecimento nem dos alongamentos do plano neste dia — a aula já os inclui.</p>
         </aside>
         <dl class="props">
           <div><dt>Objetivo</dt><dd>1–2 aulas por semana</dd></div>
@@ -1967,11 +2685,11 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     }
     return `
       <dl class="props">
-        <div><dt>Quando</dt><dd>No fim de todas as sessões, incluindo o Dia D</dd></div>
-        <div><dt>Duração</dt><dd>cerca de 5 minutos</dd></div>
+        <div><dt>Quando</dt><dd>No fim de A, B ou C, se ainda tiveres 5 minutos</dd></div>
+        <div><dt>Duração</dt><dd>cerca de 5 minutos (opcional)</dd></div>
         <div><dt>Intensidade</dt><dd>Tensão suave, sem dor aguda</dd></div>
       </dl>
-      <p>Anca, isquiotibiais, peitoral e costas. Respira com calma e não forces o alcance. O objetivo é sair do ginásio mais solto, não alongar até ao limite.</p>`;
+      <p>Não entram na conta dos 40 minutos: se o tempo apertar, vai-te embora depois da força (ou do fecho). Anca, isquiotibiais, peitoral e costas. Respira com calma e não forces o alcance.</p>`;
   }
 
   function refText(prev, index, secondLabel) {
@@ -2097,11 +2815,12 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
         <button type="button" data-pick="${esc(card.id)}" data-side="main" aria-pressed="${side === "main" ? "true" : "false"}">${esc(card.main.name)}</button>
         <button type="button" data-pick="${esc(card.id)}" data-side="alt" aria-pressed="${side === "alt" ? "true" : "false"}">${esc(card.alt.name)}</button>
       </div>` : "";
+    const optBadge = card.optional ? `<span class="badge-optional">Opcional</span>` : "";
     return `
-      <article class="card${done ? " done" : ""}" data-card="${esc(card.id)}" id="card-${esc(card.id)}">
+      <article class="card${done ? " done" : ""}${card.optional ? " optional" : ""}" data-card="${esc(card.id)}" id="card-${esc(card.id)}">
         <div class="card-head">
           <div>
-            <h3 class="card-title">${esc(title)}</h3>
+            <h3 class="card-title">${esc(title)}${optBadge}</h3>
             <p class="card-dose">${esc(caption)}</p>
           </div>
           <div class="card-actions">
@@ -2164,14 +2883,14 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     const allowedTabs = availableTabs();
     if (!allowedTabs.includes(state.tab)) state.tab = allowedTabs.includes("a") ? "a" : allowedTabs[0];
     const cards = sessionCards();
-    const { n, total } = countDone(cards);
+    const { n, total, optionalTotal } = countDone(cards);
     const reset = n > 0
       ? `<button type="button" class="btn danger" id="reset-session">Recomeçar esta sessão</button>`
       : "";
     root.innerHTML = `
       ${weekObjectiveHtml()}
       <div class="btn-row" id="session-bar">
-        <p class="counter" id="session-counter">Checklist desta sessão: ${n} de ${total} feitos · semana ${esc(state.week)}</p>
+        <p class="counter" id="session-counter">Checklist desta sessão: ${n} de ${total} feitos · semana ${esc(state.week)}${optionalTotal ? " · o fecho é opcional e não conta para este total" : ""}</p>
         ${reset}
       </div>
       ${sessionMetaHtml()}
@@ -2728,7 +3447,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   if (installHint && isStandalone) installHint.hidden = true;
 
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js", { scope: "./" }).catch((err) => console.warn("SW", err));
+    navigator.serviceWorker.register("./sw.js?v=5", { scope: "./" }).catch((err) => console.warn("SW", err));
   }
 
   window.__treino = { supabase, onSignedIn, generatePlan, isMarioEmail, marioProfilePayload, translateAuthError, signUpViaFunction, getState: () => state, BOXE_CARDS };
