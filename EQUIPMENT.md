@@ -1,44 +1,84 @@
 # Equipamento — TTF Maia
 
-Inventário para rodar os treinos de musculação do [Treino TTF](https://icardan.github.io/treino/). Confirmado por vídeo e notas do Mário em 27 nov 2026. A marca das plataformas e barras é **Eleiko** (sueca).
+Inventário para rodar os treinos de musculação do [Treino TTF](https://icardan.github.io/treino/). Atualizado com fotos e vídeos do Mário em 27 nov 2026. A marca sueca das máquinas e das anilhas é **Gymleco**. Há também algumas máquinas **Nautilus** (glute drive e preacher de discos). As plataformas dos racks são de **madeira**.
 
-A rotina semanal de variação deve ler este ficheiro antes de trocar exercícios. Não altere uma semana que já esteja a decorrer (por exemplo, não mexer no Treino B da semana 3 em 27 nov 2026).
+A rotina semanal de variação deve ler este ficheiro antes de trocar exercícios. Não altere uma semana que já esteja a decorrer.
 
 ## Como está organizado o ginásio
 
-1. **Zona de pesos livres** — espaço para agachamentos, pesos mortos e trabalho com barra, com racks e plataformas.
-2. **Zona de máquinas de discos (plate-loaded)** — alavancas em que se colocam anilhas.
-3. **Zona de máquinas de pinos (selectorized / weight stack)** — máquinas com seleção de carga por pino.
-4. **Zona de halteres** — halteres pesados e leves, com bancos reguláveis.
-5. **Zona de polias** — cabo cruzado e estações multi-funcionais.
-6. **Zona de prensas** — prensas de pernas e aparelhos semelhantes.
-7. **Máquinas de gémeos e glúteos** — várias, incluindo gémeos sentado e glute drive / hip thrust.
-8. **Zona de boxe** — aulas de 1–2 vezes por semana, quando calhar.
-9. **Zona de treino funcional com relva (turf)** — trenó (sled push/pull), pneus (tire flips), bicicletas, remo e cordas de salto.
-10. **Cardio em máquinas** — tapetes Star Trac, SkiErg, air bikes e remo (há também bikes e remo na zona de turf).
-11. **Recuperação** — sauna e banho de gelo (opcional, depois da sessão).
+1. **Zona de pesos livres** — 4–5 racks (half e power) com plataformas de madeira, bancos fixos e reguláveis, barras olímpicas e EZ, anilhas Gymleco e estantes de halteres.
+2. **Zona de máquinas de pinos Gymleco (selectorized)** — 10–15+ máquinas de stack, com números de modelo em várias delas.
+3. **Zona de polias** — um cabo cruzado / jungle grande, de várias estações, mais estações de polia regulável; carros com muitas pegas e acessórios.
+4. **Glute Corner (máquinas de discos)** — hip thrust, glute drive Nautilus, V-squat/hack, prensa a 45°, máquina estilo pendulum / belt squat, preacher de discos e presses sentados.
+5. **Zona de máquinas de discos Gymleco (plate-loaded)** — remadas e presses iso-laterais (high row, low row, inclinado, ombros) e alavancas de anca / agachamento em pé.
+6. **Zona funcional, cardio e boxe** — rig, caixas, relva com trenó, pneus e cordas; SkiErg, air bikes, remo e tapetes Star Trac; ring de boxe / gaiola de MMA.
+7. **Recuperação** — sauna e banho de gelo (opcional, depois da sessão).
 
-## Cardio em máquinas (confirmado)
+## Máquinas de pinos / selectorized Gymleco (confirmado)
 
-- Tapetes **Star Trac** — bloco de intervalos **por defeito** no início de A, B e C (o Mário gosta de correr).
+Zona com **10–15+** máquinas. Várias têm o número de modelo visível. Estas já podem entrar no plano como exercício principal ou alternativa; mesmo assim, deixa sempre uma saída em cabo, discos ou peso livre, caso a máquina esteja ocupada.
+
+| Máquina (pinos) | Modelo (se visível) | Alternativa se estiver ocupada |
+| --- | --- | --- |
+| Abdutores / adutores | — | Pallof, prancha lateral, ou band walk se houver elásticos |
+| Remada sentado | 310 | Remada na polia; remada baixa com discos; remada com haltere |
+| Elevação lateral | — | Elevação lateral com halteres ou no cabo |
+| Gémeos em pé (standing calf raise) | — | Gémeos a 45° (348) ou elevação em degrau |
+| Gémeos a 45° | 348 | Gémeos em pé, ou elevação em degrau |
+| Tríceps press / mergulhos na máquina | — | Pushdown na polia; mergulhos no banco |
+| Chest press sentado | 319 | Supino com barra no rack ou com halteres; inclinado de pinos (316) ou de discos |
+| Curl de bíceps sentado / preacher | — | Preacher de discos Nautilus no Glute Corner; curl na polia ou com barra EZ |
+| Chin-up / mergulhos assistidos | — | Pull-up no rig com elástico, salto ou excêntrico; puxada na polia |
+| Supino inclinado | 316 | Inclinado com halteres; inclinado de discos Gymleco |
+| Pullover | 324 | Pullover com haltere ou na polia |
+| Lombar / abdómen | 368 | Prancha, elevação de joelhos no rig, ou extensão lombar no banco |
+| Pec fly / rear delt (muito provável) | — | Crucifixo no cabo cruzado ou com halteres; face pull |
+
+## Polias e cabo cruzado (confirmado)
+
+- Unidade grande multi-estação (cable crossover / jungle).
+- Estações de polia com altura regulável (functional trainer / dual-adjustable).
+- Carros com muitas pegas e acessórios (barra, corda, triângulo, single-handle, etc.).
+- Adequado para: puxada, remada sentado, face pull, Pallof, lenhador, curls, pushdowns, extensões por cima da cabeça, fly, kicks.
+
+## Glute Corner — máquinas de discos (confirmado)
+
+- Hip thrust (máquina).
+- Glute drive **Nautilus**.
+- 2× V-squat / hack squat **Gymleco**.
+- Prensa de pernas a 45°.
+- Máquina estilo pendulum / belt squat (agachamento com cinto ou pêndulo).
+- Preacher curl de discos **Nautilus**.
+- Banco de declínio / abdominais.
+- Presses sentados de discos para peito e ombros.
+
+## Máquinas de discos Gymleco / plate-loaded (confirmado)
+
+- Remada alta / puxada iso-lateral (high row / pulldown).
+- Remada baixa (low row).
+- Supino inclinado de discos.
+- Desenvolvimento de ombros de discos.
+- Alavancas de anca / agachamento em pé (standing hip / squat lever).
+
+## Pesos livres e racks (confirmado)
+
+- 4–5 racks (half e power) com **plataformas de madeira**.
+- Bancos planos com suporte para a barra, e bancos reguláveis.
+- Barras olímpicas e barras EZ.
+- Anilhas **Gymleco**.
+- Estantes de halteres (pesados e leves).
+- Adequado para: agachamento, peso morto e romeno, supino no rack (com pins de segurança), landmine, farmers, trabalho com halteres.
+
+## Zona funcional, cardio e boxe (confirmado)
+
+- Rig grande: pull-ups (confirmado). Anéis muito prováveis — usar remada em anel ou remada invertida na barra baixa se não houver anéis.
+- Caixas de plyo.
+- Relva / turf: trenó (sled push/pull), pneus (tire flips) e cordas de salto. (O Mário descreveu o trenó como «geleia».)
 - 2 SkiErg.
-- 3 air bikes (echo / assault), também referidas na zona funcional.
-- 2 máquinas de remo, também referidas na zona funcional.
-
-## Zona de boxe (confirmada)
-
-- Zona própria de boxe na TTF Maia, além da gaiola de MMA.
-- O boxe é à parte da musculação: 1–2 aulas por semana, sem dia fixo, registadas no separador «Boxe».
-
-## Zona funcional com relva / turf (confirmada)
-
-O Mário descreveu-a como zona de treino funcional com relva, com «geleia» (trenó) e pneus, além de bikes, remo e cordas.
-
-- Relva / turf para arrastos e trabalho de deslocação.
-- Trenó (sled) para empurrar e puxar.
-- Pneus para virar (tire flips).
-- Bicicletas e remo nesta zona (além das máquinas da área de cardio).
-- Cordas de salto (jump rope).
+- 3 air bikes (echo / assault).
+- 2 máquinas de remo.
+- 6–8 tapetes **Star Trac** — bloco de intervalos **por defeito** no início de A, B e C (o Mário gosta de correr).
+- Ring de boxe / gaiola de MMA. O boxe é à parte da musculação: 1–2 aulas por semana, sem dia fixo, no separador «Boxe».
 
 ### Como usar no bloco de intervalos (12–15 min)
 
@@ -62,61 +102,6 @@ Não acrescentes isto **depois** do circuito — substitui o bloco do tapete, pa
 
 Não entram nos 40 minutos nem são obrigatórios. Se o Mário quiser, usa-os **depois** da sessão de força (ou do boxe), com calma. Evita ir à sauna ou ao gelo com a cabeça a andar à roda; água e uma refeição a seguir ajudam.
 
-## Pesos livres e racks (confirmado)
-
-- 5 power racks com plataformas **Eleiko**, barras e bumper plates.
-- 2 half racks.
-- Espaço livre para agachamentos e pesos mortos.
-- Adequado para: agachamento, peso morto e romeno, supino no rack (com pins de segurança), landmine, barra EZ, farmers.
-
-## Máquinas de discos / plate-loaded (confirmado)
-
-- Prensa de pernas a 45°.
-- Hack squat.
-- Glute drive / hip thrust.
-- Gémeos sentado (seated calf raise).
-- Supino inclinado com discos.
-- Desenvolvimento de ombros com discos.
-- Remada baixa com discos (low row).
-- Remada alta / puxada com discos (high row / pulldown).
-
-## Máquinas de pinos / selectorized
-
-Não foram identificadas peça a peça no vídeo. É razoável assumir as mais comuns num ginásio completo, **mas nunca as uses como única opção dum cartão** — põe sempre uma alternativa em cabo, discos ou peso livre, caso essa máquina não exista ou esteja ocupada.
-
-Assumidas como comuns (não confirmadas uma a uma):
-
-| Máquina (pinos) | Alternativa segura se faltar |
-| --- | --- |
-| Extensão de pernas (leg extension) | Prensa de pernas ou hack squat |
-| Flexão de pernas (leg curl) | Romeno com barra ou halteres; ponte / hip thrust |
-| Chest press sentado | Supino com barra no rack ou com halteres |
-| Pec deck / fly na máquina | Crucifixo no cabo cruzado ou com halteres |
-| Puxada ao peito (lat pulldown) | Puxada na polia; remada alta com discos; pull-up no rig (com ajuda) |
-| Remada sentado na máquina | Remada na polia; remada baixa com discos; remada com haltere |
-| Abdutores / adutores | Pallof, prancha lateral, ou band walk se houver elásticos |
-| Desenvolvimento de ombros na máquina | Desenvolvimento com halteres ou máquina de discos |
-| Gémeos no stack | Gémeos sentado de discos, ou elevação em degrau |
-
-## Halteres e bancos (confirmado)
-
-- Halteres pesados e leves.
-- Bancos reguláveis (plano e inclinado).
-- Adequado para: supino, inclinado, desenvolvimento, remada, afundos, romeno, curls e extensões.
-
-## Polias e cabo cruzado (confirmado)
-
-- Cabo cruzado / functional trainer.
-- Estações de polia multi-funcionais.
-- Adequado para: puxada, remada sentado, face pull, Pallof, lenhador, curls, pushdowns, extensões por cima da cabeça, fly, kicks.
-
-## Rig, acessórios e gaiola (confirmado / muito provável)
-
-- Rig grande: pull-ups (confirmado pelo rig). Anéis muito prováveis — usar remada em anel ou remada invertida na barra baixa se não houver anéis.
-- Caixas de plyo.
-- Estante de acessórios: kettlebells e wall balls muito prováveis.
-- Gaiola de MMA, juntamente com a zona de boxe.
-
 ## Regras para a variação semanal
 
 Estrutura a manter (~40 min, incluindo aquecimento):
@@ -129,29 +114,28 @@ Estrutura a manter (~40 min, incluindo aquecimento):
 Outras regras:
 
 - Mantém **1 exercício âncora** por sessão, com o **mesmo id de cartão**, para comparar cargas.
-- Roda os outros principais e os braços entre racks Eleiko, máquinas de discos, polias, rig e halteres, para as sessões não se repetirem de semana para semana.
+- Roda os outros principais e os braços entre racks, máquinas Gymleco (pinos e discos), Nautilus, polias, rig e halteres, para as sessões não se repetirem de semana para semana.
 - Cartões novos levam **ids novos**. Não reutilizes o id dum exercício âncora para outro movimento.
-- Um alternativa por cartão. Animações 280×280 webp em `/treino/gifs/`, com crédito ao Fitness Programer.
-- Não apagues dados da base (cargas, vistos, logs de boxe).
-- Não dependas duma máquina de pinos específica sem alternativa.
+- Uma alternativa por cartão. Animações 280×280 webp em `/treino/gifs/`, com crédito ao Fitness Programer.
+- Não apagues dados da base (cargas, vistos, logs de boxe, sessões terminadas).
 - Sessões A, B e C devem, em conjunto, cobrir: agachar ou hack, uma dobragem de anca ou glúteo, um puxar (horizontal ou vertical), um empurrar (horizontal ou vertical), e braços.
 
 ## Âncoras deste bloco (10 nov – 7 dez 2026)
 
 | Sessão | Id a manter | Exercício âncora | Notas de carga |
 | --- | --- | --- | --- |
-| Treino A | `a-squat` | Prensa de pernas a 45° (alt: goblet) | Semana 1: 70 → 80 → 90 kg × 12. Alvo a partir da semana 2: 90 kg nas 3 rondas; se as 12 saírem limpas, sobe a última. |
-| Treino B | `b-press` | Desenvolvimento com halteres | Ainda sem registo no início do bloco; escolher carga em RPE 7 e anotar. |
-| Treino C | `c-incline` | Supino inclinado com halteres | Ainda sem registo; no supino plano chegou a 20 kg × 12, no inclinado começar por 16–18 kg. |
+| Treino A | `a-squat` | Prensa de pernas a 45° (alt: goblet) | Semana 1: 70 → 80 → 90 kg × 12. Alvo a partir da semana 2: 90 kg nas 3 rondas; se as 12 saírem limpas, sobe a última. Semana 3: 110 kg × 12. |
+| Treino B | `b-press` | Desenvolvimento com halteres | Semana 3: 14 kg × 12 nas 3 rondas. |
+| Treino C | `c-incline` | Supino inclinado com halteres | Ainda sem registo no início do bloco; no supino plano chegou a 20 kg × 12, no inclinado começar por 16–18 kg. |
 
 ## Chaves de animação já no repositório (úteis para rodar)
 
-Novas (semana 4): `hack-squat`, `pull-up`, `bb-bench`, `lever-high-row`, `lever-incline-press`, `lever-shoulder-press`, `ring-row`, `hip-thrust-machine`, `plate-low-row`.
+Novas (semana 4): `hack-squat`, `pull-up`, `assisted-pull-up`, `bb-bench`, `lever-high-row`, `lever-incline-press`, `lever-shoulder-press`, `ring-row`, `hip-thrust-machine`, `plate-low-row`.
 
-Já existentes e úteis: `leg-press`, `goblet`, `lat-pulldown`, `seated-cable-row`, `seated-row-machine`, `db-press`, `incline-db`, `chest-machine`, `db-shoulder-press`, `db-row`, `db-lunge`, `bulgarian`, `bb-rdl`, `db-rdl`, `hip-thrust`, `inverted-row`, `face-pull`, `pallof-press`, `ski-erg`, `air-bike`, `rowing`, e os supersets de braços em cabo, barra EZ e halteres.
+Já existentes e úteis: `leg-press`, `goblet`, `lat-pulldown`, `seated-cable-row`, `seated-row-machine`, `db-press`, `incline-db`, `chest-machine`, `db-shoulder-press`, `db-row`, `db-lunge`, `bulgarian`, `bb-rdl`, `db-rdl`, `hip-thrust`, `inverted-row`, `face-pull`, `pallof-press`, `ski-erg`, `air-bike`, `rowing`, `preacher-curl`, `dip-machine`, e os supersets de braços em cabo, barra EZ e halteres.
 
 ## Exemplo de rotação (semana 4, 30 nov–6 dez)
 
-- **A (âncora: prensa `a-squat`)**: pull-up no rig (alt: remada alta com discos); supino com barra no rack Eleiko (alt: inclinado de discos).
-- **B (âncora: desenvolvimento `b-press`)**: hack squat (alt: glute drive); remada baixa com discos (alt: remada em anel).
+- **A (âncora: prensa `a-squat`)**: pull-up no rig (alt: máquina de chin-up assistido); supino com barra no rack (alt: inclinado de discos). Braços: polia (alt: preacher + tríceps na máquina).
+- **B (âncora: desenvolvimento `b-press`)**: hack squat / V-squat (alt: glute drive Nautilus); remada baixa com discos (alt: remada em anel).
 - **C (âncora: inclinado `c-incline`)**: romeno com barra no rack (alt: glute drive / hip thrust); remada invertida no rig (alt: remada na polia).
