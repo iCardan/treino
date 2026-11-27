@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ttf-build v7 2026-11-27 week4 -->
+<!-- ttf-build v8 2026-11-27 finish-session -->
 <html lang="pt-PT">
 <head>
   <base href="/treino/">
@@ -224,6 +224,47 @@ ul.notes li { margin: 0 0 0.55rem; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; }
 .btn.ghost { background: transparent; }
 .btn.danger { border-color: #b45a4a; color: #8a3226; }
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+button[data-tab].finished:not([aria-pressed="true"]) {
+  border-color: var(--accent);
+}
+button[data-tab].finished::after {
+  content: " ✓";
+  font-weight: 800;
+}
+#week-progress { margin: 0.35rem 0 0; }
+#finish-session-panel { margin: 1rem 0 0; }
+#finish-session-panel .finish-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+#finish-session-panel label {
+  display: block;
+  font-weight: 650;
+  margin: 0.6rem 0 0.3rem;
+}
+#finish-notes {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  min-height: 4.2rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+#finish-session-panel .loads-list {
+  margin: 0.2rem 0 0;
+  padding: 0 0 0 1.15rem;
+}
+#finish-session-panel .loads-list li { margin: 0 0 0.25rem; }
 .counter {
   font-weight: 650;
   font-size: 0.95rem;
@@ -2437,6 +2478,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     done: {},
     loads: {},
     boxe: {},
+    sessions: {},
   });
 
   function gifUrl(key) {
@@ -2507,6 +2549,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       done: raw.done && typeof raw.done === "object" ? raw.done : {},
       loads: raw.loads && typeof raw.loads === "object" ? raw.loads : {},
       boxe: raw.boxe && typeof raw.boxe === "object" ? raw.boxe : {},
+      sessions: raw.sessions && typeof raw.sessions === "object" ? raw.sessions : {},
     };
   }
 
@@ -2561,6 +2604,35 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     return rot[week] || ["a", "b"];
   }
 
+  function sessionKey(week, session) { return `${week}:${session}`; }
+
+  function getFinishedSession(week, session) {
+    return state.sessions[sessionKey(week, session)] || null;
+  }
+
+  function finishedStrengthSessions(week) {
+    return ["a", "b", "c"].filter((s) => getFinishedSession(week, s));
+  }
+
+  function boxeLoggedCount(week) {
+    return BOXE_CARDS.filter((c) => {
+      const log = getBoxeLog(week, c.id);
+      if (parseDecimal(log.minutes) != null) return true;
+      return state.done[doneKey(week, c.id)] === true;
+    }).length;
+  }
+
+  function weekProgressText(week) {
+    const done = finishedStrengthSessions(week);
+    const labels = { a: "A", b: "B", c: "C" };
+    const names = done.map((s) => labels[s]).join(" e ");
+    const muscle = done.length
+      ? `${done.length} de 2 sessões de musculação feitas (${names})`
+      : "0 de 2 sessões de musculação feitas";
+    const boxe = boxeLoggedCount(week);
+    return `${muscle} · ${boxe} de 1–2 aulas de boxe`;
+  }
+
   function weekObjectiveHtml() {
     const sug = suggestedStrengthTabs(state.week);
     const labels = { a: "Treino A", b: "Treino B", c: "Treino C" };
@@ -2569,6 +2641,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     const reserveTxt = reserve.length ? ` O ${reserve.map((t) => labels[t]).join(" e o ")} fica de reserva, se faltares a um deles.` : "";
     return `<aside class="callout info" id="week-objective">
       <p class="lead">Objetivo: 2 musculação + 1–2 boxe, sem dias fixos</p>
+      <p class="week-progress" id="week-progress"><strong>Esta semana:</strong> ${esc(weekProgressText(state.week))}</p>
       <p>Quando tiveres cerca de 40 minutos, faz um treino de força: começa pelos intervalos no tapete e segue o circuito. O alvo da semana é duas sessões (esta semana, prefere ${esc(pair)}) e uma ou duas aulas de boxe na TTF Maia, quando a aula calhar.${reserveTxt} Não há dias nem horas marcados.</p>
     </aside>`;
   }
@@ -2680,16 +2753,17 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   async function loadFromCloud() {
     if (!user) return;
     setSync("saving", "A carregar…");
-    const [settingsRes, doneRes, loadsRes, progressRes, boxeRes] = await Promise.all([
+    const [settingsRes, doneRes, loadsRes, progressRes, boxeRes, sessionsRes] = await Promise.all([
       supabase.from("plan_settings").select("week,tab,day_d,picks").eq("user_id", user.id).maybeSingle(),
       supabase.from("plan_done").select("week,card_id,done").eq("user_id", user.id),
       supabase.from("plan_loads").select("week,card_id,side,set_index,kg,reps").eq("user_id", user.id),
       supabase.from("plan_progress").select("id,recorded_on,weight_kg,waist_cm").eq("user_id", user.id).order("recorded_on", { ascending: true }),
       supabase.from("plan_boxe_logs").select("week,card_id,minutes,rpe,notes").eq("user_id", user.id),
+      supabase.from("plan_sessions").select("week,session,finished_at,duration_min,items_done,items_total,notes,summary").eq("user_id", user.id),
     ]);
-    if (settingsRes.error || doneRes.error || loadsRes.error || progressRes.error || boxeRes.error) {
+    if (settingsRes.error || doneRes.error || loadsRes.error || progressRes.error || boxeRes.error || sessionsRes.error) {
       setSync("error", "Não foi possível carregar o registo");
-      console.error(settingsRes.error || doneRes.error || loadsRes.error || progressRes.error || boxeRes.error);
+      console.error(settingsRes.error || doneRes.error || loadsRes.error || progressRes.error || boxeRes.error || sessionsRes.error);
       return;
     }
     const next = defaultState();
@@ -2717,6 +2791,19 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
         minutes: row.minutes == null ? "" : String(row.minutes),
         rpe: row.rpe == null ? "" : String(row.rpe),
         notes: row.notes || "",
+      };
+    }
+    for (const row of sessionsRes.data || []) {
+      if (!row || !row.week || !row.session) continue;
+      next.sessions[sessionKey(row.week, row.session)] = {
+        week: row.week,
+        session: row.session,
+        finished_at: row.finished_at,
+        duration_min: row.duration_min,
+        items_done: row.items_done,
+        items_total: row.items_total,
+        notes: row.notes || "",
+        summary: row.summary && typeof row.summary === "object" ? row.summary : {},
       };
     }
     state = next;
@@ -2976,6 +3063,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     await supabase.from("plan_done").delete().eq("user_id", user.id);
     await supabase.from("plan_loads").delete().eq("user_id", user.id);
     await supabase.from("plan_boxe_logs").delete().eq("user_id", user.id);
+    await supabase.from("plan_sessions").delete().eq("user_id", user.id);
     const doneRows = Object.entries(next.done)
       .filter(([, v]) => v)
       .map(([k]) => {
@@ -3022,6 +3110,29 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
     }
     if (boxeRows.length) {
       const { error } = await supabase.from("plan_boxe_logs").upsert(boxeRows);
+      if (error) { setSync("error", "Erro ao importar"); console.error(error); return false; }
+    }
+    const sessionRows = [];
+    for (const [key, row] of Object.entries(next.sessions || {})) {
+      if (!row || typeof row !== "object") continue;
+      const [week, session] = key.split(":");
+      const sess = row.session || session;
+      if (!week || !["a", "b", "c"].includes(sess)) continue;
+      sessionRows.push({
+        user_id: user.id,
+        week,
+        session: sess,
+        finished_at: row.finished_at || new Date().toISOString(),
+        duration_min: row.duration_min == null ? null : Number(row.duration_min),
+        items_done: Number(row.items_done) || 0,
+        items_total: row.items_total == null ? null : Number(row.items_total),
+        notes: row.notes || null,
+        summary: row.summary && typeof row.summary === "object" ? row.summary : {},
+        updated_at: new Date().toISOString(),
+      });
+    }
+    if (sessionRows.length) {
+      const { error } = await supabase.from("plan_sessions").upsert(sessionRows);
       if (error) { setSync("error", "Erro ao importar"); console.error(error); return false; }
     }
     state = next;
@@ -3365,8 +3476,13 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       btn.hidden = tab && !tabs.includes(tab);
       btn.setAttribute("aria-pressed", tab === state.tab ? "true" : "false");
       if (tab === "a" || tab === "b" || tab === "c") {
+        const finished = Boolean(getFinishedSession(state.week, tab));
         btn.classList.toggle("suggested", suggested.includes(tab));
-        if (suggested.includes(tab)) btn.setAttribute("title", "Sessão de força sugerida nesta semana");
+        btn.classList.toggle("finished", finished);
+        const titles = [];
+        if (suggested.includes(tab)) titles.push("Sessão de força sugerida nesta semana");
+        if (finished) titles.push("Sessão terminada");
+        if (titles.length) btn.setAttribute("title", titles.join(" · "));
         else btn.removeAttribute("title");
       }
     });
@@ -3413,8 +3529,199 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       ${["a","b","c","stretch"].includes(state.tab) ? `<aside class="callout neutral" id="recovery-note">
         <p class="lead">Recuperação (opcional)</p>
         <p>Se quiseres, no fim da sessão podes usar a sauna ou o banho de gelo da TTF. Não é obrigatório e não entra nos 40 minutos. Vai com calma, sobretudo se o treino tiver sido puxado.</p>
-      </aside>` : ""}`;
+      </aside>` : ""}
+      ${["a","b","c"].includes(state.tab) ? finishSessionHtml() : ""}`;
     renderToolbar();
+  }
+
+  function sessionLabel(tab) {
+    return { a: "Treino A", b: "Treino B", c: "Treino C" }[tab] || "treino";
+  }
+
+  function fmtWhen(iso) {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "";
+    return d.toLocaleString("pt-PT", {
+      timeZone: "Europe/Lisbon",
+      day: "numeric",
+      month: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+
+  function formatLoadSets(sets, isRun) {
+    const rows = (sets || []).filter((s) => s && ((s.kg || "").trim() || (s.reps || "").trim()));
+    if (isRun) {
+      const s = rows[0] || {};
+      const speed = (s.kg || "").trim();
+      const minutes = (s.reps || "").trim();
+      if (speed && minutes) return `${speed} km/h · ${minutes} min`;
+      if (minutes) return `${minutes} min`;
+      if (speed) return `${speed} km/h`;
+      return "";
+    }
+    return rows.map((s) => {
+      const kg = (s.kg || "").trim();
+      const reps = (s.reps || "").trim();
+      if (kg && reps) return `${kg} kg × ${reps}`;
+      if (kg) return `${kg} kg`;
+      return `${reps} reps`;
+    }).join("; ");
+  }
+
+  function buildSessionSummary(week, cards) {
+    const { n, total } = countDone(cards);
+    const runCard = cards.find((c) => c && (c.logKind === "run" || c.id === "a-run" || c.id === "b-run" || c.id === "c-run"));
+    let run = null;
+    if (runCard) {
+      const side = sideOf(runCard);
+      const sets = getLoadSets(week, runCard.id, side, 1);
+      const s = sets[0] || {};
+      run = {
+        id: runCard.id,
+        name: selectedOf(runCard).name,
+        side,
+        speed: (s.kg || "").trim(),
+        minutes: (s.reps || "").trim(),
+      };
+    }
+    const loads = cards
+      .filter((c) => c && c !== runCard && isLogCard(c.id))
+      .map((c) => {
+        const side = sideOf(c);
+        const count = setCount(week, c.id);
+        const sets = getLoadSets(week, c.id, side, count).filter((s) => (s.kg || "").trim() || (s.reps || "").trim());
+        return { id: c.id, name: selectedOf(c).name, side, sets };
+      })
+      .filter((row) => row.sets.length);
+    return { items_done: n, items_total: total, run, loads };
+  }
+
+  async function estimateSessionDuration(week, cards) {
+    if (!user) return null;
+    const ids = cards.map((c) => c.id).filter(Boolean);
+    if (!ids.length) return null;
+    const [doneRes, loadRes] = await Promise.all([
+      supabase.from("plan_done").select("updated_at").eq("user_id", user.id).eq("week", week).in("card_id", ids).eq("done", true),
+      supabase.from("plan_loads").select("updated_at").eq("user_id", user.id).eq("week", week).in("card_id", ids),
+    ]);
+    const times = [...(doneRes.data || []), ...(loadRes.data || [])]
+      .map((r) => r && r.updated_at ? new Date(r.updated_at).getTime() : NaN)
+      .filter((n) => Number.isFinite(n));
+    if (times.length < 2) return null;
+    return Math.max(1, Math.round((Math.max(...times) - Math.min(...times)) / 60000));
+  }
+
+  function finishSessionHtml() {
+    const rec = getFinishedSession(state.week, state.tab);
+    const title = sessionLabel(state.tab);
+    if (!rec) {
+      return `<aside class="callout info" id="finish-session-panel">
+        <p class="lead">Terminar treino</p>
+        <p>Quando acabares, toca no botão no fim para guardar a sessão e ver o resumo. As notas são opcionais. Se te enganares, podes anular o término — os vistos e as cargas mantêm-se.</p>
+        <label for="finish-notes">Notas (opcional)</label>
+        <textarea id="finish-notes" maxlength="500" rows="3" placeholder="Como correu, dores, se usaste a sauna…"></textarea>
+        <div class="finish-actions">
+          <button type="button" class="btn primary" id="finish-session">Terminar treino</button>
+        </div>
+      </aside>`;
+    }
+    const summary = rec.summary && typeof rec.summary === "object" ? rec.summary : {};
+    const itemsDone = rec.items_done != null ? rec.items_done : summary.items_done;
+    const itemsTotal = rec.items_total != null ? rec.items_total : summary.items_total;
+    const duration = rec.duration_min != null ? rec.duration_min : summary.duration_min;
+    const when = fmtWhen(rec.finished_at);
+    const run = summary.run || null;
+    const runLine = run ? formatLoadSets([{ kg: run.speed, reps: run.minutes }], true) : "";
+    const loads = Array.isArray(summary.loads) ? summary.loads : [];
+    const loadItems = loads.map((row) => {
+      const line = formatLoadSets(row.sets || [], false);
+      return line ? `<li>${esc(row.name)}: ${esc(line)}</li>` : "";
+    }).join("");
+    const missing = (itemsTotal != null && itemsDone != null && itemsDone < itemsTotal)
+      ? `<p>Ficaram ${esc(String(itemsTotal - itemsDone))} exercícios por marcar — podes ainda anotá-los, se fizeres falta.</p>`
+      : "";
+    const notes = (rec.notes || "").trim();
+    return `<aside class="callout info" id="finish-session-panel">
+      <p class="lead">Parabéns! Terminaste o ${esc(title)} da semana ${esc(state.week)}.</p>
+      <p>Boa sessão. Já conta para o objetivo da semana (2 musculação + 1–2 boxe).${when ? " Registado às " + esc(when) + " (hora de Lisboa)." : ""}</p>
+      <dl class="props">
+        <div><dt>Feitos</dt><dd>${esc(String(itemsDone ?? "—"))}${itemsTotal != null ? " de " + esc(String(itemsTotal)) : ""} exercícios</dd></div>
+        <div><dt>Duração estimada</dt><dd>${duration != null ? esc(String(duration)) + " min (do primeiro ao último visto ou carga)" : "Não foi possível estimar"}</dd></div>
+        <div><dt>Corrida</dt><dd>${runLine ? esc(runLine) : "Sem registo de velocidade ou minutos"}</dd></div>
+      </dl>
+      ${loadItems ? `<p><strong>Cargas registadas</strong></p><ul class="loads-list">${loadItems}</ul>` : "<p>Não há cargas registadas nesta sessão.</p>"}
+      ${notes ? `<p><strong>Notas:</strong> ${esc(notes)}</p>` : ""}
+      ${missing}
+      <div class="finish-actions">
+        <button type="button" class="btn ghost" id="undo-finish-session">Anular término</button>
+      </div>
+    </aside>`;
+  }
+
+  async function finishSession() {
+    if (!user || !["a", "b", "c"].includes(state.tab)) return;
+    const cards = sessionCards();
+    const notesEl = document.getElementById("finish-notes");
+    const notes = notesEl ? String(notesEl.value || "").trim() : "";
+    const durationMin = await estimateSessionDuration(state.week, cards);
+    const summary = buildSessionSummary(state.week, cards);
+    const now = new Date().toISOString();
+    const row = {
+      user_id: user.id,
+      week: state.week,
+      session: state.tab,
+      finished_at: now,
+      duration_min: durationMin,
+      items_done: summary.items_done,
+      items_total: summary.items_total,
+      notes: notes || null,
+      summary,
+      updated_at: now,
+    };
+    setSync("saving", "A guardar…");
+    const { error } = await supabase.from("plan_sessions").upsert(row, { onConflict: "user_id,week,session" });
+    if (error) {
+      setSync("error", "Erro ao guardar");
+      console.error(error);
+      window.alert("Não foi possível guardar o término da sessão. Tenta outra vez.");
+      return;
+    }
+    state.sessions[sessionKey(state.week, state.tab)] = {
+      week: state.week,
+      session: state.tab,
+      finished_at: now,
+      duration_min: durationMin,
+      items_done: summary.items_done,
+      items_total: summary.items_total,
+      notes,
+      summary,
+    };
+    setSync("saved", "Treino terminado");
+    renderSession();
+    const panel = document.getElementById("finish-session-panel");
+    if (panel) panel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  async function undoFinishSession() {
+    if (!user || !["a", "b", "c"].includes(state.tab)) return;
+    if (!window.confirm("Anular o término deste treino? Os vistos e as cargas mantêm-se.")) return;
+    setSync("saving", "A guardar…");
+    const { error } = await supabase.from("plan_sessions").delete()
+      .eq("user_id", user.id).eq("week", state.week).eq("session", state.tab);
+    if (error) {
+      setSync("error", "Erro ao guardar");
+      console.error(error);
+      window.alert("Não foi possível anular o término. Tenta outra vez.");
+      return;
+    }
+    delete state.sessions[sessionKey(state.week, state.tab)];
+    setSync("saved", "Término anulado");
+    const y = window.scrollY;
+    renderSession();
+    window.scrollTo(0, y);
   }
 
   function setWeek(week) {
@@ -3857,6 +4164,8 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       return;
     }
     if (t.id === "reset-session") { resetSession(); return; }
+    if (t.id === "finish-session") { t.disabled = true; finishSession(); return; }
+    if (t.id === "undo-finish-session") { t.disabled = true; undoFinishSession(); return; }
     if (t.id === "export-registo") { exportRegisto(); return; }
     if (t.id === "import-registo") {
       document.getElementById("import-file").click();
@@ -3964,7 +4273,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   if (installHint && isStandalone) installHint.hidden = true;
 
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js?v=7", { scope: "./" }).catch((err) => console.warn("SW", err));
+    navigator.serviceWorker.register("./sw.js?v=8", { scope: "./" }).catch((err) => console.warn("SW", err));
   }
 
   window.__treino = { supabase, onSignedIn, generatePlan, isMarioEmail, marioProfilePayload, translateAuthError, signUpViaFunction, getState: () => state, BOXE_CARDS };
