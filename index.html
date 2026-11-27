@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ttf-build v6 2026-11-27 tapete -->
+<!-- ttf-build v7 2026-11-27 week4 -->
 <html lang="pt-PT">
 <head>
   <base href="/treino/">
@@ -1129,8 +1129,11 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   ]);
   const LOG_IDS = new Set([
     "a-run", "a-squat", "a-pulldown", "a-press", "a-rdl", "a-arms", "a-sc",
+    "a-pull-w4", "a-press-w4", "a-arms-w4", "a-sc-w4",
     "b-run", "b-lunge", "b-press", "b-row", "b-arms", "b-face", "b-deadbug",
+    "b-leg-w4", "b-row-w4", "b-arms-w4", "b-sc-w4",
     "c-run", "c-bulgarian", "c-incline", "c-row", "c-arms", "c-lateral", "c-sc",
+    "c-hinge-w4", "c-pull-w4", "c-arms-w4", "c-sc-w4",
   ]);
   const ARM_IDS = new Set(["a-arms", "b-arms", "c-arms"]);
   const SECOND_LABEL = {};
@@ -1787,6 +1790,585 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       "b-cond",
       "c-cond"
     ]
+  },
+  "4": {
+    "notes": {
+      "a-squat": "Semana 4: este é o teu exercício âncora (prensa a 45°), para comparares cargas. Se nas semanas 2 e 3 não ficou registo, usa o alvo da semana 2: 90 kg nas três rondas; se as 12 saírem limpas, sobe a última para 95–100 kg. No goblet, um haltere com o qual as 12 fiquem em RPE 7.",
+      "b-press": "Semana 4: este é o exercício âncora do Treino B (desenvolvimento com halteres). Ainda sem registo: escolhe uma carga em que as 8–10 fiquem em RPE 7 e anota-a. A alternativa é a máquina de desenvolvimento (discos ou pinos).",
+      "c-incline": "Semana 4: este é o exercício âncora do Treino C (supino inclinado com halteres). Ainda sem registo. Como referência, no supino plano chegaste a 20 kg × 12; no inclinado começa por 16–18 kg por haltere, RPE 7."
+    },
+    "mainSets": 3,
+    "noDayD": true,
+    "drop": [
+      "a-cond",
+      "b-cond",
+      "c-cond"
+    ],
+    "replace": {
+      "a-run": {
+        "id": "a-run",
+        "title": "Intervalos no tapete (1/1)",
+        "log": true,
+        "logKind": "run",
+        "sets": 1,
+        "main": {
+          "name": "Corrida 1 min / caminhada 1 min",
+          "dose": "14 minutos no tapete",
+          "cue": "Este é o teu aquecimento e o bloco de corrida do treino — não faças o remo do separador Aquecimento antes. São 14 minutos no total (5 intervalos de 1/1, não 8, para a sessão caber em 40 minutos com a força). A inclinação de 0–1% imita o ar livre e reduz o impacto. Velocidades de partida para quem está a regressar, cerca de 97 kg: se os joelhos, tornozelos ou o fôlego queixarem, baixa 1 km/h ou troca a corrida por caminhada rápida em inclinação (4–6%). Passo curto, sem bater o calcanhar com força. Não é um sprint — o trabalho deve ficar por RPE 6–7 (ainda controlas a respiração). No registo: anota a velocidade da corrida (km/h) e os minutos totais (deve andar à volta de 14). Se o tapete estiver ocupado ou quiseres variar, na zona funcional com relva podes fazer o mesmo relógio: empurrar ou puxar o trenó no período forte e caminhar de volta no fácil; virar o pneu (1–2 viragens controladas); ou corda de salto no forte e passo no sítio no fácil. Air bike, remo e SkiErg também servem. Isto substitui o tapete, não se acrescenta no fim.",
+          "protocol": [
+            "0–3 min: caminhada ou trote muito fácil, 5–6,5 km/h, inclinação 0–1%, RPE 3–4.",
+            "5 × (1 min a correr 10–11 km/h, 0–1%, RPE 6–7 / 1 min a caminhar 5–6 km/h, 0%).",
+            "Último 1 min: caminhada fácil, para transitar para o circuito de força."
+          ]
+        },
+        "alt": {
+          "name": "O mesmo 1/1 no SkiErg",
+          "dose": "14 minutos no SkiErg (se o tapete estiver ocupado)",
+          "cue": "Mesma estrutura de 14 minutos no SkiErg da TTF Maia: 3 min fácil, 5 × (1 min mais forte, RPE 6–7 / 1 min muito fácil), 1 min fácil. Puxadas longas, sem desleixar a postura. Se o SkiErg também estiver ocupado, usa o remo ou a air bike com o mesmo relógio. Na zona funcional com relva podes, em vez disto, fazer o mesmo relógio: empurrar ou puxar o trenó no período forte e caminhar de volta no fácil; virar o pneu (1–2 viragens controladas); ou corda de salto no forte e passo no sítio no fácil. Isto substitui o bloco de cardio, não se acrescenta no fim.",
+          "protocol": [
+            "3 min fácil, ritmo de conversa.",
+            "5 × (1 min mais forte, RPE 6–7 / 1 min fácil).",
+            "1 min fácil."
+          ],
+          "gif": "ski-erg"
+        }
+      },
+      "a-pulldown": {
+        "id": "a-pull-w4",
+        "title": "Puxada no rig",
+        "log": true,
+        "circuit": true,
+        "sets": 3,
+        "main": {
+          "name": "Pull-up no rig (com ajuda se precisares)",
+          "dose": "3 rondas em circuito · 6–10 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Pega à largura dos ombros (ou um pouco mais aberta), peito alto, puxa os cotovelos para baixo até o queixo passar a barra, e desce com controlo. A cerca de 97 kg, começa com elástico, com um salto e descida lenta (excêntrico), ou faz só as que saírem bem e completa o resto na alternativa. RPE 7: não é para falhar a última.",
+          "gif": "pull-up",
+          "rest": "45–60 s"
+        },
+        "alt": {
+          "name": "Remada alta com discos (high row)",
+          "dose": "3 rondas em circuito · 10–12 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Peito encostado ao apoio, pés firmes. Puxa as pegas em direção ao peito / parte alta do tronco, aperta as omoplatas e volta devagar. É a máquina de discos de remada alta / puxada. Se estiver ocupada, usa a puxada na polia.",
+          "gif": "lever-high-row",
+          "rest": "45–60 s"
+        }
+      },
+      "a-press": {
+        "id": "a-press-w4",
+        "title": "Supino no rack",
+        "log": true,
+        "circuit": true,
+        "sets": 3,
+        "main": {
+          "name": "Supino com barra no rack Eleiko",
+          "dose": "3 rondas em circuito · 8–10 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Usa um dos 5 power racks (plataformas Eleiko). Mete os pins de segurança à altura do peito. Omoplatas juntas, pés no chão, barra à largura dos ombros. Desce com controlo até ao peito e empurra sem bater. Carga conservadora nesta primeira vez no circuito — RPE 7, ainda conseguias 2 ou 3 reps. Se o rack estiver ocupado, usa a alternativa.",
+          "gif": "bb-bench",
+          "rest": "45–60 s"
+        },
+        "alt": {
+          "name": "Supino inclinado na máquina de discos",
+          "dose": "3 rondas em circuito · 8–10 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Máquina de discos inclinada: pegas à altura da parte alta do peito, empurra em linha, ombros baixos. Se estiver ocupada, faz supino com halteres num banco regulável.",
+          "gif": "lever-incline-press",
+          "rest": "45–60 s"
+        }
+      },
+      "a-arms": {
+        "id": "a-arms-w4",
+        "title": "Bíceps e tríceps (superset)",
+        "log": true,
+        "logKind": "superset",
+        "circuit": true,
+        "sets": 3,
+        "main": {
+          "name": "Curl na polia baixa (cabo cruzado) e extensão com corda por cima da cabeça",
+          "dose": "3 rondas em circuito · 10–12 de cada, RPE 7, descanso 45–60 s no fim do par",
+          "cue": "Circuito: este é o 4.º posto de cada ronda (os dois exercícios seguidos). Descansa 45–60 s só no fim do par. Três rondas no total. No cabo cruzado ou numa polia: curl com a polia baixa, de frente ou de costas para a máquina, cotovelos fixos. Depois, quase sem pausa, extensão de tríceps com corda por cima da cabeça (de costas para a polia, cotovelos junto à cabeça). RPE 7.",
+          "gif": "cable-curl",
+          "gifs": [
+            {
+              "key": "cable-curl",
+              "label": "Curl na polia baixa"
+            },
+            {
+              "key": "rope-oh-extension",
+              "label": "Extensão com corda por cima da cabeça"
+            }
+          ],
+          "logLabels": [
+            "Curl",
+            "Extensão"
+          ]
+        },
+        "alt": {
+          "name": "Curl com barra e mergulhos no banco",
+          "dose": "3 rondas em circuito · 10–12 de cada, RPE 7, descanso 45–60 s no fim do par",
+          "cue": "Circuito: 4.º posto, os dois exercícios seguidos. Pausa só no fim do par. Curl com barra (ou EZ) sem balançar as costas, e mergulhos de tríceps no banco — mãos na borda, desce até cerca de 90 graus. Anota 0 kg nos mergulhos se for só o peso do corpo.",
+          "gif": "barbell-curl",
+          "gifs": [
+            {
+              "key": "barbell-curl",
+              "label": "Curl com barra"
+            },
+            {
+              "key": "bench-dips",
+              "label": "Mergulhos no banco"
+            }
+          ],
+          "logLabels": [
+            "Curl",
+            "Mergulhos"
+          ]
+        }
+      },
+      "a-sc": {
+        "id": "a-sc-w4",
+        "title": "Ombro e core (superset, opcional)",
+        "log": true,
+        "logKind": "superset",
+        "optional": true,
+        "sets": 2,
+        "main": {
+          "name": "Puxada à face no cabo cruzado e Pallof press",
+          "dose": "2 séries de 12–15 face pull e 10 Pallof por lado",
+          "cue": "Só se ainda tiveres tempo no fim do circuito (é opcional). Corda no cabo cruzado à altura da cara: puxa à face, cotovelos altos, roda as mãos no final, carga leve. Depois Pallof press semi-ajoelhado na outra polia, 2 s de pausa sem deixar o tronco rodar.",
+          "gif": "face-pull",
+          "gifs": [
+            {
+              "key": "face-pull",
+              "label": "Puxada à face"
+            },
+            {
+              "key": "pallof-press",
+              "label": "Pallof press"
+            }
+          ],
+          "rest": "45–60 s",
+          "logLabels": [
+            "Face pull",
+            "Pallof"
+          ]
+        },
+        "alt": {
+          "name": "Elevação de joelhos pendurado no rig e prancha lateral",
+          "dose": "2 séries de 8–10 elevações e 25–35 s de prancha lateral por lado",
+          "cue": "Só se ainda tiveres tempo. No rig, ombros ativos, sobe os joelhos com controlo sem balançar. Depois prancha lateral, anca alta. Anota os segundos no segundo campo.",
+          "gif": "hanging-knee-raise",
+          "gifs": [
+            {
+              "key": "hanging-knee-raise",
+              "label": "Elevação de joelhos pendurado"
+            },
+            {
+              "key": "side-plank",
+              "label": "Prancha lateral"
+            }
+          ],
+          "rest": "45–60 s",
+          "logLabels": [
+            "Joelhos",
+            "Prancha"
+          ]
+        }
+      }
+    },
+    "replaceB": {
+      "b-run": {
+        "id": "b-run",
+        "title": "Intervalos no tapete (30/30 + inclinação)",
+        "log": true,
+        "logKind": "run",
+        "sets": 1,
+        "main": {
+          "name": "Corrida 30 s / caminhada 30 s, com inclinação",
+          "dose": "15 minutos no tapete",
+          "cue": "Este é o teu aquecimento e o bloco de corrida do treino — começa já aqui, no tapete. São 15 minutos no total: os esforços são curtos (30 s) e um pouco mais rápidos, com uma ligeira inclinação para poupar as articulações e subir o gasto. Se 12 km/h for demais, fica nos 10,5–11 km/h e mantém os 1–2% de inclinação. Velocidades de partida para quem está a regressar, cerca de 97 kg: se os joelhos, tornozelos ou o fôlego queixarem, baixa 1 km/h ou troca a corrida por caminhada rápida em inclinação (4–6%). Passo curto, sem bater o calcanhar com força. Não é um sprint — o trabalho deve ficar por RPE 6–7 (ainda controlas a respiração). No registo: anota a velocidade da corrida (km/h) e os minutos totais (cerca de 15). Se o tapete estiver ocupado ou quiseres variar, na zona funcional com relva podes fazer o mesmo relógio: empurrar ou puxar o trenó no período forte e caminhar de volta no fácil; virar o pneu (1–2 viragens controladas); ou corda de salto no forte e passo no sítio no fácil. Air bike, remo e SkiErg também servem. Isto substitui o tapete, não se acrescenta no fim.",
+          "protocol": [
+            "0–3 min: caminhada fácil, 5–6 km/h, inclinação 0–1%, RPE 3–4.",
+            "10 × (30 s a correr 11–12 km/h a 1–2% de inclinação, RPE 7 / 30 s a caminhar 5–6 km/h a 0%).",
+            "Últimos 2 min: caminhada fácil a 0%, para transitar para o circuito de força."
+          ]
+        },
+        "alt": {
+          "name": "O mesmo 30/30 na air bike",
+          "dose": "15 minutos na air bike (se o tapete estiver ocupado)",
+          "cue": "Mesma estrutura de 15 minutos numa das 3 air bikes: 3 min fácil, 10 × (30 s mais forte, RPE 7 / 30 s fácil), 2 min fácil. Nos 30 s fortes acelera os braços e as pernas sem sprintar até ficar tonto. Se a air bike estiver ocupada, o SkiErg ou o remo servem com o mesmo relógio. Na zona funcional com relva podes, em vez disto, fazer o mesmo relógio: empurrar ou puxar o trenó no período forte e caminhar de volta no fácil; virar o pneu (1–2 viragens controladas); ou corda de salto no forte e passo no sítio no fácil. Isto substitui o bloco de cardio, não se acrescenta no fim.",
+          "protocol": [
+            "3 min fácil.",
+            "10 × (30 s mais forte, RPE 7 / 30 s fácil).",
+            "2 min fácil."
+          ],
+          "gif": "air-bike"
+        }
+      },
+      "b-lunge": {
+        "id": "b-leg-w4",
+        "title": "Agachamento no hack",
+        "log": true,
+        "circuit": true,
+        "sets": 3,
+        "main": {
+          "name": "Hack squat",
+          "dose": "3 rondas em circuito · 10–12 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Costas e anca encostadas ao apoio, pés a meio da plataforma à largura dos ombros. Desce com controlo até cerca de 90 graus (ou até onde os joelhos e a anca estiverem confortáveis) e empurra sem bloquear com um estalo. É a máquina de discos ao lado das prensas. Se os joelhos queixarem, encurta a amplitude ou passa à alternativa.",
+          "gif": "hack-squat",
+          "rest": "45–60 s"
+        },
+        "alt": {
+          "name": "Glute drive / hip thrust na máquina",
+          "dose": "3 rondas em circuito · 10–12 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Apoia as costas no encosto, a barra ou a almofada sobre a anca, pés firmes. Sobe a anca até ficar em linha com os ombros, aperta os glúteos no topo e desce com controlo. Há várias máquinas de glúteos; usa a glute drive de discos ou a equivalente. Se estiver ocupada, faz hip thrust com barra no banco, num rack.",
+          "gif": "hip-thrust-machine",
+          "rest": "45–60 s"
+        }
+      },
+      "b-press": {
+        "id": "b-press",
+        "title": "Desenvolvimento de ombros",
+        "main": {
+          "name": "Desenvolvimento com halteres",
+          "dose": "3 rondas em circuito · 8–10 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Sentado ou em pé, costas direitas. Empurra os halteres à vertical até quase estender os cotovelos, sem arqueares a lombar. Desce com controlo até à altura das orelhas.",
+          "gif": "db-shoulder-press",
+          "rest": "45–60 s"
+        },
+        "circuit": true,
+        "log": true,
+        "sets": 3,
+        "alt": {
+          "name": "Desenvolvimento na máquina de discos (ou de pinos)",
+          "dose": "3 rondas em circuito · 8–10 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Senta-te com as costas apoiadas, pegas à altura dos ombros. Empurra à vertical até quase estender, sem arqueares a lombar, e desce com controlo. Há uma máquina de discos na zona plate-loaded; se estiver ocupada, podes usar a de pinos (stack) da zona de máquinas, ou volta aos halteres.",
+          "gif": "lever-shoulder-press",
+          "rest": "45–60 s"
+        }
+      },
+      "b-row": {
+        "id": "b-row-w4",
+        "title": "Remada de discos",
+        "log": true,
+        "circuit": true,
+        "sets": 3,
+        "main": {
+          "name": "Remada baixa com discos (low row)",
+          "dose": "3 rondas em circuito · 10–12 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Peito no apoio, pés firmes, puxa as pegas até ao tronco com os cotovelos junto ao corpo, aperta as omoplatas e volta devagar. Sem balanceio. É a máquina de discos de remada baixa. Se estiver ocupada, usa a remada na polia ou a alternativa em anel.",
+          "gif": "plate-low-row",
+          "rest": "45–60 s"
+        },
+        "alt": {
+          "name": "Remada em anel no rig",
+          "dose": "3 rondas em circuito · 10–12 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Anéis (ou TRX) no rig, corpo em prancha, pés à frente. Puxa o peito aos anéis, omoplatas juntas, e desce com controlo. Quanto mais horizontal, mais difícil. Se não houver anéis, faz remada invertida na barra baixa do rig.",
+          "gif": "ring-row",
+          "rest": "45–60 s"
+        }
+      },
+      "b-arms": {
+        "id": "b-arms-w4",
+        "title": "Bíceps e tríceps (superset)",
+        "log": true,
+        "logKind": "superset",
+        "circuit": true,
+        "sets": 3,
+        "main": {
+          "name": "Curl martelo com corda e pushdown em pegada invertida",
+          "dose": "3 rondas em circuito · 10–12 de cada, RPE 7, descanso 45–60 s no fim do par",
+          "cue": "Circuito: este é o 4.º posto de cada ronda (os dois exercícios seguidos). Descansa 45–60 s só no fim do par. Três rondas no total. Na mesma polia ou em polias vizinhas do cabo cruzado: curl martelo com corda na polia baixa (palmas uma para a outra) e pushdown com barra em pegada invertida (palmas para cima) na polia alta. Cotovelos fixos. RPE 7.",
+          "gif": "rope-hammer-curl",
+          "gifs": [
+            {
+              "key": "rope-hammer-curl",
+              "label": "Curl martelo com corda"
+            },
+            {
+              "key": "reverse-pushdown",
+              "label": "Pushdown em pegada invertida"
+            }
+          ],
+          "logLabels": [
+            "Martelo",
+            "Pushdown"
+          ]
+        },
+        "alt": {
+          "name": "Curl concentrado e kickback com haltere",
+          "dose": "3 rondas em circuito · 10–12 de cada, RPE 7, descanso 45–60 s no fim do par",
+          "cue": "Circuito: 4.º posto, os dois exercícios seguidos. Pausa só no fim do par. Curl concentrado (cotovelo apoiado na coxa) e kickback com haltere, tronco inclinado, braço colado ao tronco. 10–12 de cada, por braço se precisares.",
+          "gif": "concentration-curl",
+          "gifs": [
+            {
+              "key": "concentration-curl",
+              "label": "Curl concentrado"
+            },
+            {
+              "key": "db-kickback",
+              "label": "Kickback com haltere"
+            }
+          ],
+          "logLabels": [
+            "Curl",
+            "Kickback"
+          ]
+        }
+      },
+      "b-face": {
+        "id": "b-sc-w4",
+        "title": "Ombro e core (superset, opcional)",
+        "log": true,
+        "logKind": "superset",
+        "optional": true,
+        "sets": 2,
+        "main": {
+          "name": "Rotação cubana e Pallof press em pé",
+          "dose": "2 séries de 12–15 rotações cubanas e 10 Pallof por lado, carga leve",
+          "cue": "Só se ainda tiveres tempo no fim do circuito (é opcional). Rotação cubana com halteres leves (3–5 kg): sobe os cotovelos até à linha dos ombros e roda os antebraços para cima, desce na ordem inversa. Depois Pallof em pé na polia, 2 s sem deixar o tronco rodar.",
+          "gif": "cuban-rotation",
+          "gifs": [
+            {
+              "key": "cuban-rotation",
+              "label": "Rotação cubana"
+            },
+            {
+              "key": "pallof-press",
+              "label": "Pallof press"
+            }
+          ],
+          "rest": "45–60 s",
+          "logLabels": [
+            "Rotação cubana",
+            "Pallof"
+          ]
+        },
+        "alt": {
+          "name": "Reverse fly com halteres e prancha lateral",
+          "dose": "2 séries de 12–15 reverse fly e 25–35 s de prancha lateral por lado",
+          "cue": "Só se ainda tiveres tempo. Tronco a 45°, abre os braços até à linha dos ombros. Depois prancha lateral, anca alta.",
+          "gif": "db-reverse-fly",
+          "gifs": [
+            {
+              "key": "db-reverse-fly",
+              "label": "Reverse fly com halteres"
+            },
+            {
+              "key": "side-plank",
+              "label": "Prancha lateral"
+            }
+          ],
+          "rest": "45–60 s",
+          "logLabels": [
+            "Reverse fly",
+            "Prancha"
+          ]
+        }
+      }
+    },
+    "replaceC": {
+      "c-run": {
+        "id": "c-run",
+        "title": "Pirâmide no tapete (inclinação)",
+        "log": true,
+        "logKind": "run",
+        "sets": 1,
+        "main": {
+          "name": "Caminhada em inclinação e trote, em pirâmide",
+          "dose": "14 minutos no tapete",
+          "cue": "Este é o teu aquecimento e o bloco de corrida do treino. São 14 minutos, o mais amigo das articulações dos três: a maior parte é caminhada em inclinação, com só três minutos de trote leve. Útil se as pernas estiverem carregadas do boxe. Velocidades de partida para quem está a regressar, cerca de 97 kg: se os joelhos, tornozelos ou o fôlego queixarem, baixa 1 km/h ou troca a corrida por caminhada rápida em inclinação (4–6%). Passo curto, sem bater o calcanhar com força. Não é um sprint — o trabalho deve ficar por RPE 6–7 (ainda controlas a respiração). No registo: anota a velocidade do trote (km/h) e os minutos totais (cerca de 14). Podes escrever a inclinação máxima ao lado, por exemplo 9 @ 7%. Se o tapete estiver ocupado ou quiseres variar, na zona funcional com relva podes fazer o mesmo relógio: empurrar ou puxar o trenó no período forte e caminhar de volta no fácil; virar o pneu (1–2 viragens controladas); ou corda de salto no forte e passo no sítio no fácil. Air bike, remo e SkiErg também servem. Isto substitui o tapete, não se acrescenta no fim.",
+          "protocol": [
+            "0–3 min: caminhada fácil, 5–6 km/h, 0–1%, RPE 3–4.",
+            "2 min: caminhada rápida 5,5–6,5 km/h, inclinação 4–5%, RPE 5.",
+            "1 min: trote 8–9 km/h, inclinação 2%, RPE 6.",
+            "2 min: caminhada rápida 5,5–6,5 km/h, inclinação 6%, RPE 5–6.",
+            "1 min: trote 8–9 km/h, inclinação 2%, RPE 6.",
+            "2 min: caminhada rápida 5–6 km/h, inclinação 7%, RPE 6 (não te pendures nos apoios).",
+            "1 min: trote 8–9 km/h, inclinação 1%, RPE 6.",
+            "Últimos 2 min: caminhada fácil 5 km/h, 0%."
+          ]
+        },
+        "alt": {
+          "name": "Pirâmide de esforço no remo",
+          "dose": "14 minutos no remo (se o tapete estiver ocupado)",
+          "cue": "Mesma duração de 14 minutos no remo, em pirâmide de esforço (em vez de inclinação): 3 min fácil; 2 min moderado; 1 min mais forte (RPE 6); 2 min moderado; 1 min mais forte; 2 min um pouco mais puxado mas controlado; 1 min mais forte; 2 min fácil. Impulso começa nas pernas. Se o remo estiver ocupado, SkiErg ou air bike com o mesmo relógio. Na zona funcional com relva podes, em vez disto, fazer o mesmo relógio: empurrar ou puxar o trenó no período forte e caminhar de volta no fácil; virar o pneu (1–2 viragens controladas); ou corda de salto no forte e passo no sítio no fácil. Isto substitui o bloco de cardio, não se acrescenta no fim.",
+          "protocol": [
+            "3 min fácil, ritmo de conversa.",
+            "2 min moderado + 1 min mais forte (RPE 6).",
+            "2 min moderado + 1 min mais forte.",
+            "2 min um pouco mais puxado, controlado + 1 min mais forte.",
+            "2 min fácil."
+          ],
+          "gif": "rowing"
+        }
+      },
+      "c-bulgarian": {
+        "id": "c-hinge-w4",
+        "title": "Romeno no rack",
+        "log": true,
+        "circuit": true,
+        "sets": 3,
+        "main": {
+          "name": "Peso morto romeno com barra, no rack Eleiko",
+          "dose": "3 rondas em circuito · 10 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Num dos power racks, barra à altura dos joelhos nos apoios para começares confortável. Pés à largura da anca, barra rente às pernas, anca para trás, coluna neutra. Desce até sentires os isquiotibiais e sobe apertando os glúteos, sem arqueares a lombar. Carga conservadora no circuito, RPE 7. Se o rack estiver ocupado, usa halteres ou a alternativa.",
+          "gif": "bb-rdl",
+          "rest": "45–60 s"
+        },
+        "alt": {
+          "name": "Glute drive / hip thrust na máquina",
+          "dose": "3 rondas em circuito · 10–12 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Apoia as costas no encosto, almofada ou barra sobre a anca, sobe até a anca ficar em linha com os ombros e desce com controlo. Se a máquina estiver ocupada, faz hip thrust com barra no banco.",
+          "gif": "hip-thrust-machine",
+          "rest": "45–60 s"
+        }
+      },
+      "c-incline": {
+        "id": "c-incline",
+        "title": "Supino inclinado",
+        "main": {
+          "name": "Supino inclinado com halteres",
+          "dose": "3 rondas em circuito · 8–10 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Banco a cerca de 30–45 graus. Omoplatas assentes, desce os halteres em linha com a parte alta do peito e empurra sem fechares os cotovelos com um estalo.",
+          "gif": "incline-db",
+          "rest": "45–60 s"
+        },
+        "circuit": true,
+        "log": true,
+        "sets": 3,
+        "alt": {
+          "name": "Supino inclinado na máquina de discos",
+          "dose": "3 rondas em circuito · 8–10 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Ajusta o assento para as pegas ficarem à altura da parte alta do peito. Empurra em linha, sem encolher os ombros, e controla o regresso. É a máquina de discos inclinada da zona plate-loaded. Se estiver ocupada, fica no inclinado com halteres.",
+          "gif": "lever-incline-press",
+          "rest": "45–60 s"
+        }
+      },
+      "c-row": {
+        "id": "c-pull-w4",
+        "title": "Remada no rig",
+        "log": true,
+        "circuit": true,
+        "sets": 3,
+        "main": {
+          "name": "Remada invertida no rig",
+          "dose": "3 rondas em circuito · 8–12 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Barra baixa do rig (ou anéis). Corpo em prancha, puxa o peito à barra, omoplatas juntas, e desce com controlo. Quanto mais horizontais as pernas, mais difícil; dobra os joelhos se precisares. Se o rig estiver cheio, usa a alternativa.",
+          "gif": "inverted-row",
+          "rest": "45–60 s"
+        },
+        "alt": {
+          "name": "Remada sentado na polia",
+          "dose": "3 rondas em circuito · 10–12 repetições, descanso 45–60 s",
+          "cue": "Circuito: faz uma série, descansa 45–60 s e passa ao exercício seguinte. São 3 rondas dos 4 postos (os 3 principais + braços). Pés na plataforma, tronco estável, puxa o pegador até ao abdómen e controla o regresso. Se a polia estiver ocupada, podes usar a remada sentado na máquina de pinos (se existir) ou a remada com haltere.",
+          "gif": "seated-cable-row",
+          "rest": "45–60 s"
+        }
+      },
+      "c-arms": {
+        "id": "c-arms-w4",
+        "title": "Bíceps e tríceps (superset)",
+        "log": true,
+        "logKind": "superset",
+        "circuit": true,
+        "sets": 3,
+        "main": {
+          "name": "Curl com barra EZ e pushdown com barra",
+          "dose": "3 rondas em circuito · 10–12 de cada, RPE 7, descanso 45–60 s no fim do par",
+          "cue": "Circuito: este é o 4.º posto de cada ronda (os dois exercícios seguidos). Descansa 45–60 s só no fim do par. Três rondas no total. Curl com barra EZ (pega inclinada, mais amiga dos pulsos, sem balanço) e pushdown com barra ou pega em V na polia alta, cotovelos colados ao tronco. RPE 7. Se quiseres, faz o curl no rack com a barra EZ.",
+          "gif": "ez-curl",
+          "gifs": [
+            {
+              "key": "ez-curl",
+              "label": "Curl com barra EZ"
+            },
+            {
+              "key": "bar-pushdown",
+              "label": "Pushdown com barra"
+            }
+          ],
+          "logLabels": [
+            "Curl EZ",
+            "Pushdown"
+          ]
+        },
+        "alt": {
+          "name": "Curl com halteres e extensão unilateral com haltere",
+          "dose": "3 rondas em circuito · 10–12 de cada, RPE 7, descanso 45–60 s no fim do par",
+          "cue": "Circuito: 4.º posto, os dois exercícios seguidos. Pausa só no fim do par. Curl com halteres sem balançar, e extensão de tríceps sentado com um haltere por cima da cabeça, um braço de cada vez.",
+          "gif": "db-curl",
+          "gifs": [
+            {
+              "key": "db-curl",
+              "label": "Curl com halteres"
+            },
+            {
+              "key": "db-oh-ext-1arm",
+              "label": "Extensão unilateral com haltere"
+            }
+          ],
+          "logLabels": [
+            "Curl",
+            "Extensão"
+          ]
+        }
+      },
+      "c-sc": {
+        "id": "c-sc-w4",
+        "title": "Ombro e core (superset, opcional)",
+        "log": true,
+        "logKind": "superset",
+        "optional": true,
+        "sets": 2,
+        "main": {
+          "name": "Elevação de joelhos pendurado no rig e face pull",
+          "dose": "2 séries de 8–10 elevações e 12–15 face pull",
+          "cue": "Só se ainda tiveres tempo no fim do circuito (é opcional). No rig, ombros ativos, sobe os joelhos sem balançar. Depois puxada à face no cabo cruzado, carga leve, cotovelos altos.",
+          "gif": "hanging-knee-raise",
+          "gifs": [
+            {
+              "key": "hanging-knee-raise",
+              "label": "Elevação de joelhos pendurado"
+            },
+            {
+              "key": "face-pull",
+              "label": "Puxada à face"
+            }
+          ],
+          "rest": "45–60 s",
+          "logLabels": [
+            "Joelhos",
+            "Face pull"
+          ]
+        },
+        "alt": {
+          "name": "Lenhador na polia e wall slides",
+          "dose": "2 séries de 8 lenhadores por lado e 10 wall slides",
+          "cue": "Só se ainda tiveres tempo. Polia alta, puxa em diagonal até à anca oposta, anca estável, carga leve. Depois wall slides: costas e antebraços na parede, desliza sem perder o contacto.",
+          "gif": "cable-high-low-chop",
+          "gifs": [
+            {
+              "key": "cable-high-low-chop",
+              "label": "Lenhador na polia"
+            },
+            {
+              "key": "wall-slide",
+              "label": "Wall slides"
+            }
+          ],
+          "rest": "45–60 s",
+          "logLabels": [
+            "Lenhador",
+            "Wall slides"
+          ]
+        }
+      }
+    },
+    "meta": {
+      "a": "<aside class=\"callout info\"><p class=\"lead\">Semana 4 (30 de novembro a 6 de dezembro de 2026)</p><p>Objetivo: 2 musculação + 1–2 boxe, sem dias fixos — esta semana C e A (B de reserva). Começa pelos 14 min no tapete (intervalos 1/1; se o tapete estiver ocupado, o SkiErg). Depois o circuito: a âncora continua a ser a prensa a 45°; os outros postos mudam para o rig e o rack Eleiko — pull-up (ou remada alta com discos) e supino com barra (ou inclinado de discos), mais braços no cabo cruzado. O ombro/core é opcional. Cargas da prensa: vê a nota no cartão. Se quiseres, no fim (já fora dos 40 minutos) há sauna e banho de gelo — é opcional.</p></aside>\n        <dl class=\"props\"><div><dt>Foco</dt><dd>Tapete + circuito — prensa (âncora), pull-up ou remada alta, supino no rack e braços</dd></div><div><dt>Duração</dt><dd>cerca de 40 minutos (12–15 min no tapete + circuito de força; ombro/core opcional)</dd></div><div><dt>Tapete</dt><dd>14 min, intervalos 1/1 (alt: SkiErg) ou, na relva: trenó, pneus ou corda</dd></div><div><dt>Força</dt><dd>Circuito de 4 postos × 3 rondas, descanso 45–60 s, RPE 7. Ombro/core só se ainda tiveres tempo.</dd></div><div><dt>Âncora</dt><dd>O exercício âncora mantém o mesmo cartão, para comparares cargas; os outros rodam pelas máquinas e racks da TTF.</dd></div></dl>",
+      "b": "<aside class=\"callout info\"><p class=\"lead\">Semana 4 (30 de novembro a 6 de dezembro de 2026)</p><p>Treino B está de reserva esta semana — usa-o se faltares ao A ou ao C. Começa pelos 15 min no tapete (30/30 com inclinação; alternativa: air bike). A âncora continua a ser o desenvolvimento com halteres; os outros postos passam pelo hack squat (ou glute drive) e pela remada baixa com discos (ou remada em anel). Ombro/core opcional. Anota a carga do desenvolvimento, ainda não há registo. Se quiseres, no fim (já fora dos 40 minutos) há sauna e banho de gelo — é opcional.</p></aside>\n        <dl class=\"props\"><div><dt>Foco</dt><dd>Tapete + circuito — hack squat, desenvolvimento (âncora), remada de discos e braços</dd></div><div><dt>Duração</dt><dd>cerca de 40 minutos (12–15 min no tapete + circuito de força; ombro/core opcional)</dd></div><div><dt>Tapete</dt><dd>15 min, intervalos 30/30 com inclinação (alt: air bike) ou, na relva: trenó, pneus ou corda</dd></div><div><dt>Força</dt><dd>Circuito de 4 postos × 3 rondas, descanso 45–60 s, RPE 7. Ombro/core só se ainda tiveres tempo.</dd></div><div><dt>Âncora</dt><dd>O exercício âncora mantém o mesmo cartão, para comparares cargas; os outros rodam pelas máquinas e racks da TTF.</dd></div></dl>",
+      "c": "<aside class=\"callout info\"><p class=\"lead\">Semana 4 (30 de novembro a 6 de dezembro de 2026)</p><p>Objetivo: 2 musculação + 1–2 boxe, sem dias fixos — esta semana C e A (B de reserva). Começa pelos 14 min no tapete (pirâmide de inclinação, o bloco mais amigo das articulações; alternativa: remo). A âncora continua a ser o supino inclinado com halteres; os outros postos são o romeno com barra no rack Eleiko (ou glute drive) e a remada invertida no rig (ou remada na polia). Ombro/core opcional. Se quiseres, no fim (já fora dos 40 minutos) há sauna e banho de gelo — é opcional.</p></aside>\n        <dl class=\"props\"><div><dt>Foco</dt><dd>Tapete + circuito — romeno no rack, inclinado (âncora), remada no rig e braços</dd></div><div><dt>Duração</dt><dd>cerca de 40 minutos (12–15 min no tapete + circuito de força; ombro/core opcional)</dd></div><div><dt>Tapete</dt><dd>14 min, pirâmide de inclinação e trote (alt: remo) ou, na relva: trenó, pneus ou corda</dd></div><div><dt>Força</dt><dd>Circuito de 4 postos × 3 rondas, descanso 45–60 s, RPE 7. Ombro/core só se ainda tiveres tempo.</dd></div><div><dt>Âncora</dt><dd>O exercício âncora mantém o mesmo cartão, para comparares cargas; os outros rodam pelas máquinas e racks da TTF.</dd></div></dl>",
+      "boxe": "<aside class=\"callout info\"><p class=\"lead\">Boxe na TTF Maia — semana 4</p><p>Uma ou duas aulas esta semana, quando calhar — não há dia fixo. Marca cada aula como feita e anota a duração e o RPE. Não precisas do aquecimento nem dos alongamentos do plano neste dia. Se no dia seguinte as pernas ou os ombros estiverem carregados, reduz a carga no circuito (a âncora mantém-se, mas podes baixar 2,5–5 kg).</p></aside>\n        <dl class=\"props\"><div><dt>Objetivo</dt><dd>1–2 aulas por semana, sem dia fixo</dd></div><div><dt>Duração</dt><dd>a da aula (normalmente 45–60 min)</dd></div><div><dt>Registo</dt><dd>Minutos, RPE 1–10 e notas opcionais</dd></div></dl>"
+    }
   }
 };
 
@@ -2576,7 +3158,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
         <div><dt>Duração</dt><dd>cerca de 5 minutos (opcional)</dd></div>
         <div><dt>Intensidade</dt><dd>Tensão suave, sem dor aguda</dd></div>
       </dl>
-      <p>Não entram na conta dos 40 minutos: se o tempo apertar, vai-te embora depois do circuito. Anca, isquiotibiais, peitoral e costas. Respira com calma e não forces o alcance.</p>`;
+      <p>Não entram na conta dos 40 minutos: se o tempo apertar, vai-te embora depois do circuito. Anca, isquiotibiais, peitoral e costas. Respira com calma e não forces o alcance. Depois, se quiseres, podes usar a sauna ou o banho de gelo da TTF — é opcional e também fica de fora dos 40 minutos.</p>`;
   }
 
   function refText(prev, index, secondLabel) {
@@ -2827,7 +3409,11 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
       ${sessionMetaHtml()}
       <div class="cards">
         ${cards.map(cardHtml).join("")}
-      </div>`;
+      </div>
+      ${["a","b","c","stretch"].includes(state.tab) ? `<aside class="callout neutral" id="recovery-note">
+        <p class="lead">Recuperação (opcional)</p>
+        <p>Se quiseres, no fim da sessão podes usar a sauna ou o banho de gelo da TTF. Não é obrigatório e não entra nos 40 minutos. Vai com calma, sobretudo se o treino tiver sido puxado.</p>
+      </aside>` : ""}`;
     renderToolbar();
   }
 
@@ -3378,7 +3964,7 @@ if (typeof module !== "undefined") module.exports = { generatePlan };
   if (installHint && isStandalone) installHint.hidden = true;
 
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js?v=6", { scope: "./" }).catch((err) => console.warn("SW", err));
+    navigator.serviceWorker.register("./sw.js?v=7", { scope: "./" }).catch((err) => console.warn("SW", err));
   }
 
   window.__treino = { supabase, onSignedIn, generatePlan, isMarioEmail, marioProfilePayload, translateAuthError, signUpViaFunction, getState: () => state, BOXE_CARDS };
